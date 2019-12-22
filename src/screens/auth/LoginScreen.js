@@ -16,7 +16,8 @@ const styles = StyleSheet.create({
     container: { flexDirection: "column", justifyContent: "center", width: "100%", height: "100%", paddingVertical: 24, paddingHorizontal: 32 },
     image: { width: 200, height: 100, resizeMode: "contain", alignSelf: "center" },
     title: { alignSelf: "center", paddingTop: 28, fontSize: 48, color: Color.primaryColor, fontWeight: "bold" },
-    caption: { position: "absolute", bottom: 0, alignSelf: "center", marginBottom: 24, flexDirection: "row" }
+    caption: { position: "absolute", bottom: 0, alignSelf: "center", marginBottom: 24, flexDirection: "row" },
+    txtBanner: { alignSelf: "center", padding: 24, fontSize: 18 }
 })
 
 type Props = {
@@ -29,7 +30,7 @@ class LoginScreen extends PureComponent<Props> {
         super(props)
         this.state = {
             isFetching: false,
-            email: "procurement@example.com",
+            phone: 0,
             password: "1234",
             error: false
         }
@@ -61,9 +62,9 @@ class LoginScreen extends PureComponent<Props> {
 
     onPressLogin = async () => {
         this.setState({ isFetching: true })
-        const { email, password } = this.state
+        const { phone, password } = this.state
         Api.post()
-            .login(email, password)
+            .login(phone, password)
             .then(res => {
                 console.log("Res login : ", res)
                 if (res.status === 200) {
@@ -85,8 +86,8 @@ class LoginScreen extends PureComponent<Props> {
     renderInput = () => {
         return (
             <View>
-                <TextInput label="Email" mode="outlined" theme={theme} value={this.state.email} style={Styles.textInput}
-                    onChangeText={email => { this.setState({ email }) }}
+                <TextInput label="Phone" mode="outlined" theme={theme} value={this.state.phone} style={Styles.textInput}
+                    onChangeText={phone => { this.setState({ phone }) }} keyboardType={"phone-pad"}
                 />
                 <TextInput label="Password" mode="outlined" theme={theme} secureTextEntry value={this.state.password} style={Styles.textInput}
                     onChangeText={password => { this.setState({ password }) }}
@@ -106,13 +107,14 @@ class LoginScreen extends PureComponent<Props> {
             return (
                 <View style={styles.view}>
                     <Container style={styles.container}>
-                        <Image source={Images.logo.iconHeader} style={styles.image} />
+                        <Image source={Images.logo.banner} style={styles.image} />
+                        <Text style={styles.txtBanner}>Masuk ke akun anda</Text>
                         {this.renderInput()}
                         {ButtonLoginRegister("LOGIN", this.onPressLogin)}
                     </Container>
                     <View style={styles.caption}>
-                        <Text style={{ fontWeight: "bold" }}>FreshBox</Text>
-                        <Text> for Purchasing</Text>
+                        <Text>Belum punya akun?  </Text>
+                        <Text style={{ fontWeight: "bold" }}>Register</Text>
                     </View>
                 </View>
             )

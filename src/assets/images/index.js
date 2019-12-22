@@ -1,9 +1,11 @@
 export default {
     logo: {
-        logo_white: require("./logo/WalY_white.png"),
-        logo_black: require("./logo/WalY_black.png"),
-        logo2_white: require("./logo/WalY2_white.png"),
-        logo2_black: require("./logo/WalY2_black.png"),
+        banner: require("./logo/banner.png"),
+        banner_white: require("./logo/banner_white.png"),
+        icon: require("./logo/icon.png"),
+        icon_white: require("./logo/icon_white.png"),
+        logo: require("./logo/logo.png"),
+        logo_white: require("./logo/logo_white.png"),
     },
     avatar: {
         avatarDefault: require("./avatar/avatar_default.png")

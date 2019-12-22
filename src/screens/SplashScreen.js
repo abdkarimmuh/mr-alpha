@@ -13,7 +13,7 @@ import UserRedux from "@app/redux/user"
 
 const styles = StyleSheet.create({
     container: { flex: 1, justifyContent: "center", backgroundColor: Color.backgroudDefault },
-    image: { width: 100, height: 100, resizeMode: "contain", alignSelf: "center" },
+    image: { width: 200, height: 200, resizeMode: "contain", alignSelf: "center" },
     title: { alignSelf: "center", paddingTop: 24, fontSize: 32, color: Color.primaryColor, fontWeight: "bold" },
     caption: { position: "absolute", bottom: 0, alignSelf: "center", marginBottom: 24 }
 })
@@ -91,7 +91,7 @@ class SplashScreen extends Component<Props> {
         return (
             <View style={styles.container}>
                 <Image
-                    source={Logo.logo.logo2_black}
+                    source={Logo.logo.logo}
                     style={styles.image}
                 />
                 <View style={styles.caption}>
