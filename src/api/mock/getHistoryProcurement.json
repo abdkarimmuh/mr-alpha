@@ -1,0 +1,126 @@
+[{
+        "no_proc": "PRO0121302",
+        "vendor": "Yusuf Matahari Store",
+        "total_amount": 1479000,
+        "payment": "Transfer",
+        "status": 1,
+        "items": [{
+                "name": "Cabai",
+                "qty": 20,
+                "uom": "Kg",
+                "amount": 123000,
+                "status": 1
+            },
+            {
+                "name": "Bawang Merah",
+                "qty": 32,
+                "uom": "Kg",
+                "amount": 384000,
+                "status": 1
+            },
+            {
+                "name": "Bawang Bawang Putih",
+                "qty": 12,
+                "uom": "Kg",
+                "amount": 800000,
+                "status": 1
+            }
+        ]
+    },
+    {
+        "no_proc": "PRO0121301",
+        "vendor": "Yusuf Matahari Store",
+        "total_amount": 2000000,
+        "payment": "Transfer",
+        "status": 2,
+        "items": [{
+                "name": "Cabai",
+                "qty": 20,
+                "qty_minus": 0,
+                "uom": "Kg",
+                "amount": 500000,
+                "status": 1
+            },
+            {
+                "name": "Bawang Merah",
+                "qty": 32,
+                "qty_minus": 0,
+                "uom": "Kg",
+                "amount": 1000000,
+                "status": 1
+            },
+            {
+                "name": "Bawang Bawang Putih",
+                "qty": 12,
+                "qty_minus": 0,
+                "uom": "Kg",
+                "amount": 500000,
+                "status": 1
+            }
+        ]
+    },
+    {
+        "no_proc": "PRO0121205",
+        "vendor": "Aslam Store",
+        "total_amount": 1500000,
+        "payment": "Transfer",
+        "status": 2,
+        "items": [{
+                "name": "Cabai",
+                "qty": 20,
+                "qty_minus": 0,
+                "uom": "Kg",
+                "amount": 500000,
+                "status": 1
+            },
+            {
+                "name": "Bawang Merah",
+                "qty": 32,
+                "qty_minus": 0,
+                "uom": "Kg",
+                "amount": 500000,
+                "status": 1
+            },
+            {
+                "name": "Bawang Bawang Putih",
+                "qty": 12,
+                "qty_minus": 0,
+                "uom": "Kg",
+                "amount": 500000,
+                "status": 1
+            }
+        ]
+    },
+    {
+        "no_proc": "PRO0121204",
+        "vendor": "Yusuf Matahari Store",
+        "total_amount": 1244000,
+        "payment": "Transfer",
+        "status": 3,
+        "items": [{
+                "name": "Cabai",
+                "qty": 20,
+                "qty_minus": 0,
+                "uom": "Kg",
+                "amount": 560000,
+                "status": 1
+            },
+            {
+                "name": "Bawang Merah",
+                "qty": 32,
+                "qty_minus": 5,
+                "uom": "Kg",
+                "amount": 384000,
+                "status": 2
+            },
+            {
+                "name": "Bawang Bawang Putih",
+                "qty": 12,
+                "qty_minus": 0,
+                "uom": "Kg",
+                "amount": 300000,
+                "status": 1
+            }
+        ]
+    }
+]

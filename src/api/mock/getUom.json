@@ -1,0 +1,66 @@
+[{
+        "id": 1,
+        "name": "Kg",
+        "description": "Kilogram"
+    },
+    {
+        "id": 2,
+        "name": "Pcs",
+        "description": "Piece"
+    },
+    {
+        "id": 3,
+        "name": "Pack",
+        "description": "Pack"
+    },
+    {
+        "id": 4,
+        "name": "Botol",
+        "description": "Botol"
+    },
+    {
+        "id": 5,
+        "name": "Sisir",
+        "description": "Sisir"
+    },
+    {
+        "id": 6,
+        "name": "Klg",
+        "description": "Kaleng"
+    },
+    {
+        "id": 7,
+        "name": "Peti",
+        "description": "Peti"
+    },
+    {
+        "id": 8,
+        "name": "Ltr",
+        "description": "Liter"
+    },
+    {
+        "id": 9,
+        "name": "Box",
+        "description": "Box"
+    },
+    {
+        "id": 10,
+        "name": "Karung",
+        "description": "Karung"
+    },
+    {
+        "id": 11,
+        "name": "Can",
+        "description": "Can"
+    },
+    {
+        "id": 12,
+        "name": "Pail",
+        "description": "Pail"
+    },
+    {
+        "id": 13,
+        "name": "Bag",
+        "description": "Bag"
+    }
+]
