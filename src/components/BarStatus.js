@@ -8,7 +8,7 @@ export default class BarStatus extends PureComponent {
     render() {
         return (
             <View style={{ height: STATUSBAR_HEIGHT }}>
-                <StatusBar translucent backgroundColor={Color.darkPrimaryColor} />
+                <StatusBar translucent backgroundColor={Color.black4A} />
             </View>
         )
     }

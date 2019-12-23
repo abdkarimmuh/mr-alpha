@@ -25,11 +25,13 @@ type Props = {
     setToken: any => void,
 }
 
-class LoginScreen extends PureComponent<Props> {
+class RegisterScreen extends PureComponent<Props> {
     constructor(props) {
         super(props)
         this.state = {
             isFetching: false,
+            name: "",
+            noKoordinator: 0,
             phone: 0,
             password: "",
             error: false
@@ -49,15 +51,15 @@ class LoginScreen extends PureComponent<Props> {
             })
     }
 
-    goToRegister = () => {
-        NavigationServices.navigate("Register")
+    goToLogin = () => {
+        NavigationServices.navigate("Login")
     }
 
-    onPressLogin = async () => {
+    onPressRegister = async () => {
         this.setState({ isFetching: true })
-        const { phone, password } = this.state
+        const { name, phone, password, noKoordinator } = this.state
         Api.post()
-            .login(phone, password)
+            .login(name, phone, password, noKoordinator)
             .then(res => {
                 console.log("Res login : ", res)
                 if (res.status === 200) {
@@ -78,11 +80,17 @@ class LoginScreen extends PureComponent<Props> {
     renderInput = () => {
         return (
             <View>
+                <TextInput label="Name" mode="outlined" theme={theme} value={this.state.name} style={Styles.textInput}
+                    onChangeText={name => { this.setState({ name }) }}
+                />
                 <TextInput label="Phone" mode="outlined" theme={theme} value={this.state.phone} style={Styles.textInput}
                     onChangeText={phone => { this.setState({ phone }) }} keyboardType={"phone-pad"}
                 />
                 <TextInput label="Password" mode="outlined" theme={theme} secureTextEntry value={this.state.password} style={Styles.textInput}
                     onChangeText={password => { this.setState({ password }) }}
+                />
+                <TextInput label="No Koordinator" mode="outlined" theme={theme} value={this.state.noKoordinator} style={Styles.textInput}
+                    onChangeText={noKoordinator => { this.setState({ noKoordinator }) }} keyboardType={"phone-pad"}
                 />
             </View>
         )
@@ -104,11 +112,11 @@ class LoginScreen extends PureComponent<Props> {
                         <View style={{ height: 100 }} />
                     </Container>
                     <View style={styles.bottom}>
-                        {ButtonLoginRegister("LOGIN", this.onPressLogin)}
+                        {ButtonLoginRegister("REGISTER", this.onPressRegister)}
                         <View style={styles.caption}>
-                            <Text>Belum punya akun?  </Text>
-                            <TouchableOpacity onPress={() => this.goToRegister()}>
-                                <Text style={{ fontWeight: "bold", color: Color.primaryColor }}>Register</Text>
+                            <Text>Sudah punya akun?  </Text>
+                            <TouchableOpacity onPress={() => this.goToLogin()}>
+                                <Text style={{ fontWeight: "bold", color: Color.primaryColor }}>Login</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -123,4 +131,4 @@ const mapDispatchToProps = dispatch => ({
     setToken: token => dispatch(UserRedux.actions.setToken(token))
 })
 
-export default connect(null, mapDispatchToProps)(LoginScreen)
+export default connect(null, mapDispatchToProps)(RegisterScreen)
