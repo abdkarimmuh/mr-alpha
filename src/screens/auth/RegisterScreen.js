@@ -7,6 +7,7 @@ import Images from "@app/assets/images"
 import Color from "@app/assets/colors"
 import Styles from "@app/assets/styles"
 import Api from "@app/api/Api"
+import Strings from "@app/assets/strings"
 import { NavigationServices, AsyncStorage } from "@app/services"
 
 import UserRedux from "@app/redux/user"
@@ -17,7 +18,8 @@ const styles = StyleSheet.create({
     image: { width: 200, height: 100, resizeMode: "contain", alignSelf: "center", marginBottom: 12 },
     title: { alignSelf: "center", paddingTop: 28, fontSize: 48, color: Color.primaryColor, fontWeight: "bold" },
     bottom: { position: "absolute", bottom: 0, alignSelf: "center", marginBottom: 32, paddingHorizontal: 24, width: "100%" },
-    caption: { flexDirection: "row", alignSelf: "center", marginTop: 48 }
+    caption: { flexDirection: "row", alignSelf: "center", marginTop: 48 },
+    containerTermReference: { flexDirection: "row", alignSelf: "center" }
 })
 
 type Props = {
@@ -96,6 +98,13 @@ class RegisterScreen extends PureComponent<Props> {
         )
     }
 
+    termReference = () => (
+        <View style={styles.containerTermReference}>
+            <Text>{Strings.REFERENCE} </Text>
+            <Text style={{ fontWeight: "bold" }}>{Strings.TERM}</Text>
+        </View>
+    )
+
     render() {
         if (this.state.isFetching) {
             return (
@@ -109,6 +118,7 @@ class RegisterScreen extends PureComponent<Props> {
                     <Container style={styles.container}>
                         <Image source={Images.logo.banner} style={styles.image} />
                         {this.renderInput()}
+                        {this.termReference()}
                         <View style={{ height: 100 }} />
                     </Container>
                     <View style={styles.bottom}>
