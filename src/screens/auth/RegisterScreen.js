@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react"
 import { connect } from "react-redux"
 import { Image, View, StyleSheet, ToastAndroid, TouchableOpacity } from "react-native"
-import { ButtonLoginRegister, Container, Text, TextInput, Loading } from "@app/components"
+import { ButtonLoginRegister, Container, Text, TextInput, Loading, Checkbox } from "@app/components"
 import { theme } from "@app/themes"
 import Images from "@app/assets/images"
 import Color from "@app/assets/colors"
@@ -9,6 +9,7 @@ import Styles from "@app/assets/styles"
 import Api from "@app/api/Api"
 import Strings from "@app/assets/strings"
 import { NavigationServices, AsyncStorage } from "@app/services"
+import { Metrics } from "@app/themes"
 
 import UserRedux from "@app/redux/user"
 
@@ -19,7 +20,8 @@ const styles = StyleSheet.create({
     title: { alignSelf: "center", paddingTop: 28, fontSize: 48, color: Color.primaryColor, fontWeight: "bold" },
     bottom: { position: "absolute", bottom: 0, alignSelf: "center", marginBottom: 32, paddingHorizontal: 24, width: "100%" },
     caption: { flexDirection: "row", alignSelf: "center", marginTop: 48 },
-    containerTermReference: { flexDirection: "row", alignSelf: "center" }
+    containerTermReference: { flexDirection: "row", justifyContent: "center" },
+    textTermReference: { width: Metrics.DEVICE_WIDTH - 84 },
 })
 
 type Props = {
@@ -36,7 +38,8 @@ class RegisterScreen extends PureComponent<Props> {
             noKoordinator: 0,
             phone: 0,
             password: "",
-            error: false
+            error: false,
+            checked: false,
         }
     }
 
@@ -98,12 +101,23 @@ class RegisterScreen extends PureComponent<Props> {
         )
     }
 
-    termReference = () => (
-        <View style={styles.containerTermReference}>
-            <Text>{Strings.REFERENCE} </Text>
-            <Text style={{ fontWeight: "bold" }}>{Strings.TERM}</Text>
-        </View>
-    )
+    termReference = () => {
+        const { checked } = this.state
+        return (
+            <View style={styles.containerTermReference}>
+                <Checkbox
+                    style={{ width: 24, height: 24 }}
+                    status={checked ? 'checked' : 'unchecked'}
+                    onPress={() => { this.setState({ checked: !checked }) }}
+                />
+                <View style={[styles.containerTermReference, styles.textTermReference]}>
+                    <Text>{Strings.REFERENCE} </Text>
+                    <Text style={{ fontWeight: "bold" }}>{Strings.TERM}</Text>
+                </View>
+            </View>
+        )
+    }
+
 
     render() {
         if (this.state.isFetching) {
