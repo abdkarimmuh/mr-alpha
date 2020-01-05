@@ -1,9 +1,0 @@
-[
-    { "id": 1, "name": "Cabai", "qty": 20, "uom": "Kg" },
-    { "id": 2, "name": "Bawang Merah", "qty": 32, "uom": "Kg" },
-    { "id": 3, "name": "Bawang Putih", "qty": 12, "uom": "Kg" },
-    { "id": 4, "name": "Kangkung", "qty": 16, "uom": "Ikat" },
-    { "id": 5, "name": "Timun", "qty": 21, "uom": "Kg" },
-    { "id": 6, "name": "Tomat", "qty": 64, "uom": "Kg" },
-    { "id": 7, "name": "Sawi Putih", "qty": 52, "uom": "Kg" }
-]

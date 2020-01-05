@@ -1,18 +1,15 @@
-import Container from "./Container"
-import HeaderDefault from "./HeaderDefault"
-import HeaderDetail from "./HeaderDetail"
-import Loading from "./Loading"
-import BarStatus from "./BarStatus"
-import ImagePicker from "./ImagePicker"
-import ButtonLoginRegister from "./ButtonLoginRegister"
+import Container from './Container';
+import { Default as HeaderDefault, Detail as HeaderDetail } from './Header';
+import Loading from './Loading';
+import BarStatus from './BarStatus';
+import ImagePicker from './ImagePicker';
 
 export {
-    Container,
-    HeaderDefault,
-    HeaderDetail,
-    Loading,
-    BarStatus,
-    ImagePicker,
-    ButtonLoginRegister
-}
-export * from "react-native-paper"
+	Container,
+	HeaderDefault,
+	HeaderDetail,
+	Loading,
+	BarStatus,
+	ImagePicker,
+};
+export * from 'react-native-paper';

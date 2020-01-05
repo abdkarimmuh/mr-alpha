@@ -1,2 +1,0 @@
-export const SET_ASSIGN = "ASSIGN/SET_ASSIGN"
-export const RESET_ASSIGN = "ASSIGN/RESET"

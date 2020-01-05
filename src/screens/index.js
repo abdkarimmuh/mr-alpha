@@ -1,8 +1,5 @@
-import SplashScreen from "./SplashScreen"
+import SplashScreen from './SplashScreen';
 
-export { SplashScreen }
-export * from "./auth"
-export * from "./main"
-export * from "./history"
-export * from "./notifications"
-export * from "./procurement"
+export {SplashScreen};
+export * from './auth';
+// export * from './main';

@@ -1,35 +1,34 @@
-import AsyncStorage from '@react-native-community/async-storage'
+import AsyncStorage from '@react-native-community/async-storage';
 
 const StoreData = async (key, value) => {
-    try {
-        await AsyncStorage.setItem(key, JSON.stringify(value))
-    } catch (error) {
-        console.log("ERROR", error)
-    }
-}
+	try {
+		await AsyncStorage.setItem(key, JSON.stringify(value));
+	} catch (error) {
+		console.error('ERROR', error);
+	}
+};
 
 const FetchData = async key => {
-    try {
-        const value = await AsyncStorage.getItem(key)
-        if (value !== null) {
-            return JSON.parse(value)
-        }
-    } catch (error) {
-        console.log("ERROR", error)
-    }
-}
+	try {
+		const value = await AsyncStorage.getItem(key);
+		if (value !== null) {
+			return JSON.parse(value);
+		}
+	} catch (error) {
+		console.error('ERROR', error);
+	}
+};
 
 const RemoveData = async key => {
-    try {
-        AsyncStorage.removeItem(key)
-    } catch (error) {
-        console.log("ERROR", error)
-    }
-}
-
+	try {
+		AsyncStorage.removeItem(key);
+	} catch (error) {
+		console.error('ERROR', error);
+	}
+};
 
 export default {
-    StoreData,
-    FetchData,
-    RemoveData
-}
+	StoreData,
+	FetchData,
+	RemoveData,
+};

@@ -1,3 +1,0 @@
-export const SET_HISTORY = "HISTORY/SET_HISTORY"
-export const SET_CHECK = "HISTORY/SET_CHECK"
-export const RESET_HISTORY = "HISTORY/RESET"

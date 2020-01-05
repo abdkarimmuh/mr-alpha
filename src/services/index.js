@@ -1,4 +1,4 @@
-import NavigationServices from "./NavigationServices"
-import AsyncStorage from "./AsyncStorage"
+import NavigationServices from './NavigationServices';
+import AsyncStorage from './AsyncStorage';
 
-export { NavigationServices, AsyncStorage }
+export { NavigationServices, AsyncStorage };
