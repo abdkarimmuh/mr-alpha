@@ -7,7 +7,7 @@ import {
 	ToastAndroid,
 	TouchableOpacity,
 } from 'react-native';
-import { Container, Text, TextInput, Loading } from '@app/components';
+import { Container, Text, TextInput, Loading, Button } from '@app/components';
 import { theme } from '@app/themes';
 import Images from '@app/assets/images';
 import Color from '@app/assets/colors';
@@ -15,6 +15,7 @@ import Styles from '@app/assets/styles';
 import Api from '@app/api/Api';
 import { AsyncStorage, NavigationServices } from '@app/services';
 import UserRedux from '@app/redux/user';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 type Props = {
 	setData: any => void,
@@ -110,16 +111,8 @@ class LoginScreen extends PureComponent<Props> {
 		} else {
 			return (
 				<View style={styles.view}>
-					<Container style={{ marginBottom: 24 }}>
-						<Image source={Images.logo.banner} style={styles.image} />
-						{this.renderForm()}
-						<TouchableOpacity onPress={() => this.goToRegister()}>
-							<Text style={{ textAlign: 'right', color: Color.black4A }}>
-								Lupa Password?
-							</Text>
-						</TouchableOpacity>
-					</Container>
-					<Container style={{ marginTop: 24 }}>
+					<Container style={{ marginBottom: 16 }}>
+						<Button>Hai</Button>
 						<View style={styles.captionContainer}>
 							<Text style={{ color: Color.black4A, marginRight: 4 }}>
 								Belum punya akun?
@@ -129,7 +122,17 @@ class LoginScreen extends PureComponent<Props> {
 									Register
 								</Text>
 							</TouchableOpacity>
+							<Icon name="rocket" size={30} color="#900" />
 						</View>
+					</Container>
+					<Container style={{ marginBottom: 16 }}>
+						<Image source={Images.logo.banner} style={styles.image} />
+						{this.renderForm()}
+						<TouchableOpacity onPress={() => this.goToRegister()}>
+							<Text style={{ textAlign: 'right', color: Color.black4A }}>
+								Lupa Password?
+							</Text>
+						</TouchableOpacity>
 					</Container>
 				</View>
 			);
@@ -150,8 +153,8 @@ export default connect(
 const styles = StyleSheet.create({
 	view: {
 		flex: 1,
-		justifyContent: 'center',
-		flexDirection: 'column',
+		// justifyContent: 'center',
+		flexDirection: 'column-reverse',
 		backgroundColor: Color.backgroudDefault,
 	},
 	image: {

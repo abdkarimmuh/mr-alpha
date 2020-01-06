@@ -1,30 +1,23 @@
-import React, { PureComponent } from "react";
-import { connect } from "react-redux";
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import {
 	Image,
 	View,
 	StyleSheet,
 	ToastAndroid,
 	TouchableOpacity,
-} from "react-native";
-import {
-	ButtonLoginRegister,
-	Container,
-	Text,
-	TextInput,
-	Loading,
-	Checkbox,
-} from "@app/components";
-import { theme } from "@app/themes";
-import Images from "@app/assets/images";
-import Color from "@app/assets/colors";
-import Styles from "@app/assets/styles";
-import Api from "@app/api/Api";
-import Strings from "@app/assets/strings";
-import { NavigationServices, AsyncStorage } from "@app/services";
-import { Metrics } from "@app/themes";
+} from 'react-native';
+import { Container, Text, TextInput, Loading, Checkbox } from '@app/components';
+import { theme } from '@app/themes';
+import Images from '@app/assets/images';
+import Color from '@app/assets/colors';
+import Styles from '@app/assets/styles';
+import Api from '@app/api/Api';
+import Strings from '@app/assets/strings';
+import { NavigationServices, AsyncStorage } from '@app/services';
+import { Metrics } from '@app/themes';
 
-import UserRedux from "@app/redux/user";
+import UserRedux from '@app/redux/user';
 
 type Props = {
 	setData: any => void,
@@ -36,10 +29,10 @@ class RegisterScreen extends PureComponent<Props> {
 		super(props);
 		this.state = {
 			isFetching: false,
-			name: "",
-			noKoordinator: "",
-			phone: "",
-			password: "",
+			name: '',
+			noKoordinator: '',
+			phone: '',
+			password: '',
 			error: false,
 			checked: false,
 		};
@@ -51,15 +44,15 @@ class RegisterScreen extends PureComponent<Props> {
 			.then(res => {
 				this.props.setData(res.data.data);
 				this.setState({ isFetching: false });
-				NavigationServices.resetStackNavigate(["Main"]);
+				NavigationServices.resetStackNavigate(['Main']);
 			})
 			.catch(error => {
-				console.log("ERROR", error);
+				console.log('ERROR', error);
 			});
 	};
 
 	goToLogin = () => {
-		NavigationServices.navigate("Login");
+		NavigationServices.navigate('Login');
 	};
 
 	onPressRegister = async () => {
@@ -68,18 +61,18 @@ class RegisterScreen extends PureComponent<Props> {
 		Api.post()
 			.login(name, phone, password, noKoordinator)
 			.then(res => {
-				console.log("Res login : ", res);
+				console.log('Res login : ', res);
 				if (res.status === 200) {
-					AsyncStorage.StoreData("access_token", res.data.access_token);
+					AsyncStorage.StoreData('access_token', res.data.access_token);
 					this.getUser(res.data.access_token);
 					this.props.setToken(res.data.access_token);
 				} else {
 					this.setState({ isFetching: false });
-					ToastAndroid.show("Tidak dapat terhubung", ToastAndroid.SHORT);
+					ToastAndroid.show('Tidak dapat terhubung', ToastAndroid.SHORT);
 				}
 			})
 			.catch(error => {
-				console.log("ERROR", error);
+				console.log('ERROR', error);
 				this.setState({ error: true });
 			});
 	};
@@ -106,7 +99,7 @@ class RegisterScreen extends PureComponent<Props> {
 					onChangeText={phone => {
 						this.setState({ phone });
 					}}
-					keyboardType={"phone-pad"}
+					keyboardType={'phone-pad'}
 				/>
 				<TextInput
 					label="Password"
@@ -128,7 +121,7 @@ class RegisterScreen extends PureComponent<Props> {
 					onChangeText={noKoordinator => {
 						this.setState({ noKoordinator });
 					}}
-					keyboardType={"phone-pad"}
+					keyboardType={'phone-pad'}
 				/>
 			</>
 		);
@@ -139,14 +132,14 @@ class RegisterScreen extends PureComponent<Props> {
 		return (
 			<View style={styles.containerTermReference}>
 				<Checkbox
-					status={checked ? "checked" : "unchecked"}
+					status={checked ? 'checked' : 'unchecked'}
 					onPress={() => {
 						this.setState({ checked: !checked });
 					}}
 				/>
 				<View>
 					<Text>{Strings.REFERENCE} </Text>
-					<Text style={{ fontWeight: "bold" }}>{Strings.TERM}</Text>
+					<Text style={{ fontWeight: 'bold' }}>{Strings.TERM}</Text>
 				</View>
 			</View>
 		);
@@ -163,17 +156,17 @@ class RegisterScreen extends PureComponent<Props> {
 			return (
 				<View style={styles.view}>
 					<Container>
-						<Image source={Images.logo.banner} style={styles.image} />
+						{/* <Image source={Images.logo.banner} style={styles.image} /> */}
 						{this.renderForm()}
-						{ButtonLoginRegister("UPLOAD KTP", this.onPressRegister)}
+						{/* {ButtonLoginRegister("UPLOAD KTP", this.onPressRegister)} */}
 						{this.termReference()}
 					</Container>
 					<Container>
-						{ButtonLoginRegister("REGISTER", this.onPressRegister)}
+						{/* {ButtonLoginRegister("REGISTER", this.onPressRegister)} */}
 						<View style={styles.caption}>
 							<Text>Sudah punya akun? </Text>
 							<TouchableOpacity onPress={() => this.goToLogin()}>
-								<Text style={{ fontWeight: "bold", color: Color.primaryColor }}>
+								<Text style={{ fontWeight: 'bold', color: Color.primaryColor }}>
 									Login
 								</Text>
 							</TouchableOpacity>
@@ -190,45 +183,48 @@ const mapDispatchToProps = dispatch => ({
 	setToken: token => dispatch(UserRedux.actions.setToken(token)),
 });
 
-export default connect(null, mapDispatchToProps)(RegisterScreen);
+export default connect(
+	null,
+	mapDispatchToProps,
+)(RegisterScreen);
 
 const styles = StyleSheet.create({
 	view: {
 		flex: 1,
-		justifyContent: "center",
+		justifyContent: 'center',
 		backgroundColor: Color.backgroudDefault,
 	},
 	container: {
-		flexDirection: "column",
-		justifyContent: "center",
-		width: "100%",
-		height: "100%",
+		flexDirection: 'column',
+		justifyContent: 'center',
+		width: '100%',
+		height: '100%',
 		paddingVertical: 24,
 		paddingHorizontal: 32,
 	},
 	image: {
 		width: 200,
 		height: 100,
-		resizeMode: "contain",
-		alignSelf: "center",
+		resizeMode: 'contain',
+		alignSelf: 'center',
 		marginBottom: 12,
 	},
 	title: {
-		alignSelf: "center",
+		alignSelf: 'center',
 		paddingTop: 28,
 		fontSize: 48,
 		color: Color.primaryColor,
-		fontWeight: "bold",
+		fontWeight: 'bold',
 	},
 	bottom: {
-		position: "absolute",
+		position: 'absolute',
 		bottom: 0,
-		alignSelf: "center",
+		alignSelf: 'center',
 		marginBottom: 32,
 		paddingHorizontal: 24,
-		width: "100%",
+		width: '100%',
 	},
-	caption: { flexDirection: "row", alignSelf: "center" },
-	containerTermReference: { flexDirection: "row" },
+	caption: { flexDirection: 'row', alignSelf: 'center' },
+	containerTermReference: { flexDirection: 'row' },
 	textTermReference: { width: Metrics.DEVICE_WIDTH - 84 },
 });
