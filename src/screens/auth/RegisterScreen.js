@@ -3,21 +3,29 @@ import { connect } from 'react-redux';
 import {
 	Image,
 	View,
-	StyleSheet,
 	ToastAndroid,
 	TouchableOpacity,
+	SafeAreaView,
 } from 'react-native';
-import { Container, Text, TextInput, Loading, Checkbox } from '@app/components';
-import { theme } from '@app/themes';
+import {
+	Container,
+	Text,
+	Loading,
+	Checkbox,
+	ButtonForm,
+	Snackbar,
+} from '@app/components';
 import Images from '@app/assets/images';
 import Color from '@app/assets/colors';
-import Styles from '@app/assets/styles';
 import Api from '@app/api/Api';
 import Strings from '@app/assets/strings';
 import { NavigationServices, AsyncStorage } from '@app/services';
-import { Metrics } from '@app/themes';
+import FormRegister from './Container/FormRegister';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import styles from './styles';
 
 import UserRedux from '@app/redux/user';
+import { ScrollView } from 'react-native-gesture-handler';
 
 type Props = {
 	setData: any => void,
@@ -30,13 +38,18 @@ class RegisterScreen extends PureComponent<Props> {
 		this.state = {
 			isFetching: false,
 			name: '',
-			noKoordinator: '',
+			koordinator: '',
 			phone: '',
 			password: '',
 			error: false,
 			checked: false,
+			visible: false,
 		};
 	}
+
+	toggleSnackbar = () => {
+		this.setState({ visible: !this.state.visible });
+	};
 
 	getUser = async token => {
 		Api.get()
@@ -47,12 +60,8 @@ class RegisterScreen extends PureComponent<Props> {
 				NavigationServices.resetStackNavigate(['Main']);
 			})
 			.catch(error => {
-				console.log('ERROR', error);
+				console.error('ERROR', error);
 			});
-	};
-
-	goToLogin = () => {
-		NavigationServices.navigate('Login');
 	};
 
 	onPressRegister = async () => {
@@ -68,63 +77,13 @@ class RegisterScreen extends PureComponent<Props> {
 					this.props.setToken(res.data.access_token);
 				} else {
 					this.setState({ isFetching: false });
-					ToastAndroid.show('Tidak dapat terhubung', ToastAndroid.SHORT);
+					this.toggleSnackbar;
 				}
 			})
 			.catch(error => {
-				console.log('ERROR', error);
+				console.error('ERROR', error);
 				this.setState({ error: true });
 			});
-	};
-
-	renderForm = () => {
-		return (
-			<>
-				<TextInput
-					label="Name"
-					mode="outlined"
-					theme={theme}
-					value={this.state.name}
-					style={Styles.textInput}
-					onChangeText={name => {
-						this.setState({ name });
-					}}
-				/>
-				<TextInput
-					label="Phone"
-					mode="outlined"
-					theme={theme}
-					value={this.state.phone}
-					style={Styles.textInput}
-					onChangeText={phone => {
-						this.setState({ phone });
-					}}
-					keyboardType={'phone-pad'}
-				/>
-				<TextInput
-					label="Password"
-					mode="outlined"
-					theme={theme}
-					secureTextEntry
-					value={this.state.password}
-					style={Styles.textInput}
-					onChangeText={password => {
-						this.setState({ password });
-					}}
-				/>
-				<TextInput
-					label="No Koordinator"
-					mode="outlined"
-					theme={theme}
-					value={this.state.noKoordinator}
-					style={Styles.textInput}
-					onChangeText={noKoordinator => {
-						this.setState({ noKoordinator });
-					}}
-					keyboardType={'phone-pad'}
-				/>
-			</>
-		);
 	};
 
 	termReference = () => {
@@ -145,6 +104,7 @@ class RegisterScreen extends PureComponent<Props> {
 		);
 	};
 
+	//TODO: Checkbox Belum Ada, bug rn-paper
 	render() {
 		if (this.state.isFetching) {
 			return (
@@ -154,25 +114,74 @@ class RegisterScreen extends PureComponent<Props> {
 			);
 		} else {
 			return (
-				<View style={styles.view}>
-					<Container>
-						{/* <Image source={Images.logo.banner} style={styles.image} /> */}
-						{this.renderForm()}
-						{/* {ButtonLoginRegister("UPLOAD KTP", this.onPressRegister)} */}
-						{this.termReference()}
-					</Container>
-					<Container>
-						{/* {ButtonLoginRegister("REGISTER", this.onPressRegister)} */}
-						<View style={styles.caption}>
-							<Text>Sudah punya akun? </Text>
-							<TouchableOpacity onPress={() => this.goToLogin()}>
-								<Text style={{ fontWeight: 'bold', color: Color.primaryColor }}>
-									Login
-								</Text>
-							</TouchableOpacity>
-						</View>
-					</Container>
-				</View>
+				<SafeAreaView style={{ flex: 1 }}>
+					<ScrollView contentContainerStyle={styles.container}>
+						<Container />
+						<Container style={{ marginBottom: 16 }}>
+							<Image source={Images.logo.banner} style={styles.logo} />
+							<FormRegister
+								name={this.state.name}
+								password={this.state.password}
+								phone={this.state.phone}
+								koordinator={this.state.koordinator}
+								changeName={name => {
+									this.setState({ name });
+								}}
+								changePassword={password => {
+									this.setState({ password });
+								}}
+								changePhone={phone => {
+									this.setState({ phone });
+								}}
+								changeKoordinator={koordinator => {
+									this.setState({ koordinator });
+								}}
+							/>
+							<ButtonForm
+								label="Upload KTP"
+								onPress={() => NavigationServices.navigate('Register')}
+								color={Color.black4A}
+								icon={() => (
+									<Icon
+										name="camera"
+										size={24}
+										color={Color.white}
+										style={{
+											width: 32,
+											textAlign: 'center',
+											textAlignVertical: 'center',
+											alignSelf: 'center',
+											paddingTop: 2,
+										}}
+									/>
+								)}
+							/>
+							{/* {this.termReference()} */}
+						</Container>
+						<Container style={{ marginBottom: 16 }}>
+							<ButtonForm
+								label="Register"
+								onPress={() => NavigationServices.navigate('Register')}
+							/>
+							<View style={styles.captionContainer}>
+								<Text>Sudah punya akun? </Text>
+								<TouchableOpacity onPress={() => NavigationServices.goBack()}>
+									<Text style={styles.boldText}>Login</Text>
+								</TouchableOpacity>
+							</View>
+						</Container>
+					</ScrollView>
+					<Snackbar
+						visible={this.state.visible}
+						onDismiss={this.toggleSnackbar}
+						action={{
+							label: 'Cancel',
+							onPress: this.toggleSnackbar,
+						}}
+					>
+						Tidak dapat terhubung
+					</Snackbar>
+				</SafeAreaView>
 			);
 		}
 	}
@@ -188,43 +197,20 @@ export default connect(
 	mapDispatchToProps,
 )(RegisterScreen);
 
-const styles = StyleSheet.create({
-	view: {
-		flex: 1,
-		justifyContent: 'center',
-		backgroundColor: Color.backgroudDefault,
-	},
-	container: {
-		flexDirection: 'column',
-		justifyContent: 'center',
-		width: '100%',
-		height: '100%',
-		paddingVertical: 24,
-		paddingHorizontal: 32,
-	},
-	image: {
-		width: 200,
-		height: 100,
-		resizeMode: 'contain',
-		alignSelf: 'center',
-		marginBottom: 12,
-	},
-	title: {
-		alignSelf: 'center',
-		paddingTop: 28,
-		fontSize: 48,
-		color: Color.primaryColor,
-		fontWeight: 'bold',
-	},
-	bottom: {
-		position: 'absolute',
-		bottom: 0,
-		alignSelf: 'center',
-		marginBottom: 32,
-		paddingHorizontal: 24,
-		width: '100%',
-	},
-	caption: { flexDirection: 'row', alignSelf: 'center' },
-	containerTermReference: { flexDirection: 'row' },
-	textTermReference: { width: Metrics.DEVICE_WIDTH - 84 },
-});
+// const styles = StyleSheet.create({
+// 	view: {
+// 		justifyContent: 'space-between',
+// 		paddingVertical: 8,
+// 		backgroundColor: Color.backgroudDefault,
+// 	},
+// 	image: {
+// 		width: 200,
+// 		height: 100,
+// 		resizeMode: 'contain',
+// 		alignSelf: 'center',
+// 		marginBottom: 12,
+// 	},
+// 	caption: { flexDirection: 'row', alignSelf: 'center' },
+// 	containerTermReference: { flexDirection: 'row' },
+// 	textTermReference: { width: Metrics.DEVICE_WIDTH - 84 },
+// });

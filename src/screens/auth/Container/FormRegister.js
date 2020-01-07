@@ -1,31 +1,37 @@
 import React from 'react';
-import { Input } from '@app/components';
+import { InputForm } from '@app/components';
 
-const FormLogin = ({
-	label,
-	value,
-	onChangeText,
-	keyboardType,
-	secureTextEntry,
+const FormRegister = ({
+	name,
+	changeName,
+	phone,
+	changePhone,
+	password,
+	changePassword,
+	koordinator,
+	changeKoordinator,
 }) => (
 	<>
-		<Input
+		<InputForm label="Name" value={name} onChangeText={changeName} />
+		<InputForm
 			label="Phone"
-			value={this.state.phone}
-			onChangeText={phone => {
-				this.setState({ phone });
-			}}
-			keyboardType={'phone-pad'}
+			value={phone}
+			onChangeText={changePhone}
+			keyboardType="phone-pad"
 		/>
-		<Input
+		<InputForm
 			label="Password"
-			secureTextEntry
-			value={this.state.password}
-			onChangeText={password => {
-				this.setState({ password });
-			}}
+			value={password}
+			onChangeText={changePassword}
+			secureTextEntry={true}
+		/>
+		<InputForm
+			label="No.Koordinator"
+			value={koordinator}
+			onChangeText={changeKoordinator}
+			keyboardType="numeric"
 		/>
 	</>
 );
 
-export default FormLogin;
+export default FormRegister;

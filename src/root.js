@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { BarStatus } from '@app/components';
 
 import { Provider as PaperProvider } from 'react-native-paper';
 import { Provider } from 'react-redux';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import { theme } from '@app/themes';
 
+import { theme } from '@app/themes';
+import { BarStatus } from '@app/components';
+import { NavigationServices } from '@app/services';
 import store from './redux/store';
 import AppNavigation from './navigation';
-import { NavigationServices } from '@app/services';
 
 export default class AppRoot extends Component {
 	render() {

@@ -10,33 +10,6 @@ import { Text } from '@app/components';
 
 import UserRedux from '@app/redux/user';
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		justifyContent: 'center',
-		backgroundColor: Color.backgroudDefault,
-	},
-	image: {
-		width: 200,
-		height: 200,
-		resizeMode: 'contain',
-		alignSelf: 'center',
-	},
-	title: {
-		alignSelf: 'center',
-		paddingTop: 24,
-		fontSize: 32,
-		color: Color.primaryColor,
-		fontWeight: 'bold',
-	},
-	caption: {
-		position: 'absolute',
-		bottom: 0,
-		alignSelf: 'center',
-		marginBottom: 24,
-	},
-});
-
 type Props = {
 	setData: any => void,
 	setToken: any => void,
@@ -128,3 +101,30 @@ export default connect(
 	null,
 	mapDispatchToProps,
 )(SplashScreen);
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		justifyContent: 'center',
+		backgroundColor: Color.backgroudDefault,
+	},
+	image: {
+		width: 200,
+		height: 200,
+		resizeMode: 'contain',
+		alignSelf: 'center',
+	},
+	title: {
+		alignSelf: 'center',
+		paddingTop: 24,
+		fontSize: 32,
+		color: Color.primaryColor,
+		fontWeight: 'bold',
+	},
+	caption: {
+		position: 'absolute',
+		bottom: 0,
+		alignSelf: 'center',
+		marginBottom: 24,
+	},
+});

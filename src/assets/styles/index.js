@@ -4,7 +4,6 @@ import Color from '@app/assets/colors';
 export default StyleSheet.create({
 	textInput: {
 		marginBottom: 16,
-		height: 48,
 	},
 	carouselContainer: {
 		justifyContent: 'center',

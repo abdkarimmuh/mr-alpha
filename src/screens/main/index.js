@@ -1,7 +1,6 @@
-import MainScreen from "./MainScreen"
-import ListAssign from "./containers/ListAssign"
-import PickScreen from "./PickScreen"
-import TopUpScreen from "./TopUpScreen"
-import CustomMenu from "./containers/CustomMenu"
+import HomeScreen from './HomeScreen';
+import AfiliasiScreen from './AfiliasiScreen';
+import PublicBoardScreen from './PublicBoardScreen';
+import ProfilScreen from './ProfilScreen';
 
-export { MainScreen, ListAssign, PickScreen, TopUpScreen, CustomMenu }
+export { HomeScreen, AfiliasiScreen, PublicBoardScreen, ProfilScreen };

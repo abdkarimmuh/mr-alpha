@@ -1,29 +1,19 @@
 import React from 'react';
-import { Input } from '@app/components';
+import { InputForm } from '@app/components';
 
-const FormLogin = ({
-	label,
-	value,
-	onChangeText,
-	keyboardType,
-	secureTextEntry,
-}) => (
+const FormLogin = ({ phone, changePhone, password, changePassword }) => (
 	<>
-		<Input
+		<InputForm
 			label="Phone"
-			value={this.state.phone}
-			onChangeText={phone => {
-				this.setState({ phone });
-			}}
-			keyboardType={'phone-pad'}
+			value={phone}
+			onChangeText={changePhone}
+			keyboardType="phone-pad"
 		/>
-		<Input
+		<InputForm
 			label="Password"
+			value={password}
+			onChangeText={changePassword}
 			secureTextEntry
-			value={this.state.password}
-			onChangeText={password => {
-				this.setState({ password });
-			}}
 		/>
 	</>
 );

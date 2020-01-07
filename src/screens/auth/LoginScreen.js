@@ -1,21 +1,20 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { Image, View, TouchableOpacity, SafeAreaView } from 'react-native';
 import {
-	Image,
-	View,
-	StyleSheet,
-	ToastAndroid,
-	TouchableOpacity,
-} from 'react-native';
-import { Container, Text, TextInput, Loading, Button } from '@app/components';
-import { theme } from '@app/themes';
+	Container,
+	Text,
+	Loading,
+	ButtonForm,
+	Snackbar,
+} from '@app/components';
 import Images from '@app/assets/images';
 import Color from '@app/assets/colors';
-import Styles from '@app/assets/styles';
 import Api from '@app/api/Api';
 import { AsyncStorage, NavigationServices } from '@app/services';
 import UserRedux from '@app/redux/user';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Form from './Container/FormLogin';
+import styles from './styles';
 
 type Props = {
 	setData: any => void,
@@ -30,8 +29,13 @@ class LoginScreen extends PureComponent<Props> {
 			phone: '',
 			password: '',
 			error: false,
+			visible: false,
 		};
 	}
+
+	toggleSnackbar = () => {
+		this.setState({ visible: !this.state.visible });
+	};
 
 	getUser = async token => {
 		Api.get()
@@ -42,12 +46,8 @@ class LoginScreen extends PureComponent<Props> {
 				NavigationServices.resetStackNavigate(['Main']);
 			})
 			.catch(error => {
-				console.log('ERROR', error);
+				console.error('ERROR', error);
 			});
-	};
-
-	goToRegister = () => {
-		NavigationServices.navigate('Register');
 	};
 
 	onPressLogin = async () => {
@@ -63,42 +63,13 @@ class LoginScreen extends PureComponent<Props> {
 					this.props.setToken(res.data.access_token);
 				} else {
 					this.setState({ isFetching: false });
-					ToastAndroid.show('Tidak dapat terhubung', ToastAndroid.SHORT);
+					this.toggleSnackbar;
 				}
 			})
 			.catch(error => {
-				console.log('ERROR', error);
+				console.error('ERROR', error);
 				this.setState({ error: true });
 			});
-	};
-
-	renderForm = () => {
-		return (
-			<>
-				<TextInput
-					label="Phone"
-					mode="outlined"
-					theme={theme}
-					value={this.state.phone}
-					style={Styles.textInput}
-					onChangeText={phone => {
-						this.setState({ phone });
-					}}
-					keyboardType={'phone-pad'}
-				/>
-				<TextInput
-					label="Password"
-					mode="outlined"
-					theme={theme}
-					secureTextEntry
-					value={this.state.password}
-					style={Styles.textInput}
-					onChangeText={password => {
-						this.setState({ password });
-					}}
-				/>
-			</>
-		);
 	};
 
 	render() {
@@ -110,31 +81,55 @@ class LoginScreen extends PureComponent<Props> {
 			);
 		} else {
 			return (
-				<View style={styles.view}>
-					<Container style={{ marginBottom: 16 }}>
-						<Button>Hai</Button>
-						<View style={styles.captionContainer}>
-							<Text style={{ color: Color.black4A, marginRight: 4 }}>
-								Belum punya akun?
-							</Text>
-							<TouchableOpacity onPress={() => this.goToRegister()}>
-								<Text style={{ fontWeight: 'bold', color: Color.primaryColor }}>
-									Register
+				<SafeAreaView style={{ flex: 1 }}>
+					<View style={[styles.container, { flex: 1 }]}>
+						<Container />
+						<Container>
+							<Image source={Images.logo.banner} style={styles.logo} />
+							<Form
+								password={this.state.password}
+								phone={this.state.phone}
+								changePassword={password => {
+									this.setState({ password });
+								}}
+								changePhone={phone => {
+									this.setState({ phone });
+								}}
+							/>
+							<TouchableOpacity
+								onPress={() => NavigationServices.navigate('ChangePassword')}
+							>
+								<Text style={{ textAlign: 'right', color: Color.black4A }}>
+									Lupa Password?
 								</Text>
 							</TouchableOpacity>
-							<Icon name="rocket" size={30} color="#900" />
-						</View>
-					</Container>
-					<Container style={{ marginBottom: 16 }}>
-						<Image source={Images.logo.banner} style={styles.image} />
-						{this.renderForm()}
-						<TouchableOpacity onPress={() => this.goToRegister()}>
-							<Text style={{ textAlign: 'right', color: Color.black4A }}>
-								Lupa Password?
-							</Text>
-						</TouchableOpacity>
-					</Container>
-				</View>
+						</Container>
+						<Container>
+							<ButtonForm
+								label="Login"
+								onPress={() => NavigationServices.resetStackNavigate(['Main'])}
+							/>
+							<View style={styles.captionContainer}>
+								<Text style={{ color: Color.black4A }}>Belum punya akun?</Text>
+								<TouchableOpacity
+									onPress={() => NavigationServices.navigate('Register')}
+								>
+									<Text style={styles.boldText}>Register</Text>
+								</TouchableOpacity>
+							</View>
+						</Container>
+					</View>
+					<Snackbar
+						visible={this.state.visible}
+						onDismiss={this.toggleSnackbar}
+						action={{
+							label: 'Cancel',
+							onPress: this.toggleSnackbar,
+						}}
+					>
+						Tidak dapat terhubung
+					</Snackbar>
+				</SafeAreaView>
 			);
 		}
 	}
@@ -149,24 +144,3 @@ export default connect(
 	null,
 	mapDispatchToProps,
 )(LoginScreen);
-
-const styles = StyleSheet.create({
-	view: {
-		flex: 1,
-		// justifyContent: 'center',
-		flexDirection: 'column-reverse',
-		backgroundColor: Color.backgroudDefault,
-	},
-	image: {
-		width: 200,
-		height: 100,
-		resizeMode: 'contain',
-		alignSelf: 'center',
-		marginBottom: 12,
-	},
-	captionContainer: {
-		flexDirection: 'row',
-		alignSelf: 'center',
-		marginTop: 24,
-	},
-});

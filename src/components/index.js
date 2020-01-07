@@ -1,6 +1,6 @@
 import Container from './Container';
 import { Default as HeaderDefault, Detail as HeaderDetail } from './Header';
-import { Input } from './Form';
+import { Input as InputForm, Button as ButtonForm } from './Form';
 import Loading from './Loading';
 import BarStatus from './BarStatus';
 import ImagePicker from './ImagePicker';
@@ -12,6 +12,7 @@ export {
 	Loading,
 	BarStatus,
 	ImagePicker,
-	Input,
+	InputForm,
+	ButtonForm,
 };
 export * from 'react-native-paper';

@@ -14,12 +14,12 @@ import { theme } from '@app/themes';
 // 	);
 // };
 
-const Input = ({
+const InputForm = ({
 	label,
 	value,
 	onChangeText,
 	keyboardType,
-	secureTextEntry,
+	secureTextEntry = false,
 }) => (
 	<TextInput
 		mode="outlined"
@@ -29,8 +29,8 @@ const Input = ({
 		value={value}
 		onChangeText={onChangeText}
 		keyboardType={keyboardType}
-		secureTextEntry
+		secureTextEntry={secureTextEntry}
 	/>
 );
 
-export default Input;
+export default InputForm;
