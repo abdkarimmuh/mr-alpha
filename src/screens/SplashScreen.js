@@ -5,7 +5,7 @@ import { NavigationServices, AsyncStorage } from '@app/services';
 import { Api } from '@app/api';
 
 import Logo from '@app/assets/images';
-import Color from '@app/assets/colors';
+import Colors from '@app/assets/colors';
 import { Text } from '@app/components';
 
 import UserRedux from '@app/redux/user';
@@ -72,7 +72,7 @@ class SplashScreen extends Component<Props> {
 
 	loading = () => {
 		if (this.state.isFetching) {
-			return <ActivityIndicator size="large" color={Color.primaryColor} />;
+			return <ActivityIndicator size="large" color={Colors.primaryColor} />;
 		}
 	};
 
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: 'center',
-		backgroundColor: Color.backgroudDefault,
+		backgroundColor: Colors.backgroudDefault,
 	},
 	image: {
 		width: 200,
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
 		alignSelf: 'center',
 		paddingTop: 24,
 		fontSize: 32,
-		color: Color.primaryColor,
+		color: Colors.primaryColor,
 		fontWeight: 'bold',
 	},
 	caption: {

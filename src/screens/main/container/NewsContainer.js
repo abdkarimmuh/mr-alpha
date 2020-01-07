@@ -1,8 +1,6 @@
 import React from 'react';
 import { Card, Paragraph, Button } from '@app/components';
-import Color from '@app/assets/colors';
 import { Text, View, StyleSheet } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 // 320
 
@@ -12,11 +10,9 @@ const CardMenu = ({ title, icon }) => (
 		<Card.Content style={{ flex: 1 }}>
 			<Paragraph>Card content</Paragraph>
 		</Card.Content>
-		<TouchableOpacity>
-			<Card.Actions style={{ justifyContent: 'flex-end' }}>
-				<Button>Selengkapnya</Button>
-			</Card.Actions>
-		</TouchableOpacity>
+		<Card.Actions style={{ justifyContent: 'flex-end' }}>
+			<Button onPress={() => console.log('PRESS')}>Selengkapnya</Button>
+		</Card.Actions>
 	</Card>
 );
 
@@ -33,6 +29,9 @@ const MenuContainer = () => (
 		<CardMenu title="Berita" icon="book" />
 		<CardMenu title="Media" icon="check-circle-outline" />
 		<CardMenu title="Pesan" icon="camera" />
+		<Button onPress={() => console.log('PRESS')} uppercase={false}>
+			Lihat Berita Lainnya
+		</Button>
 	</View>
 );
 

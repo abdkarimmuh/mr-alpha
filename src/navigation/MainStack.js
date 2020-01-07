@@ -8,10 +8,10 @@ import {
 	AfiliasiScreen,
 } from '@app/screens';
 
-import Color from '@app/assets/colors';
+import Colors from '@app/assets/colors';
 
-const activeTintLabelColor = Color.primaryColor;
-const inactiveTintLabelColor = Color.black;
+const activeTintLabelColor = Colors.primaryColor;
+const inactiveTintLabelColor = Colors.black;
 
 const TabIcon = ({ name }) => ({ focused }) => (
 	<Icon

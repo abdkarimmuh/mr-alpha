@@ -8,20 +8,24 @@ import {
 	HelperText,
 	Loading,
 } from '@app/components';
-import Color from '@app/assets/colors';
+import Colors from '@app/assets/colors';
 import { NavigationServices } from '@app/services';
 import Api from '@app/api/Api';
 import UserRedux from '@app/redux/user';
 
 const styles = StyleSheet.create({
-	input: { backgroundColor: Color.transparent, fontSize: 12, marginBottom: 24 },
+	input: {
+		backgroundColor: Colors.transparent,
+		fontSize: 12,
+		marginBottom: 24,
+	},
 	containerBtnButtom: {
 		flexDirection: 'row',
 		alignItems: 'center',
 		marginTop: 24,
 		alignSelf: 'flex-end',
 	},
-	btnCancel: { backgroundColor: Color.grey, marginRight: 12 },
+	btnCancel: { backgroundColor: Colors.grey, marginRight: 12 },
 });
 
 type Props = {
@@ -48,7 +52,7 @@ class ChangePasswordScreen extends PureComponent<Props> {
 	pressSubmit = async () => {
 		console.log('Press Submit');
 		this.setState({ isFetching: true });
-		if (this.state.new_password == this.state.confirm_password) {
+		if (this.state.new_password === this.state.confirm_password) {
 			Api.post()
 				.changePassword(
 					this.props.token,
@@ -57,7 +61,7 @@ class ChangePasswordScreen extends PureComponent<Props> {
 				)
 				.then(res => {
 					this.setState({ isFetching: false });
-					if (res.data.status == 'Success') {
+					if (res.data.status === 'Success') {
 						ToastAndroid.show(res.data.message, ToastAndroid.SHORT);
 						NavigationServices.resetStackNavigate(['Main']);
 					} else {
@@ -78,7 +82,7 @@ class ChangePasswordScreen extends PureComponent<Props> {
 
 	render() {
 		return (
-			<Container style={{ backgroundColor: Color.backgroudDefault, flex: 1 }}>
+			<Container style={{ backgroundColor: Colors.backgroudDefault, flex: 1 }}>
 				<TextInput
 					label="Old Password"
 					value={this.state.old_password}
@@ -100,10 +104,10 @@ class ChangePasswordScreen extends PureComponent<Props> {
 					secureTextEntry
 					onChangeText={text => this.setState({ confirm_password: text })}
 				/>
-				{this.state.confirm_password != '' && (
+				{this.state.confirm_password !== '' && (
 					<HelperText
 						type="error"
-						visible={this.state.confirm_password != this.state.new_password}
+						visible={this.state.confirm_password !== this.state.new_password}
 					>
 						Password tidak sama
 					</HelperText>

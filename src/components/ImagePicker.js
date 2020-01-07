@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Text } from 'react-native-paper';
-import Color from '@app/assets/colors';
+import Colors from '@app/assets/colors';
 import Images from '@app/assets/images';
 import ImagePicker from 'react-native-image-picker';
 
@@ -60,9 +60,9 @@ export class FilePicker extends PureComponent {
 
 	getColor = () => {
 		if (this.state.data === undefined) {
-			return Color.primaryColor;
+			return Colors.primaryColor;
 		} else {
-			return Color.dividerColor;
+			return Colors.dividerColor;
 		}
 	};
 
@@ -79,7 +79,7 @@ export class FilePicker extends PureComponent {
 						source={Images.icon.iconCamera}
 						style={{ width: 16, height: 16, resizeMode: 'contain' }}
 					/>
-					<Text style={{ color: Color.white, marginLeft: 12 }}>
+					<Text style={{ color: Colors.white, marginLeft: 12 }}>
 						{this.props.placeholder}
 					</Text>
 				</View>

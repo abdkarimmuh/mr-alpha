@@ -16,7 +16,7 @@ import {
 	Snackbar,
 } from '@app/components';
 import Images from '@app/assets/images';
-import Color from '@app/assets/colors';
+import Colors from '@app/assets/colors';
 import Api from '@app/api/Api';
 import Strings from '@app/assets/strings';
 import { NavigationServices, AsyncStorage } from '@app/services';
@@ -108,7 +108,7 @@ class RegisterScreen extends PureComponent<Props> {
 	render() {
 		if (this.state.isFetching) {
 			return (
-				<Container style={{ flex: 1, backgroundColor: Color.transparent }}>
+				<Container style={{ flex: 1, backgroundColor: Colors.transparent }}>
 					<Loading />
 				</Container>
 			);
@@ -140,12 +140,12 @@ class RegisterScreen extends PureComponent<Props> {
 							<ButtonForm
 								label="Upload KTP"
 								onPress={() => NavigationServices.navigate('Register')}
-								color={Color.black4A}
+								color={Colors.black4A}
 								icon={() => (
 									<Icon
 										name="camera"
 										size={24}
-										color={Color.white}
+										color={Colors.white}
 										style={{
 											width: 32,
 											textAlign: 'center',
@@ -201,7 +201,7 @@ export default connect(
 // 	view: {
 // 		justifyContent: 'space-between',
 // 		paddingVertical: 8,
-// 		backgroundColor: Color.backgroudDefault,
+// 		backgroundColor: Colors.backgroudDefault,
 // 	},
 // 	image: {
 // 		width: 200,

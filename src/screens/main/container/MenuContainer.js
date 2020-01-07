@@ -1,7 +1,8 @@
 import React from 'react';
 import { Card } from '@app/components';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Color from '@app/assets/colors';
+import Colors from '@app/assets/colors';
+import Styles from '@app/assets/styles';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 
 // 320
@@ -9,17 +10,15 @@ import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 const CardMenu = ({ title, icon }) => (
 	<View style={styles.container}>
 		<TouchableOpacity>
-			<Card style={styles.cardContainer}>
-				{/* <TouchableOpacity> */}
-				<Card.Content style={{ flex: 1 }}>
+			<Card style={[styles.cardContainer, Styles.shadow]}>
+				<Card.Content>
 					<Icon
 						name={icon}
 						size={32}
-						color={Color.primaryColor}
+						color={Colors.primaryColor}
 						style={{ textAlign: 'center', textAlignVertical: 'center' }}
 					/>
 				</Card.Content>
-				{/* </TouchableOpacity> */}
 			</Card>
 		</TouchableOpacity>
 		<Text style={styles.title}>{title}</Text>

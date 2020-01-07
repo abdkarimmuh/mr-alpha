@@ -1,14 +1,14 @@
 import { StyleSheet } from 'react-native';
-import Color from '@app/assets/colors';
+import Colors from '@app/assets/colors';
 import { Metrics } from '@app/themes';
 
 export default StyleSheet.create({
 	container: {
 		justifyContent: 'space-between',
 		paddingVertical: 8,
-		backgroundColor: Color.backgroudDefault,
+		backgroundColor: Colors.backgroudDefault,
 	},
-	boldText: { fontWeight: 'bold', color: Color.primaryColor, marginLeft: 4 },
+	boldText: { fontWeight: 'bold', color: Colors.primaryColor, marginLeft: 4 },
 	logo: {
 		width: 200,
 		height: 100,

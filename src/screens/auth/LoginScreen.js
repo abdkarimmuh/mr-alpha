@@ -9,7 +9,7 @@ import {
 	Snackbar,
 } from '@app/components';
 import Images from '@app/assets/images';
-import Color from '@app/assets/colors';
+import Colors from '@app/assets/colors';
 import Api from '@app/api/Api';
 import { AsyncStorage, NavigationServices } from '@app/services';
 import UserRedux from '@app/redux/user';
@@ -75,7 +75,7 @@ class LoginScreen extends PureComponent<Props> {
 	render() {
 		if (this.state.isFetching) {
 			return (
-				<Container style={{ flex: 1, backgroundColor: Color.transparent }}>
+				<Container style={{ flex: 1, backgroundColor: Colors.transparent }}>
 					<Loading />
 				</Container>
 			);
@@ -99,7 +99,7 @@ class LoginScreen extends PureComponent<Props> {
 							<TouchableOpacity
 								onPress={() => NavigationServices.navigate('ChangePassword')}
 							>
-								<Text style={{ textAlign: 'right', color: Color.black4A }}>
+								<Text style={{ textAlign: 'right', color: Colors.black4A }}>
 									Lupa Password?
 								</Text>
 							</TouchableOpacity>
@@ -110,7 +110,7 @@ class LoginScreen extends PureComponent<Props> {
 								onPress={() => NavigationServices.resetStackNavigate(['Main'])}
 							/>
 							<View style={styles.captionContainer}>
-								<Text style={{ color: Color.black4A }}>Belum punya akun?</Text>
+								<Text style={{ color: Colors.black4A }}>Belum punya akun?</Text>
 								<TouchableOpacity
 									onPress={() => NavigationServices.navigate('Register')}
 								>
