@@ -1,7 +1,7 @@
 import React from 'react';
 import { InputForm } from '@app/components';
 
-const FormRegister = ({
+const FormRegisterContainer = ({
 	name,
 	changeName,
 	phone,
@@ -34,4 +34,4 @@ const FormRegister = ({
 	</>
 );
 
-export default FormRegister;
+export default FormRegisterContainer;

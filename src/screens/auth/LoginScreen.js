@@ -13,7 +13,7 @@ import Color from '@app/assets/colors';
 import Api from '@app/api/Api';
 import { AsyncStorage, NavigationServices } from '@app/services';
 import UserRedux from '@app/redux/user';
-import Form from './Container/FormLogin';
+import Form from './Container/FormLoginContainer';
 import styles from './styles';
 
 type Props = {

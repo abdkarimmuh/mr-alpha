@@ -20,7 +20,7 @@ import Color from '@app/assets/colors';
 import Api from '@app/api/Api';
 import Strings from '@app/assets/strings';
 import { NavigationServices, AsyncStorage } from '@app/services';
-import FormRegister from './Container/FormRegister';
+import Form from './Container/FormRegisterContainer';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './styles';
 
@@ -119,7 +119,7 @@ class RegisterScreen extends PureComponent<Props> {
 						<Container />
 						<Container style={{ marginBottom: 16 }}>
 							<Image source={Images.logo.banner} style={styles.logo} />
-							<FormRegister
+							<Form
 								name={this.state.name}
 								password={this.state.password}
 								phone={this.state.phone}

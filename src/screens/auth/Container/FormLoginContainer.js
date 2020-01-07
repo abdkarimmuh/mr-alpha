@@ -1,7 +1,12 @@
 import React from 'react';
 import { InputForm } from '@app/components';
 
-const FormLogin = ({ phone, changePhone, password, changePassword }) => (
+const FormLoginContainer = ({
+	phone,
+	changePhone,
+	password,
+	changePassword,
+}) => (
 	<>
 		<InputForm
 			label="Phone"
@@ -18,4 +23,4 @@ const FormLogin = ({ phone, changePhone, password, changePassword }) => (
 	</>
 );
 
-export default FormLogin;
+export default FormLoginContainer;
