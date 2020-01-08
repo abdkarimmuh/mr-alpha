@@ -1,3 +1,4 @@
 import NewsScreen from './NewsScreen';
+import NewsDetailScreen from './NewsDetailScreen';
 
-export { NewsScreen };
+export { NewsScreen, NewsDetailScreen };

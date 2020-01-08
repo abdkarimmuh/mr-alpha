@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, Card, Paragraph, Button } from '@app/components';
+import { Text, Button, CardNews } from '@app/components';
 import { View, StyleSheet } from 'react-native';
 import Styles from '@app/assets/styles';
 import Colors from '@app/assets/colors';
@@ -10,23 +10,6 @@ const Data = [
 	{ id: '3', title: 'Judul Berita 3', description: 'Ini Deskripsi Berita 3' },
 	{ id: '4', title: 'Judul Berita 4', description: 'Ini Deskripsi Berita 4' },
 ];
-
-const CardMenu = ({ title, description, link }) => (
-	<Card style={styles.cardContainer}>
-		<Card.Title title={title} titleStyle={Styles.font} />
-		<Card.Content style={{ flex: 1 }}>
-			<Paragraph style={Styles.font}>{description}</Paragraph>
-		</Card.Content>
-		<Card.Actions style={{ justifyContent: 'flex-end' }}>
-			<Button
-				labelStyle={[Styles.font, { color: Colors.primaryColor }]}
-				onPress={() => console.log('PRESS')}
-			>
-				Selengkapnya
-			</Button>
-		</Card.Actions>
-	</Card>
-);
 
 const NewsContainer = () => {
 	const [data, setData] = useState([]);
@@ -47,7 +30,7 @@ const NewsContainer = () => {
 				Berita Terbaru
 			</Text>
 			{data.map(item => (
-				<CardMenu
+				<CardNews
 					key={item.id}
 					title={item.title}
 					description={item.description}

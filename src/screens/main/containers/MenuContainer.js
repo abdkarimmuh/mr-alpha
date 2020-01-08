@@ -1,12 +1,13 @@
 import React from 'react';
-import { Card, Text, RippleEffect } from '@app/components';
+import { View, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { NavigationServices } from '@app/services';
 import Colors from '@app/assets/colors';
 import Styles from '@app/assets/styles';
-import { View, StyleSheet } from 'react-native';
+import { Card, Text, RippleEffect } from '@app/components';
+import { NavigationServices } from '@app/services';
+import { Metrics } from '@app/themes';
 
-// 320,375,425, 384
+// 320,375,425, 384,424
 
 const Menu = [
 	{ id: '1', title: 'Info Calon', icon: 'camera', screen: 'Info' },
@@ -36,7 +37,7 @@ const CardMenu = ({ title, icon, screen }) => (
 	</View>
 );
 
-const MenuContainer = () => (
+const Layout1 = () => (
 	<View
 		style={{
 			flexDirection: 'row',
@@ -55,6 +56,57 @@ const MenuContainer = () => (
 		))}
 	</View>
 );
+
+const Layout2 = () => (
+	<View
+		style={{
+			flexDirection: 'column',
+		}}
+	>
+		<View
+			style={{
+				flexDirection: 'row',
+				flexWrap: 'wrap',
+				justifyContent: 'space-evenly',
+				marginVertical: 8,
+			}}
+		>
+			{Menu.slice(0, 2).map(item => (
+				<CardMenu
+					key={item.id}
+					title={item.title}
+					icon={item.icon}
+					screen={item.screen}
+				/>
+			))}
+		</View>
+		<View
+			style={{
+				flexDirection: 'row',
+				flexWrap: 'wrap',
+				justifyContent: 'space-evenly',
+				marginVertical: 8,
+			}}
+		>
+			{Menu.slice(2, 4).map(item => (
+				<CardMenu
+					key={item.id}
+					title={item.title}
+					icon={item.icon}
+					screen={item.screen}
+				/>
+			))}
+		</View>
+	</View>
+);
+
+const MenuContainer = () => {
+	if (Metrics.DEVICE_WIDTH <= 414) {
+		return <Layout2 />;
+	} else {
+		return <Layout1 />;
+	}
+};
 
 export default MenuContainer;
 
