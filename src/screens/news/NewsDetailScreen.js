@@ -28,7 +28,7 @@ class NewsDetailScreen extends PureComponent<Props> {
 			<SafeAreaView style={{ flex: 1 }}>
 				<LayoutAppbar
 					title="Detail Berita"
-					onBackPress={() => NavigationServices.goBack()}
+					hasBack={() => NavigationServices.goBack()}
 					style={{ padding: 0 }}
 				>
 					<ScrollView

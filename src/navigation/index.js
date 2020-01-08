@@ -5,6 +5,7 @@ import { SplashScreen } from '@app/screens';
 import AuthStack from './AuthStack';
 import MainStack from './MainStack';
 import NewsStack from './NewsStack';
+import MediaStack from './MediaStack';
 
 const InitialStack = createStackNavigator(
 	{
@@ -27,6 +28,7 @@ const InitialStack = createStackNavigator(
 			},
 		},
 		...NewsStack,
+		...MediaStack,
 	},
 	{
 		initialRouteName: 'Main',

@@ -106,7 +106,7 @@ class NewsScreen extends PureComponent<Props> {
 			<SafeAreaView style={{ flex: 1 }}>
 				<LayoutAppbar
 					title="Berita"
-					onBackPress={() => NavigationServices.goBack()}
+					hasBack
 					style={{ padding: 0, paddingBottom: 64 }}
 				>
 					<FlatList

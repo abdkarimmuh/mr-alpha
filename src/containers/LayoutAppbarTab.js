@@ -3,6 +3,7 @@ import { Appbar } from 'react-native-paper';
 import { TabView, TabBar } from 'react-native-tab-view';
 import Colors from '@app/assets/colors';
 import { Metrics } from '@app/themes';
+import { NavigationServices } from '@app/services';
 
 const renderTabBar = props => (
 	<TabBar
@@ -21,9 +22,16 @@ const LayoutAppbarTab = ({
 	routes,
 	renderScene,
 	onIndexChange,
+	hasBack = false,
 }) => (
 	<>
 		<Appbar.Header style={{ backgroundColor: Colors.white, elevation: 0 }}>
+			{hasBack && (
+				<Appbar.BackAction
+					onPress={() => NavigationServices.goBack()}
+					color={Colors.black4A}
+				/>
+			)}
 			<Appbar.Content title={title} color={Colors.black4A} />
 			{icon !== null && <Appbar.Action icon={icon} />}
 		</Appbar.Header>
