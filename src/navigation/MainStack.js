@@ -32,7 +32,7 @@ export default createBottomTabNavigator(
 		Afiliasi: {
 			screen: AfiliasiScreen,
 			navigationOptions: {
-				tabBarIcon: TabIcon({ name: 'truck' }),
+				tabBarIcon: TabIcon({ name: 'folder' }),
 			},
 		},
 		PublicBoard: {

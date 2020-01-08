@@ -1,20 +1,18 @@
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
 import { Image, View, TouchableOpacity, SafeAreaView } from 'react-native';
-import {
-	Container,
-	Text,
-	Loading,
-	ButtonForm,
-	Snackbar,
-} from '@app/components';
-import Images from '@app/assets/images';
-import Colors from '@app/assets/colors';
+import { connect } from 'react-redux';
+
 import Api from '@app/api/Api';
-import { AsyncStorage, NavigationServices } from '@app/services';
+import Colors from '@app/assets/colors';
+import Images from '@app/assets/images';
+import Styles from '@app/assets/styles';
+import { Text, Loading, ButtonForm, Snackbar } from '@app/components';
+import { Layout } from '@app/containers';
 import UserRedux from '@app/redux/user';
-import Form from './Container/FormLoginContainer';
-import styles from './styles';
+import { AsyncStorage, NavigationServices } from '@app/services';
+
+import Form from './containers/FormLoginContainer';
+import InnerStyles from './styles';
 
 type Props = {
 	setData: any => void,
@@ -75,17 +73,17 @@ class LoginScreen extends PureComponent<Props> {
 	render() {
 		if (this.state.isFetching) {
 			return (
-				<Container style={{ flex: 1, backgroundColor: Colors.transparent }}>
+				<Layout style={{ flex: 1, backgroundColor: Colors.transparent }}>
 					<Loading />
-				</Container>
+				</Layout>
 			);
 		} else {
 			return (
 				<SafeAreaView style={{ flex: 1 }}>
-					<View style={[styles.container, { flex: 1 }]}>
-						<Container />
-						<Container>
-							<Image source={Images.logo.banner} style={styles.logo} />
+					<View style={[InnerStyles.container, { flex: 1 }]}>
+						<Layout />
+						<Layout>
+							<Image source={Images.logo.banner} style={InnerStyles.logo} />
 							<Form
 								password={this.state.password}
 								phone={this.state.phone}
@@ -99,25 +97,27 @@ class LoginScreen extends PureComponent<Props> {
 							<TouchableOpacity
 								onPress={() => NavigationServices.navigate('ChangePassword')}
 							>
-								<Text style={{ textAlign: 'right', color: Colors.black4A }}>
+								<Text style={[Styles.font, { textAlign: 'right' }]}>
 									Lupa Password?
 								</Text>
 							</TouchableOpacity>
-						</Container>
-						<Container>
+						</Layout>
+						<Layout>
 							<ButtonForm
 								label="Login"
 								onPress={() => NavigationServices.resetStackNavigate(['Main'])}
 							/>
-							<View style={styles.captionContainer}>
-								<Text style={{ color: Colors.black4A }}>Belum punya akun?</Text>
+							<View style={InnerStyles.captionContainer}>
+								<Text style={Styles.font}>Belum punya akun?</Text>
 								<TouchableOpacity
 									onPress={() => NavigationServices.navigate('Register')}
 								>
-									<Text style={styles.boldText}>Register</Text>
+									<Text style={[Styles.font, InnerStyles.boldText]}>
+										Register
+									</Text>
 								</TouchableOpacity>
 							</View>
-						</Container>
+						</Layout>
 					</View>
 					<Snackbar
 						visible={this.state.visible}

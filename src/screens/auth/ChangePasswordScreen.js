@@ -1,13 +1,8 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, View, ToastAndroid } from 'react-native';
-import {
-	Container,
-	TextInput,
-	Button,
-	HelperText,
-	Loading,
-} from '@app/components';
+import { TextInput, Button, HelperText, Loading } from '@app/components';
+import { Layout } from '@app/containers';
 import Colors from '@app/assets/colors';
 import { NavigationServices } from '@app/services';
 import Api from '@app/api/Api';
@@ -82,7 +77,7 @@ class ChangePasswordScreen extends PureComponent<Props> {
 
 	render() {
 		return (
-			<Container style={{ backgroundColor: Colors.backgroudDefault, flex: 1 }}>
+			<Layout style={{ backgroundColor: Colors.backgroudDefault, flex: 1 }}>
 				<TextInput
 					label="Old Password"
 					value={this.state.old_password}
@@ -133,7 +128,7 @@ class ChangePasswordScreen extends PureComponent<Props> {
 						SAVE
 					</Button>
 				</View>
-			</Container>
+			</Layout>
 		);
 	}
 }

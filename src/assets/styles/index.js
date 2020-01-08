@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import Colors from '@app/assets/colors';
 
 export default StyleSheet.create({
-	shadow: {
+	shadowOn: {
 		shadowColor: '#000',
 		shadowOffset: {
 			width: 0,
@@ -11,5 +11,13 @@ export default StyleSheet.create({
 		shadowOpacity: 0.23,
 		shadowRadius: 2.62,
 		elevation: 4,
+	},
+	whiteBackground: {
+		backgroundColor: Colors.white,
+	},
+	font: {
+		lineHeight: 14,
+		fontSize: 12,
+		color: Colors.black4A,
 	},
 });

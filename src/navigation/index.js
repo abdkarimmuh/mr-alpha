@@ -4,6 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { SplashScreen } from '@app/screens';
 import AuthStack from './AuthStack';
 import MainStack from './MainStack';
+import NewsStack from './NewsStack';
 
 const InitialStack = createStackNavigator(
 	{
@@ -25,6 +26,7 @@ const InitialStack = createStackNavigator(
 				headerShown: false,
 			},
 		},
+		...NewsStack,
 	},
 	{
 		initialRouteName: 'Main',

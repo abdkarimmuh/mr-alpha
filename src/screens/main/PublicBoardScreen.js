@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
-import { View, SafeAreaView, Text } from 'react-native';
+import { SafeAreaView } from 'react-native';
+import { Appbar } from '@app/components';
+import Colors from '@app/assets/colors';
 
 type Props = {};
 
@@ -14,9 +16,9 @@ class PublicBoardScreen extends PureComponent<Props> {
 	render() {
 		return (
 			<SafeAreaView style={{ flex: 1 }}>
-				<View>
-					<Text>Ini Public Board Screen</Text>
-				</View>
+				<Appbar.Header style={{ backgroundColor: Colors.white }}>
+					<Appbar.Content title="Public Board" color={Colors.black4A} />
+				</Appbar.Header>
 			</SafeAreaView>
 		);
 	}

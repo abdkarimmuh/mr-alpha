@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { View, Image, StyleSheet, ActivityIndicator } from 'react-native';
-import { NavigationServices, AsyncStorage } from '@app/services';
+import { connect } from 'react-redux';
+
 import { Api } from '@app/api';
-
-import Logo from '@app/assets/images';
 import Colors from '@app/assets/colors';
+import Logo from '@app/assets/images';
+import Styles from '@app/assets/styles';
 import { Text } from '@app/components';
-
 import UserRedux from '@app/redux/user';
+import { NavigationServices, AsyncStorage } from '@app/services';
+
 
 type Props = {
 	setData: any => void,
@@ -83,8 +84,10 @@ class SplashScreen extends Component<Props> {
 				<View style={styles.caption}>
 					{this.loading()}
 					<View style={{ flexDirection: 'row', paddingTop: 24 }}>
-						<Text>Aplikasi Manajemen </Text>
-						<Text style={{ fontWeight: 'bold' }}>Relawan</Text>
+						<Text style={Styles.font}>Aplikasi Manajemen</Text>
+						<Text style={[Styles.font, { fontWeight: 'bold', marginLeft: 3 }]}>
+							Relawan
+						</Text>
 					</View>
 				</View>
 			</View>

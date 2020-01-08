@@ -1,31 +1,27 @@
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
 import {
 	Image,
 	View,
 	ToastAndroid,
 	TouchableOpacity,
 	SafeAreaView,
+	ScrollView,
 } from 'react-native';
-import {
-	Container,
-	Text,
-	Loading,
-	Checkbox,
-	ButtonForm,
-	Snackbar,
-} from '@app/components';
-import Images from '@app/assets/images';
-import Colors from '@app/assets/colors';
-import Api from '@app/api/Api';
-import Strings from '@app/assets/strings';
-import { NavigationServices, AsyncStorage } from '@app/services';
-import Form from './Container/FormRegisterContainer';
+import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import styles from './styles';
 
+import Api from '@app/api/Api';
+import Colors from '@app/assets/colors';
+import Images from '@app/assets/images';
+import Strings from '@app/assets/strings';
+import Styles from '@app/assets/styles';
+import { Text, Loading, Checkbox, ButtonForm, Snackbar } from '@app/components';
+import { Layout } from '@app/containers';
+import { NavigationServices, AsyncStorage } from '@app/services';
 import UserRedux from '@app/redux/user';
-import { ScrollView } from 'react-native-gesture-handler';
+
+import Form from './containers/FormRegisterContainer';
+import InnerStyles from './styles';
 
 type Props = {
 	setData: any => void,
@@ -89,7 +85,7 @@ class RegisterScreen extends PureComponent<Props> {
 	termReference = () => {
 		const { checked } = this.state;
 		return (
-			<View style={styles.containerTermReference}>
+			<View style={InnerStyles.containerTermReference}>
 				<Checkbox
 					status={checked ? 'checked' : 'unchecked'}
 					onPress={() => {
@@ -108,17 +104,17 @@ class RegisterScreen extends PureComponent<Props> {
 	render() {
 		if (this.state.isFetching) {
 			return (
-				<Container style={{ flex: 1, backgroundColor: Colors.transparent }}>
+				<Layout style={{ flex: 1, backgroundColor: Colors.transparent }}>
 					<Loading />
-				</Container>
+				</Layout>
 			);
 		} else {
 			return (
 				<SafeAreaView style={{ flex: 1 }}>
-					<ScrollView contentContainerStyle={styles.container}>
-						<Container />
-						<Container style={{ marginBottom: 16 }}>
-							<Image source={Images.logo.banner} style={styles.logo} />
+					<ScrollView contentContainerStyle={InnerStyles.container}>
+						<Layout />
+						<Layout style={{ marginBottom: 16 }}>
+							<Image source={Images.logo.banner} style={InnerStyles.logo} />
 							<Form
 								name={this.state.name}
 								password={this.state.password}
@@ -157,19 +153,19 @@ class RegisterScreen extends PureComponent<Props> {
 								)}
 							/>
 							{/* {this.termReference()} */}
-						</Container>
-						<Container style={{ marginBottom: 16 }}>
+						</Layout>
+						<Layout style={{ marginBottom: 16 }}>
 							<ButtonForm
 								label="Register"
 								onPress={() => NavigationServices.navigate('Register')}
 							/>
-							<View style={styles.captionContainer}>
-								<Text>Sudah punya akun? </Text>
+							<View style={InnerStyles.captionContainer}>
+								<Text style={Styles.font}>Sudah punya akun?</Text>
 								<TouchableOpacity onPress={() => NavigationServices.goBack()}>
-									<Text style={styles.boldText}>Login</Text>
+									<Text style={[Styles.font, InnerStyles.boldText]}>Login</Text>
 								</TouchableOpacity>
 							</View>
-						</Container>
+						</Layout>
 					</ScrollView>
 					<Snackbar
 						visible={this.state.visible}
@@ -196,21 +192,3 @@ export default connect(
 	null,
 	mapDispatchToProps,
 )(RegisterScreen);
-
-// const styles = StyleSheet.create({
-// 	view: {
-// 		justifyContent: 'space-between',
-// 		paddingVertical: 8,
-// 		backgroundColor: Colors.backgroudDefault,
-// 	},
-// 	image: {
-// 		width: 200,
-// 		height: 100,
-// 		resizeMode: 'contain',
-// 		alignSelf: 'center',
-// 		marginBottom: 12,
-// 	},
-// 	caption: { flexDirection: 'row', alignSelf: 'center' },
-// 	containerTermReference: { flexDirection: 'row' },
-// 	textTermReference: { width: Metrics.DEVICE_WIDTH - 84 },
-// });

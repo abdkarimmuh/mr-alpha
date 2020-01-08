@@ -1,21 +1,29 @@
 import React, { PureComponent } from 'react';
-import { ScrollView, SafeAreaView, Text, StyleSheet, View } from 'react-native';
+import { ScrollView, SafeAreaView, StyleSheet, View } from 'react-native';
+import { Text } from '@app/components';
 import Swiper from 'react-native-swiper';
 import { Metrics } from '@app/themes';
-import MenuContainer from './container/MenuContainer';
-import NewsContainer from './container/NewsContainer';
+import MenuContainer from './containers/MenuContainer';
+import NewsContainer from './containers/NewsContainer';
 
 type Props = {};
 
 class HomeScreen extends PureComponent<Props> {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			banner: [
+				{ id: '1', url: 'Banner 1' },
+				{ id: '2', url: 'Banner 2' },
+				{ id: '3', url: 'Banner 3' },
+			],
+		};
 	}
 
 	componentDidMount() {}
 
 	render() {
+		const { banner } = this.state;
 		console.log(Metrics.DEVICE_WIDTH);
 		return (
 			<SafeAreaView style={{ flex: 1 }}>
@@ -25,15 +33,11 @@ class HomeScreen extends PureComponent<Props> {
 						autoplay={true}
 						showsPagination={true}
 					>
-						<View style={styles.content}>
-							<Text style={styles.text}>Hello Swiper</Text>
-						</View>
-						<View style={styles.content}>
-							<Text style={styles.text}>Beautiful</Text>
-						</View>
-						<View style={styles.content}>
-							<Text style={styles.text}>And simple</Text>
-						</View>
+						{banner.map(item => (
+							<View key={item.id} style={styles.content}>
+								<Text style={styles.text}>{item.url}</Text>
+							</View>
+						))}
 					</Swiper>
 					<View style={{ marginHorizontal: 8 }}>
 						<MenuContainer />
@@ -48,10 +52,11 @@ class HomeScreen extends PureComponent<Props> {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-	sliderContainer: { height: '25%' },
 	content: {
 		flex: 1,
 		backgroundColor: '#9DD6EB',
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	text: {
 		color: '#fff',
