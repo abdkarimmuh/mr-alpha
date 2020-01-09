@@ -4,4 +4,5 @@ export { SplashScreen };
 export * from './auth';
 export * from './main';
 export * from './news';
+export * from './message';
 export * from './media';

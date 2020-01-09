@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { SafeAreaView, FlatList } from 'react-native';
 import { CardNews } from '@app/components';
 import { LayoutAppbar } from '@app/containers';
-import { NavigationServices } from '@app/services';
 
 type Props = {};
 

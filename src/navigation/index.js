@@ -6,6 +6,7 @@ import AuthStack from './AuthStack';
 import MainStack from './MainStack';
 import NewsStack from './NewsStack';
 import MediaStack from './MediaStack';
+import MessageStack from './MessageStack';
 
 const InitialStack = createStackNavigator(
 	{
@@ -29,6 +30,7 @@ const InitialStack = createStackNavigator(
 		},
 		...NewsStack,
 		...MediaStack,
+		...MessageStack,
 	},
 	{
 		initialRouteName: 'Splash',
