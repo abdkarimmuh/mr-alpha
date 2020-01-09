@@ -31,7 +31,7 @@ const InitialStack = createStackNavigator(
 		...MediaStack,
 	},
 	{
-		initialRouteName: 'Main',
+		initialRouteName: 'Splash',
 	},
 );
 

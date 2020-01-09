@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react';
 import { ScrollView, SafeAreaView, StyleSheet, View } from 'react-native';
-import { Text } from '@app/components';
 import Swiper from 'react-native-swiper';
+
+import { Text } from '@app/components';
 import { Metrics } from '@app/themes';
+
 import MenuContainer from './containers/MenuContainer';
 import NewsContainer from './containers/NewsContainer';
 

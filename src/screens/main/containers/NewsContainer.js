@@ -3,6 +3,7 @@ import { Text, Button, CardNews } from '@app/components';
 import { View, StyleSheet } from 'react-native';
 import Styles from '@app/assets/styles';
 import Colors from '@app/assets/colors';
+import { NavigationServices } from '@app/services';
 
 const Data = [
 	{ id: '1', title: 'Judul Berita 1', description: 'Ini Deskripsi Berita 1' },
@@ -37,7 +38,7 @@ const NewsContainer = () => {
 				/>
 			))}
 			<Button
-				onPress={() => console.log('PRESS')}
+				onPress={() => NavigationServices.navigate('News')}
 				uppercase={false}
 				labelStyle={[Styles.font, { color: Colors.primaryColor }]}
 			>

@@ -18,8 +18,8 @@ class ProfilScreen extends PureComponent<Props> {
 		super(props);
 		this.state = {
 			profile: [
-				{ id: '1', title: 'Nama', description: 'Budi' },
-				{ id: '2', title: 'Nomor Telepon', description: '082152368795' },
+				{ id: '1', title: 'Nama', value: 'Budi' },
+				{ id: '2', title: 'Nomor Telepon', value: '082152368795' },
 			],
 		};
 	}
@@ -43,7 +43,7 @@ class ProfilScreen extends PureComponent<Props> {
 						<List.Item
 							key={item.id}
 							title={item.title}
-							description={item.description}
+							description={item.value}
 							titleStyle={Styles.font}
 							descriptionStyle={InnerStyles.font}
 							style={{ padding: 0 }}

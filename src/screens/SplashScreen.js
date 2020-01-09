@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import { View, Image, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 
 import { Api } from '@app/api';
 import Colors from '@app/assets/colors';
 import Logo from '@app/assets/images';
 import Styles from '@app/assets/styles';
-import { Text } from '@app/components';
+import { Text, ActivityIndicator } from '@app/components';
 import UserRedux from '@app/redux/user';
 import { NavigationServices, AsyncStorage } from '@app/services';
-
 
 type Props = {
 	setData: any => void,
@@ -34,55 +33,48 @@ class SplashScreen extends Component<Props> {
 
 		// if (token === null) {
 		this.setState({ isFetching: false });
-		this.goToAuth();
+		this.goTo('Auth');
 		// } else {
 		//   this.props.setToken(token);
 		//   this.getUser(token);
 		// }
 	};
 
-	goToAuth = () => {
-		NavigationServices.resetStackNavigate(['Auth']);
+	goTo = screen => {
+		NavigationServices.resetStackNavigate([screen]);
 	};
 
-	goToMain = () => {
-		NavigationServices.resetStackNavigate(['Main']);
-	};
-
-	getUser = async token => {
-		this.setState({ isFetching: true });
-		Api.get()
-			.user(token)
-			.then(res => {
-				setTimeout(() => {
-					this.setState({ isFetching: false });
-					if (res.status === 200) {
-						this.props.setData(res.data.data);
-						this.goToMain();
-					} else {
-						this.goToAuth();
-					}
-				}, 3000);
-			})
-			.catch(error => {
-				console.error('ERROR', error);
-				this.setState({ isFetching: false });
-				this.goToAuth();
-			});
-	};
-
-	loading = () => {
-		if (this.state.isFetching) {
-			return <ActivityIndicator size="large" color={Colors.primaryColor} />;
-		}
-	};
+	// getUser = async token => {
+	// 	this.setState({ isFetching: true });
+	// 	Api.get()
+	// 		.user(token)
+	// 		.then(res => {
+	// 			setTimeout(() => {
+	// 				this.setState({ isFetching: false });
+	// 				if (res.status === 200) {
+	// 					this.props.setData(res.data.data);
+	// 					this.goTo('Main');
+	// 				} else {
+	// 					this.goTo('Auth');
+	// 				}
+	// 			}, 3000);
+	// 		})
+	// 		.catch(error => {
+	// 			console.error('ERROR', error);
+	// 			this.setState({ isFetching: false });
+	// 			this.goTo('Auth');
+	// 		});
+	// };
 
 	render() {
+		const { isFetching } = this.state;
 		return (
 			<View style={styles.container}>
 				<Image source={Logo.logo.logo} style={styles.image} />
 				<View style={styles.caption}>
-					{this.loading()}
+					{isFetching && (
+						<ActivityIndicator size="large" color={Colors.primaryColor} />
+					)}
 					<View style={{ flexDirection: 'row', paddingTop: 24 }}>
 						<Text style={Styles.font}>Aplikasi Manajemen</Text>
 						<Text style={[Styles.font, { fontWeight: 'bold', marginLeft: 3 }]}>
@@ -116,13 +108,6 @@ const styles = StyleSheet.create({
 		height: 200,
 		resizeMode: 'contain',
 		alignSelf: 'center',
-	},
-	title: {
-		alignSelf: 'center',
-		paddingTop: 24,
-		fontSize: 32,
-		color: Colors.primaryColor,
-		fontWeight: 'bold',
 	},
 	caption: {
 		position: 'absolute',

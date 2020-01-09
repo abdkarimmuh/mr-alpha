@@ -47,40 +47,40 @@ class RegisterScreen extends PureComponent<Props> {
 		this.setState({ visible: !this.state.visible });
 	};
 
-	getUser = async token => {
-		Api.get()
-			.user(token)
-			.then(res => {
-				this.props.setData(res.data.data);
-				this.setState({ isFetching: false });
-				NavigationServices.resetStackNavigate(['Main']);
-			})
-			.catch(error => {
-				console.error('ERROR', error);
-			});
-	};
+	// getUser = async token => {
+	// 	Api.get()
+	// 		.user(token)
+	// 		.then(res => {
+	// 			this.props.setData(res.data.data);
+	// 			this.setState({ isFetching: false });
+	// 			NavigationServices.resetStackNavigate(['Main']);
+	// 		})
+	// 		.catch(error => {
+	// 			console.error('ERROR', error);
+	// 		});
+	// };
 
-	onPressRegister = async () => {
-		this.setState({ isFetching: true });
-		const { name, phone, password, noKoordinator } = this.state;
-		Api.post()
-			.login(name, phone, password, noKoordinator)
-			.then(res => {
-				console.log('Res login : ', res);
-				if (res.status === 200) {
-					AsyncStorage.StoreData('access_token', res.data.access_token);
-					this.getUser(res.data.access_token);
-					this.props.setToken(res.data.access_token);
-				} else {
-					this.setState({ isFetching: false });
-					this.toggleSnackbar;
-				}
-			})
-			.catch(error => {
-				console.error('ERROR', error);
-				this.setState({ error: true });
-			});
-	};
+	// onPressRegister = async () => {
+	// 	this.setState({ isFetching: true });
+	// 	const { name, phone, password, noKoordinator } = this.state;
+	// 	Api.post()
+	// 		.login(name, phone, password, noKoordinator)
+	// 		.then(res => {
+	// 			console.log('Res login : ', res);
+	// 			if (res.status === 200) {
+	// 				AsyncStorage.StoreData('access_token', res.data.access_token);
+	// 				this.getUser(res.data.access_token);
+	// 				this.props.setToken(res.data.access_token);
+	// 			} else {
+	// 				this.setState({ isFetching: false });
+	// 				this.toggleSnackbar;
+	// 			}
+	// 		})
+	// 		.catch(error => {
+	// 			console.error('ERROR', error);
+	// 			this.setState({ error: true });
+	// 		});
+	// };
 
 	termReference = () => {
 		const { checked } = this.state;
