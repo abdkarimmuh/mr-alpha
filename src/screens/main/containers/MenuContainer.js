@@ -1,19 +1,18 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '@app/assets/colors';
 import Styles from '@app/assets/styles';
-import { Card, Text, RippleEffect } from '@app/components';
+import { Card, RippleEffect, Text } from '@app/components';
 import { NavigationServices } from '@app/services';
-import { Metrics } from '@app/themes';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
 
 // 320,375,425, 384,424
 
 const Menu = [
-	{ id: '1', title: 'Info Calon', icon: 'camera', screen: 'Info' },
-	{ id: '2', title: 'Berita', icon: 'newspaper', screen: 'News' },
+	{ id: '1', title: 'Profil', icon: 'users', screen: 'CandidateProfile' },
+	{ id: '2', title: 'Berita', icon: 'book-open', screen: 'News' },
 	{ id: '3', title: 'Media', icon: 'image', screen: 'Media' },
-	{ id: '4', title: 'Pesan', icon: 'message', screen: 'Message' },
+	{ id: '4', title: 'Pesan', icon: 'mail', screen: 'Message' },
 ];
 
 const CardMenu = ({ title, icon, screen }) => (
@@ -26,9 +25,12 @@ const CardMenu = ({ title, icon, screen }) => (
 				<Card.Content>
 					<Icon
 						name={icon}
-						size={32}
+						size={25}
 						color={Colors.primaryColor}
-						style={{ textAlign: 'center', textAlignVertical: 'center' }}
+						style={{
+							textAlign: 'center',
+							textAlignVertical: 'center',
+						}}
 					/>
 				</Card.Content>
 			</RippleEffect>
@@ -43,7 +45,7 @@ const Layout1 = () => (
 			flexDirection: 'row',
 			flexWrap: 'wrap',
 			justifyContent: 'space-between',
-			marginVertical: 8,
+			marginVertical: 16,
 		}}
 	>
 		{Menu.map(item => (
@@ -101,17 +103,19 @@ const Layout2 = () => (
 );
 
 const MenuContainer = () => {
-	if (Metrics.DEVICE_WIDTH <= 414) {
-		return <Layout2 />;
-	} else {
-		return <Layout1 />;
-	}
+	// if (Metrics.DEVICE_WIDTH <= 414) {
+	// 	return <Layout2 />;
+	// } else {
+	// 	return <Layout1 />;
+	// }
+
+	return <Layout1 />;
 };
 
 export default MenuContainer;
 
 const InnerStyles = StyleSheet.create({
-	container: { flexDirection: 'column', margin: 16 },
+	container: { flexDirection: 'column', margin: 8 },
 	title: { textAlign: 'center', marginTop: 8 },
-	cardContainer: { width: 64, height: 64 },
+	cardContainer: { width: 60, height: 60 },
 });

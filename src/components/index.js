@@ -5,6 +5,7 @@ import BarStatus from './BarStatus';
 import ImagePicker from './ImagePicker';
 import RippleEffect from './RippleEffect';
 import CardNews from './CardNews';
+import Text from './Text';
 
 export {
 	HeaderDefault,
@@ -16,5 +17,6 @@ export {
 	ButtonForm,
 	RippleEffect,
 	CardNews,
+	Text,
 };
 export * from 'react-native-paper';

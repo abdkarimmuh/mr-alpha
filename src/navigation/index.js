@@ -7,6 +7,7 @@ import MainStack from './MainStack';
 import NewsStack from './NewsStack';
 import MediaStack from './MediaStack';
 import MessageStack from './MessageStack';
+import CandidateStack from './CandidateStack';
 
 const InitialStack = createStackNavigator(
 	{
@@ -31,9 +32,12 @@ const InitialStack = createStackNavigator(
 		...NewsStack,
 		...MediaStack,
 		...MessageStack,
+		...CandidateStack,
 	},
 	{
-		initialRouteName: 'Splash',
+		initialRouteName: 'Main',
+		headerMode: 'screen',
+		headerTitle: 'uwuwu',
 	},
 );
 

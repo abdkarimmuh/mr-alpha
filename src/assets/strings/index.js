@@ -4,4 +4,7 @@ export default {
 	TERM: 'syarat ketentuan yang berlaku',
 	LOREMIPSUM:
 		'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+
+	fontPrimary: 'OpenSans-Regular',
+	fontPrimaryBold: 'OpenSans-Bold',
 };
