@@ -1,4 +1,8 @@
-import { CandidateProfileScreen, VisionScreen } from '@app/screens';
+import {
+	CandidateProfileScreen,
+	VisionScreen,
+	CandidateScreen,
+} from '@app/screens';
 
 export default {
 	CandidateProfile: {
@@ -9,6 +13,12 @@ export default {
 	},
 	Vision: {
 		screen: VisionScreen,
+		navigationOptions: {
+			headerShown: false,
+		},
+	},
+	Candidate: {
+		screen: CandidateScreen,
 		navigationOptions: {
 			headerShown: false,
 		},

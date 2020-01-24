@@ -103,6 +103,7 @@ class CandidateProfileScreen extends PureComponent<Props> {
 										Styles.shadowOn,
 										{ backgroundColor: 'white', marginVertical: 8 },
 									]}
+									onPress={() => NavigationServices.navigate('Candidate')}
 								/>
 							))}
 						</View>
