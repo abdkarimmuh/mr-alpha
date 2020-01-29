@@ -5,7 +5,7 @@ import Colors from '@app/assets/colors';
 import Styles from '@app/assets/styles';
 
 const ListComponent = ({ title, data, count }) => (
-	<ScrollView contentContainerStyle={{ padding: 24 }}>
+	<ScrollView contentContainerStyle={{ padding: 20 }}>
 		<Card style={styles.cardContainer}>
 			<Card.Content style={{ flex: 1 }}>
 				<Paragraph style={Styles.font}>{title}</Paragraph>
@@ -42,5 +42,5 @@ export default ListComponent;
 const styles = StyleSheet.create({
 	container: { flexDirection: 'column', margin: 16 },
 	title: { textAlign: 'center', marginTop: 8 },
-	cardContainer: { flex: 1, marginVertical: 16, backgroundColor: Colors.white },
+	cardContainer: { flex: 1, backgroundColor: Colors.white },
 });

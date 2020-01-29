@@ -1,11 +1,13 @@
+import { LayoutAppbarTab } from '@app/containers';
 import React, { PureComponent } from 'react';
 import { SafeAreaView } from 'react-native';
 import { SceneMap } from 'react-native-tab-view';
-
-import { LayoutAppbarTab } from '@app/containers';
-
 import RelawanAktifContainer from './containers/RelawanAktifContainer';
 import RelawanPasifContainer from './containers/RelawanPasifContainer';
+import NavigationServices from '@app/services/NavigationServices';
+
+const navigateToAddPendukung = () =>
+	NavigationServices.navigate('AddPendukung');
 
 type Props = {};
 
@@ -20,8 +22,8 @@ class AfiliasiScreen extends PureComponent<Props> {
 		this.state = {
 			index: 0,
 			routes: [
-				{ key: 'active', title: 'Relawan Aktif' },
-				{ key: 'pasive', title: 'Relawan Pasif' },
+				{ key: 'active', title: 'Relawan' },
+				{ key: 'pasive', title: 'Pendukung' },
 			],
 		};
 	}
@@ -35,10 +37,12 @@ class AfiliasiScreen extends PureComponent<Props> {
 				<LayoutAppbarTab
 					title="Afiliasi"
 					icon={index !== 0 ? 'plus' : 'chain'}
+					onPress={index !== 0 ? navigateToAddPendukung : null}
 					index={index}
 					routes={routes}
 					renderScene={renderScene}
 					onIndexChange={value => this.setState({ index: value })}
+					hasMessage
 				/>
 			</SafeAreaView>
 		);

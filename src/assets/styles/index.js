@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import Colors from '@app/assets/colors';
+import strings from '../strings';
 
 export default StyleSheet.create({
 	shadowOn: {
@@ -19,5 +20,6 @@ export default StyleSheet.create({
 		lineHeight: 14,
 		fontSize: 12,
 		color: Colors.black4A,
+		fontFamily: strings.fontPrimary,
 	},
 });

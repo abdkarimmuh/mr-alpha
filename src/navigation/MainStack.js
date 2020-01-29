@@ -35,12 +35,12 @@ export default createBottomTabNavigator(
 				tabBarIcon: TabIcon({ name: 'folder' }),
 			},
 		},
-		PublicBoard: {
-			screen: PublicBoardScreen,
-			navigationOptions: {
-				tabBarIcon: TabIcon({ name: 'history' }),
-			},
-		},
+		// PublicBoard: {
+		// 	screen: PublicBoardScreen,
+		// 	navigationOptions: {
+		// 		tabBarIcon: TabIcon({ name: 'history' }),
+		// 	},
+		// },
 		Profil: {
 			screen: ProfilScreen,
 			navigationOptions: {
@@ -49,6 +49,7 @@ export default createBottomTabNavigator(
 		},
 	},
 	{
+		// initialRouteName: 'Afiliasi',
 		swipeEnabled: true,
 		tabBarOptions: {
 			showLabel: false,

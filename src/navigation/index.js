@@ -1,7 +1,7 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import { SplashScreen } from '@app/screens';
+import { SplashScreen, GuestScreen, AddPendukungScreen } from '@app/screens';
 import AuthStack from './AuthStack';
 import MainStack from './MainStack';
 import NewsStack from './NewsStack';
@@ -17,6 +17,7 @@ const InitialStack = createStackNavigator(
 				headerShown: false,
 			},
 		},
+		Guest: GuestScreen,
 		Auth: {
 			screen: AuthStack,
 			navigationOptions: {
@@ -33,11 +34,11 @@ const InitialStack = createStackNavigator(
 		...MediaStack,
 		...MessageStack,
 		...CandidateStack,
+		AddPendukung: AddPendukungScreen,
 	},
 	{
-		initialRouteName: 'Main',
-		headerMode: 'screen',
-		headerTitle: 'uwuwu',
+		initialRouteName: 'Splash',
+		headerMode: 'none',
 	},
 );
 

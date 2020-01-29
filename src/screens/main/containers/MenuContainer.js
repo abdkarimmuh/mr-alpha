@@ -12,7 +12,6 @@ const Menu = [
 	{ id: '1', title: 'Profil', icon: 'users', screen: 'CandidateProfile' },
 	{ id: '2', title: 'Berita', icon: 'book-open', screen: 'News' },
 	{ id: '3', title: 'Media', icon: 'image', screen: 'Media' },
-	{ id: '4', title: 'Pesan', icon: 'mail', screen: 'Message' },
 ];
 
 const CardMenu = ({ title, icon, screen }) => (
@@ -25,7 +24,7 @@ const CardMenu = ({ title, icon, screen }) => (
 				<Card.Content>
 					<Icon
 						name={icon}
-						size={25}
+						size={32}
 						color={Colors.primaryColor}
 						style={{
 							textAlign: 'center',
@@ -45,7 +44,7 @@ const Layout1 = () => (
 			flexDirection: 'row',
 			flexWrap: 'wrap',
 			justifyContent: 'space-between',
-			marginVertical: 16,
+			marginBottom: 35,
 		}}
 	>
 		{Menu.map(item => (
@@ -117,5 +116,5 @@ export default MenuContainer;
 const InnerStyles = StyleSheet.create({
 	container: { flexDirection: 'column', margin: 8 },
 	title: { textAlign: 'center', marginTop: 8 },
-	cardContainer: { width: 60, height: 60 },
+	cardContainer: { width: 80, height: 80 },
 });

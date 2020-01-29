@@ -4,12 +4,25 @@ import { StyleSheet } from 'react-native';
 import Styles from '@app/assets/styles';
 import Colors from '@app/assets/colors';
 import { NavigationServices } from '@app/services';
+import strings from '~/assets/strings';
 
 const CardNews = ({ title, description, link, data }) => (
-	<Card style={styles.cardContainer}>
-		<Card.Title title={title} titleStyle={{ color: Colors.black4A }} />
+	<Card
+		onPress={() => NavigationServices.navigate('NewsDetail', data)}
+		style={styles.cardContainer}
+	>
+		<Card.Title
+			title={title}
+			titleStyle={{
+				color: Colors.black4A,
+				fontSize: 14,
+				fontFamily: strings.fontPrimaryBold,
+			}}
+		/>
 		<Card.Content style={{ flex: 1 }}>
-			<Paragraph style={Styles.font}>{description}</Paragraph>
+			<Paragraph numberOfLines={3} style={Styles.font}>
+				{description}
+			</Paragraph>
 		</Card.Content>
 		<Card.Actions style={{ justifyContent: 'flex-end' }}>
 			<Button
@@ -25,5 +38,5 @@ const CardNews = ({ title, description, link, data }) => (
 export default CardNews;
 
 const styles = StyleSheet.create({
-	cardContainer: { flex: 1, marginVertical: 16 },
+	cardContainer: { flex: 1, marginVertical: 8 },
 });

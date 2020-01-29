@@ -5,6 +5,8 @@ import Colors from '@app/assets/colors';
 import { Metrics } from '@app/themes';
 import { NavigationServices } from '@app/services';
 
+const navigateToMessage = () => NavigationServices.navigate('Message');
+
 const renderTabBar = props => (
 	<TabBar
 		{...props}
@@ -22,6 +24,8 @@ const LayoutAppbarTab = ({
 	routes,
 	renderScene,
 	onIndexChange,
+	onPress,
+	hasMessage,
 	hasBack = false,
 }) => (
 	<>
@@ -32,8 +36,12 @@ const LayoutAppbarTab = ({
 					color={Colors.black4A}
 				/>
 			)}
+
 			<Appbar.Content title={title} color={Colors.black4A} />
-			{icon !== null && <Appbar.Action icon={icon} />}
+			{hasMessage && (
+				<Appbar.Action icon={'envelope'} onPress={navigateToMessage} />
+			)}
+			{icon !== null && <Appbar.Action icon={icon} onPress={onPress} />}
 		</Appbar.Header>
 		<TabView
 			renderTabBar={renderTabBar}

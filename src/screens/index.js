@@ -1,6 +1,7 @@
 import SplashScreen from './SplashScreen';
+import GuestScreen from './GuestScreen';
 
-export { SplashScreen };
+export { SplashScreen, GuestScreen };
 export * from './auth';
 export * from './main';
 export * from './news';
