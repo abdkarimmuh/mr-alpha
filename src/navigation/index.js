@@ -37,7 +37,7 @@ const InitialStack = createStackNavigator(
 		AddPendukung: AddPendukungScreen,
 	},
 	{
-		initialRouteName: 'Splash',
+		initialRouteName: 'Main',
 		headerMode: 'none',
 	},
 );

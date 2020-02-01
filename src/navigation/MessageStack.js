@@ -1,4 +1,4 @@
-import { MessageScreen } from '@app/screens';
+import { MessageScreen, DetailMessageScreen } from '@app/screens';
 
 export default {
 	Message: {
@@ -7,4 +7,5 @@ export default {
 			headerShown: false,
 		},
 	},
+	DetailMessage: DetailMessageScreen,
 };

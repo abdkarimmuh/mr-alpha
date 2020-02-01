@@ -1,17 +1,40 @@
 import React, { PureComponent } from 'react';
-import { SafeAreaView, View, StyleSheet } from 'react-native';
+import {
+	SafeAreaView,
+	View,
+	StyleSheet,
+	TouchableNativeFeedback,
+} from 'react-native';
 import { Appbar, List, RippleEffect, Divider, Avatar } from '@app/components';
 import Colors from '@app/assets/colors';
 import Styles from '@app/assets/styles';
+import { NavigationServices } from '@app/services';
+
+const navigateToSettings = name => NavigationServices.navigate(name);
+const navigateToEditProfile = () => NavigationServices.navigate('EditProfile');
 
 type Props = {};
 
 const Menu = [
-	{ id: '1', title: 'Edit Profil', icon: 'gear' },
-	{ id: '2', title: 'Ganti Password', icon: 'lock' },
-	{ id: '3', title: 'Menjadi Koordinator', icon: 'group' },
-	{ id: '4', title: 'Tentang Aplikasi', icon: 'book' },
-	{ id: '5', title: 'Logout', icon: 'camera' },
+	{
+		id: '1',
+		title: 'Edit Profil',
+		icon: 'gear',
+		nav: 'EditProfile',
+	},
+	{
+		id: '2',
+		title: 'Ganti Password',
+		icon: 'lock',
+		nav: 'ChangePass',
+	},
+	{
+		id: '3',
+		title: 'Menjadi Koordinator',
+		icon: 'group',
+		nav: 'BeCoordinator',
+	},
+	{ id: '4', title: 'Tentang Aplikasi', icon: 'book', nav: 'AboutApp' },
 ];
 class ProfilScreen extends PureComponent<Props> {
 	constructor(props) {
@@ -51,7 +74,10 @@ class ProfilScreen extends PureComponent<Props> {
 					))}
 					<Divider style={{ marginTop: 16, marginBottom: 24 }} />
 					{Menu.map(item => (
-						<RippleEffect key={item.id} onPress={() => console.log('Pressed')}>
+						<RippleEffect
+							onPress={() => navigateToSettings(item.nav)}
+							key={item.id}
+						>
 							<List.Item
 								title={item.title}
 								titleStyle={Styles.font}
@@ -60,6 +86,15 @@ class ProfilScreen extends PureComponent<Props> {
 							/>
 						</RippleEffect>
 					))}
+
+					<RippleEffect onPress={() => console.log('uwuw')}>
+						<List.Item
+							title={'Log Out'}
+							titleStyle={Styles.font}
+							left={props => <List.Icon {...props} icon={'power-off'} />}
+							style={{ padding: 0 }}
+						/>
+					</RippleEffect>
 				</View>
 			</SafeAreaView>
 		);

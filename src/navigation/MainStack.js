@@ -9,6 +9,7 @@ import {
 } from '@app/screens';
 
 import Colors from '@app/assets/colors';
+import ProfileStack from './ProfileStack';
 
 const activeTintLabelColor = Colors.primaryColor;
 const inactiveTintLabelColor = Colors.black;
@@ -42,7 +43,7 @@ export default createBottomTabNavigator(
 		// 	},
 		// },
 		Profil: {
-			screen: ProfilScreen,
+			screen: ProfileStack,
 			navigationOptions: {
 				tabBarIcon: TabIcon({ name: 'user' }),
 			},
