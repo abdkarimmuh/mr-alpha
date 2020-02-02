@@ -44,7 +44,7 @@ export default createBottomTabNavigator(
 		},
 	},
 	{
-		initialRouteName: 'Profil',
+		initialRouteName: 'Home',
 		swipeEnabled: true,
 		tabBarOptions: {
 			showLabel: false,

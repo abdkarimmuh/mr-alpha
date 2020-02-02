@@ -49,11 +49,7 @@ class CandidateProfileScreen extends PureComponent<Props> {
 		console.log(Metrics.DEVICE_WIDTH);
 		return (
 			<SafeAreaView style={{ flex: 1 }}>
-				<LayoutAppbar
-					title="Profil Calon"
-					hasBack
-					style={{ padding: 0, paddingBottom: 64 }}
-				>
+				<LayoutAppbar title="Profil Calon" hasBack style={{ padding: 0 }}>
 					<ScrollView>
 						<Swiper
 							height={Metrics.HeightCarousel}

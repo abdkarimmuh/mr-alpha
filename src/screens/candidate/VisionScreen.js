@@ -20,7 +20,7 @@ class VisionScreen extends PureComponent<Props> {
 				<LayoutAppbar
 					title="Visi Misi"
 					hasBack
-					style={{ padding: 0, paddingBottom: 64 }}
+					style={{ padding: 0, paddingBottom: 30 }}
 				>
 					<ScrollView>
 						<Image

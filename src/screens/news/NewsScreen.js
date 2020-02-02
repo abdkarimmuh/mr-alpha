@@ -102,27 +102,17 @@ class NewsScreen extends PureComponent<Props> {
 
 	render() {
 		return (
-			<SafeAreaView style={{ flex: 1 }}>
-				<LayoutAppbar
-					title="Berita"
-					hasBack
-					style={{ padding: 0, paddingBottom: 64 }}
-				>
-					<FlatList
-						data={Data}
-						renderItem={({ item }) => (
-							<CardNews
-								title={item.title}
-								description={item.description}
-								link={item.link}
-								data={item}
-							/>
-						)}
-						keyExtractor={item => item.id}
-						contentContainerStyle={{ padding: 24 }}
+			<LayoutAppbar title="Berita" hasBack>
+				{Data.map(item => (
+					<CardNews
+						title={item.title}
+						description={item.description}
+						link={item.link}
+						data={item}
+						key={item.id}
 					/>
-				</LayoutAppbar>
-			</SafeAreaView>
+				))}
+			</LayoutAppbar>
 		);
 	}
 }

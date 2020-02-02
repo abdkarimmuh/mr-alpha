@@ -22,44 +22,42 @@ class EditProfileScreen extends Component {
 	render() {
 		const { name, email } = this.state;
 		return (
-			<LayoutAppbar hasBack title="Edit Profil" style={{ padding: 0 }}>
-				<ScrollView contentContainerStyle={{ padding: 16, paddingBottom: 100 }}>
-					<Avatar.Text
-						size={80}
-						label="XD"
-						style={[styles.shadowOn, { alignSelf: 'center', marginBottom: 20 }]}
-					/>
+			<LayoutAppbar hasBack title="Edit Profil">
+				<Avatar.Text
+					size={80}
+					label="XD"
+					style={[styles.shadowOn, { alignSelf: 'center', marginBottom: 20 }]}
+				/>
 
-					<TextInput
-						label="Full Name"
-						value={name}
-						style={styles.noBorderInput}
-						autoCapitalize={'words'}
-						onChangeText={this._handleInput('name')}
-					/>
+				<TextInput
+					label="Full Name"
+					value={name}
+					style={styles.noBorderInput}
+					autoCapitalize={'words'}
+					onChangeText={this._handleInput('name')}
+				/>
 
-					<TextInput
-						label="Email"
-						value={email}
-						style={styles.noBorderInput}
-						keyboardType={'email-address'}
-						autoCapitalize={'none'}
-						onChangeText={this._handleInput('email')}
-					/>
+				<TextInput
+					label="Email"
+					value={email}
+					style={styles.noBorderInput}
+					keyboardType={'email-address'}
+					autoCapitalize={'none'}
+					onChangeText={this._handleInput('email')}
+				/>
 
-					<View style={styles.containerLeftHalfButton}>
-						<ButtonForm
-							label="Batal"
-							color={Colors.borderGrey}
-							onPress={goBack}
-						/>
-						<View style={{ width: 10 }} />
-						<ButtonForm
-							label="Simpan"
-							// onPress={() => NavigationServices.resetStackNavigate(['Main'])}
-						/>
-					</View>
-				</ScrollView>
+				<View style={styles.containerLeftHalfButton}>
+					<ButtonForm
+						label="Batal"
+						color={Colors.borderGrey}
+						onPress={goBack}
+					/>
+					<View style={{ width: 10 }} />
+					<ButtonForm
+						label="Simpan"
+						// onPress={() => NavigationServices.resetStackNavigate(['Main'])}
+					/>
+				</View>
 			</LayoutAppbar>
 		);
 	}

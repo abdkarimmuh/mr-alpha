@@ -1,9 +1,9 @@
-import React from 'react';
-import { View } from 'react-native';
-import { Appbar } from 'react-native-paper';
 import Colors from '@app/assets/colors';
 import { NavigationServices } from '@app/services';
-import strings from '~/assets/strings';
+import React from 'react';
+import { View, ScrollView } from 'react-native';
+import { Appbar } from 'react-native-paper';
+import strings from '@app/assets/strings';
 
 const LayoutAppbar = ({
 	title,
@@ -14,22 +14,27 @@ const LayoutAppbar = ({
 	...others
 }) => (
 	<>
-		<Appbar.Header style={{ backgroundColor: Colors.white }}>
-			{hasBack && (
-				<Appbar.BackAction
-					onPress={() => NavigationServices.goBack()}
+		<View style={{ flex: 1 }}>
+			<Appbar.Header style={{ backgroundColor: Colors.white }}>
+				{hasBack && (
+					<Appbar.BackAction
+						onPress={() => NavigationServices.goBack()}
+						color={Colors.black4A}
+					/>
+				)}
+				<Appbar.Content
+					title={title}
 					color={Colors.black4A}
+					style={{ fontFamily: strings.fontPrimary }}
 				/>
-			)}
-			<Appbar.Content
-				title={title}
-				color={Colors.black4A}
-				style={{ fontFamily: strings.fontPrimary }}
-			/>
-			{icon !== null && <Appbar.Action icon={icon} />}
-		</Appbar.Header>
-		<View style={[{ padding: 16 }, style]} {...others}>
-			{children}
+				{icon !== null && <Appbar.Action icon={icon} />}
+			</Appbar.Header>
+			<ScrollView
+				contentContainerStyle={[{ padding: 16, marginBottom: 30 }, style]}
+				{...others}
+			>
+				{children}
+			</ScrollView>
 		</View>
 	</>
 );
