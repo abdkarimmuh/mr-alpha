@@ -1,17 +1,12 @@
-import React, { PureComponent } from 'react';
-import {
-	SafeAreaView,
-	View,
-	StyleSheet,
-	TouchableNativeFeedback,
-} from 'react-native';
-import { Appbar, List, RippleEffect, Divider, Avatar } from '@app/components';
 import Colors from '@app/assets/colors';
 import Styles from '@app/assets/styles';
+import { Avatar, Divider, List, RippleEffect, Text } from '@app/components';
+import { LayoutAppbar } from '@app/containers';
 import { NavigationServices } from '@app/services';
+import React, { PureComponent } from 'react';
+import { ScrollView, StyleSheet } from 'react-native';
 
 const navigateToSettings = name => NavigationServices.navigate(name);
-const navigateToEditProfile = () => NavigationServices.navigate('EditProfile');
 
 type Props = {};
 
@@ -52,11 +47,12 @@ class ProfilScreen extends PureComponent<Props> {
 	render() {
 		const { profile } = this.state;
 		return (
-			<SafeAreaView style={{ flex: 1 }}>
-				<Appbar.Header style={{ backgroundColor: Colors.white }}>
-					<Appbar.Content title="Profil" color={Colors.black4A} />
-				</Appbar.Header>
-				<View style={{ flexDirection: 'column', padding: 24 }}>
+			<LayoutAppbar title="Profil" style={{ padding: 0, marginBottom: 64 }}>
+				<ScrollView contentContainerStyle={{ padding: 16 }}>
+					<Text style={{ textAlign: 'center', marginBottom: 16 }}>
+						<Text>Anda Seorang </Text>
+						<Text bold>Relawan</Text>
+					</Text>
 					<Avatar.Text
 						size={80}
 						label="XD"
@@ -95,8 +91,8 @@ class ProfilScreen extends PureComponent<Props> {
 							style={{ padding: 0 }}
 						/>
 					</RippleEffect>
-				</View>
-			</SafeAreaView>
+				</ScrollView>
+			</LayoutAppbar>
 		);
 	}
 }

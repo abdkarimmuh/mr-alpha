@@ -17,6 +17,7 @@ const ProfileStack = createStackNavigator(
 	},
 	{
 		headerMode: 'none',
+		initialRouteName: 'BeCoordinator',
 	},
 );
 

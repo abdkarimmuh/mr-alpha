@@ -22,4 +22,15 @@ export default StyleSheet.create({
 		color: Colors.black4A,
 		fontFamily: strings.fontPrimary,
 	},
+	noBorderInput: {
+		backgroundColor: Colors.transparent,
+		fontSize: 12,
+		marginBottom: 24,
+	},
+	containerLeftHalfButton: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		marginTop: 24,
+		alignSelf: 'flex-end',
+	},
 });

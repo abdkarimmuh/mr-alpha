@@ -1,14 +1,8 @@
-import React from 'react';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import {
-	HomeScreen,
-	ProfilScreen,
-	PublicBoardScreen,
-	AfiliasiScreen,
-} from '@app/screens';
-
 import Colors from '@app/assets/colors';
+import { AfiliasiScreen, HomeScreen } from '@app/screens';
+import React from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 import ProfileStack from './ProfileStack';
 
 const activeTintLabelColor = Colors.primaryColor;
@@ -50,7 +44,7 @@ export default createBottomTabNavigator(
 		},
 	},
 	{
-		// initialRouteName: 'Afiliasi',
+		initialRouteName: 'Profil',
 		swipeEnabled: true,
 		tabBarOptions: {
 			showLabel: false,

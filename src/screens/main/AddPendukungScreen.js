@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
 		backgroundColor: Colors.transparent,
 		fontSize: 12,
 		padding: -10,
-		marginHorizontal: -11,
 		marginBottom: 16,
 	},
 	containerBtnButtom: {
