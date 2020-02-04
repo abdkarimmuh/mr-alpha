@@ -3,6 +3,11 @@ import Colors from '@app/assets/colors';
 import strings from '../strings';
 
 export default StyleSheet.create({
+	backgroundDefault: {
+		color: Colors.backgroudDefault,
+		flex: 1,
+		padding: 24
+	},
 	shadowOn: {
 		shadowColor: '#000',
 		shadowOffset: {
@@ -33,4 +38,10 @@ export default StyleSheet.create({
 		marginTop: 24,
 		alignSelf: 'flex-end',
 	},
+	imageMainMenu: {
+		width: 32,
+		height: 32,
+		resizeMode: 'contain',
+		alignSelf: 'center'
+	}
 });

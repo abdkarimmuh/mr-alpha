@@ -1,17 +1,18 @@
-import Colors from '@app/assets/colors';
-import Styles from '@app/assets/styles';
+import React from 'react';
+import { StyleSheet, View, Image } from 'react-native';
 import { Card, RippleEffect, Text } from '@app/components';
 import { NavigationServices } from '@app/services';
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+import Colors from '@app/assets/colors';
+import Styles from '@app/assets/styles';
+import Images from '@app/assets/images';
 
 // 320,375,425, 384,424
 
 const Menu = [
-	{ id: '1', title: 'Profil', icon: 'users', screen: 'CandidateProfile' },
-	{ id: '2', title: 'Berita', icon: 'book-open', screen: 'News' },
-	{ id: '3', title: 'Media', icon: 'image', screen: 'Media' },
+	{ id: '1', title: 'Profil', icon: Images.icon.mainProfile, screen: 'CandidateProfile' },
+	{ id: '2', title: 'Berita', icon: Images.icon.mainNews, screen: 'News' },
+	{ id: '3', title: 'Media', icon: Images.icon.mainMedia, screen: 'Media' },
 ];
 
 const CardMenu = ({ title, icon, screen }) => (
@@ -22,14 +23,9 @@ const CardMenu = ({ title, icon, screen }) => (
 				style={{ flex: 1, justifyContent: 'center' }}
 			>
 				<Card.Content>
-					<Icon
-						name={icon}
-						size={32}
-						color={Colors.primaryColor}
-						style={{
-							textAlign: 'center',
-							textAlignVertical: 'center',
-						}}
+					<Image
+						source={icon}
+						style={Styles.imageMainMenu}
 					/>
 				</Card.Content>
 			</RippleEffect>
@@ -43,8 +39,9 @@ const Layout1 = () => (
 		style={{
 			flexDirection: 'row',
 			flexWrap: 'wrap',
-			justifyContent: 'space-between',
-			marginBottom: 35,
+			justifyContent: 'space-evenly',
+			marginTop: 24,
+			marginBottom: 24,
 		}}
 	>
 		{Menu.map(item => (
