@@ -4,6 +4,7 @@ import { NewsContainer } from '@app/containers';
 import React, { Component } from 'react';
 import { Image, ScrollView, StyleSheet, View } from 'react-native';
 import metrics from '~/themes/metrics';
+import { NavigationServices } from '@app/services';
 
 const dWidth = metrics.DEVICE_WIDTH - 32;
 
@@ -32,7 +33,6 @@ class GuestScreen extends Component {
 			<View>
 				<ScrollView contentContainerStyle={{ paddingBottom: 60 }}>
 					<BannerCarousel />
-
 					<View style={{ padding: 16 }}>
 						<View style={styles.profileContainer}>
 							<View>
@@ -41,7 +41,6 @@ class GuestScreen extends Component {
 									style={styles.imageSize}
 								/>
 							</View>
-
 							<View
 								style={{
 									justifyContent: 'center',
@@ -56,12 +55,13 @@ class GuestScreen extends Component {
 								</Text>
 							</View>
 						</View>
-
 						<NewsContainer />
 					</View>
 				</ScrollView>
-
-				<FloatingButton onPress={() => console.log('uwuw')} label="LOGIN" />
+				<FloatingButton
+					onPress={() => NavigationServices.navigate('Auth')}
+					label="LOGIN"
+				/>
 			</View>
 		);
 	}
