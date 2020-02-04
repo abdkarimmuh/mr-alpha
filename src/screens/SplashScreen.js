@@ -33,7 +33,7 @@ class SplashScreen extends Component<Props> {
 
 		// if (token === null) {
 		this.setState({ isFetching: false });
-		this.goTo('Auth');
+		this.goTo('Guest');
 		// } else {
 		//   this.props.setToken(token);
 		//   this.getUser(token);

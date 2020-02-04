@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "863309085609",
+    "firebase_url": "https://mr-alpha-dev.firebaseio.com",
+    "project_id": "mr-alpha-dev",
+    "storage_bucket": "mr-alpha-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:863309085609:android:daeedadc2009470a89e2b8",
+        "android_client_info": {
+          "package_name": "id.mralpha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "863309085609-vas7co8u4sppg24imvrto25th75uqse2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRFCXBhjorx92FxO5mXLn5woj7fIn6zjk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "863309085609-vas7co8u4sppg24imvrto25th75uqse2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,8 +2,9 @@ import { LayoutAppbarTab } from '@app/containers';
 import React, { PureComponent } from 'react';
 import { SafeAreaView } from 'react-native';
 import { SceneMap } from 'react-native-tab-view';
-import RelawanAktifContainer from './containers/RelawanAktifContainer';
-import RelawanPasifContainer from './containers/RelawanPasifContainer';
+import RelawanContainer from './containers/RelawanContainer';
+import PendukungContainer from './containers/PendukungContainer';
+import KoordinatorContainer from './containers/KoordinatorContainer';
 import NavigationServices from '@app/services/NavigationServices';
 
 const navigateToAddPendukung = () =>
@@ -11,36 +12,50 @@ const navigateToAddPendukung = () =>
 
 type Props = {};
 
-const renderScene = SceneMap({
-	active: RelawanAktifContainer,
-	pasive: RelawanPasifContainer,
+const renderSceneRelawan = SceneMap({
+	relawan: RelawanContainer,
+	pendukung: PendukungContainer,
 });
+
+const renderSceneKoordinator = SceneMap({
+	koordinator: KoordinatorContainer,
+	relawan: RelawanContainer,
+	pendukung: PendukungContainer,
+});
+
+const routeRelawan = [
+	{ key: 'relawan', title: 'Relawan' },
+	{ key: 'pendukung', title: 'Pendukung' },
+];
+
+const routeKoordinator = [
+	{ key: 'koordinator', title: 'Koordinator' },
+	{ key: 'relawan', title: 'Relawan' },
+	{ key: 'pendukung', title: 'Pendukung' },
+];
 
 class AfiliasiScreen extends PureComponent<Props> {
 	constructor(props) {
 		super(props);
 		this.state = {
 			index: 0,
-			routes: [
-				{ key: 'active', title: 'Relawan' },
-				{ key: 'pasive', title: 'Pendukung' },
-			],
+			isRelawan: false,
 		};
 	}
 
 	componentDidMount() {}
 
 	render() {
-		const { index, routes } = this.state;
+		const { index, isRelawan } = this.state;
 		return (
 			<SafeAreaView style={{ flex: 1 }}>
 				<LayoutAppbarTab
 					title="Afiliasi"
-					icon={index !== 0 ? 'plus' : 'chain'}
+					icon={index === 2 ? 'plus' : index === 1 ? 'chain' : null}
 					onPress={index !== 0 ? navigateToAddPendukung : null}
 					index={index}
-					routes={routes}
-					renderScene={renderScene}
+					routes={isRelawan ? routeRelawan : routeKoordinator}
+					renderScene={isRelawan ? renderSceneRelawan : renderSceneKoordinator}
 					onIndexChange={value => this.setState({ index: value })}
 					hasMessage
 				/>

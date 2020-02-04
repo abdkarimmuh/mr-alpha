@@ -36,7 +36,6 @@ const LayoutAppbarTab = ({
 					color={Colors.black4A}
 				/>
 			)}
-
 			<Appbar.Content title={title} color={Colors.black4A} />
 			{hasMessage && (
 				<Appbar.Action icon={'envelope'} onPress={navigateToMessage} />

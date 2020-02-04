@@ -13,20 +13,20 @@ const Data = [
 	{ id: '9', name: 'Setyo' },
 ];
 
-const RelawanPasifContainer = () => {
+const RelawanContainer = () => {
 	const [data, setData] = useState([]);
 	const [count, setCount] = useState(0);
 
 	useEffect(() => {
 		setData(Data);
-		setCount(0);
+		setCount(Data.length);
 	}, [count]);
 
 	return (
 		<>
-			<List title="Total Relawan Pasif" data={data} count={count} />
+			<List title="Total Relawan Aktif" data={data} count={count} />
 		</>
 	);
 };
 
-export default RelawanPasifContainer;
+export default RelawanContainer;

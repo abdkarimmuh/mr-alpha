@@ -28,7 +28,9 @@ type Props = {};
 class MessageScreen extends PureComponent<Props> {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			isRelawan: false,
+		};
 	}
 
 	componentDidMount() {}
@@ -53,7 +55,6 @@ class MessageScreen extends PureComponent<Props> {
 								</Text>
 								<Text tiny>{item.date}</Text>
 							</Text>
-
 							<Text numberOfLines={2}>{item.message}</Text>
 						</TouchableOpacity>
 					))}

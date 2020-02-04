@@ -14,11 +14,10 @@ const data = {
 class DetailMessageScreen extends PureComponent {
 	render() {
 		return (
-			<SafeAreaView>
+			<SafeAreaView style={{ flex: 1 }}>
 				<LayoutAppbar title="Detail Pesan" hasBack>
 					<Text bold>{data.sender}</Text>
 					<Text style={{ marginBottom: 20 }}>{data.date}</Text>
-
 					<Text>{data.message}</Text>
 				</LayoutAppbar>
 			</SafeAreaView>
