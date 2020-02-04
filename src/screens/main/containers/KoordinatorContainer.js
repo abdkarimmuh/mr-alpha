@@ -2,27 +2,48 @@ import React, { useState, useEffect } from 'react';
 import { Text, View } from 'react-native';
 import TreeView from 'react-native-final-tree-view';
 import { ScrollView } from 'react-native-gesture-handler';
+import Item from './components/Item';
 
 const Data = [
 	{
-		id: 'Grandparent',
+		id: '1',
 		name: 'Grandpa',
-		age: 78,
 		children: [
 			{
-				id: 'Me',
+				id: '2',
 				name: 'Me',
-				age: 30,
 				children: [
 					{
-						id: 'Erick',
+						id: '3',
 						name: 'Erick',
-						age: 10,
 					},
 					{
-						id: 'Rose',
+						id: '4',
 						name: 'Rose',
-						age: 12,
+					},
+				],
+			},
+			{
+				id: '5',
+				name: 'Budi',
+				children: [
+					{
+						id: '6',
+						name: 'Budi',
+						children: [
+							{
+								id: '8',
+								name: 'Nino',
+							},
+							{
+								id: '9',
+								name: 'Hakim',
+							},
+						],
+					},
+					{
+						id: '7',
+						name: 'Oki',
 					},
 				],
 			},
@@ -54,15 +75,12 @@ const KoordinatorContainer = () => {
 			<TreeView
 				data={data}
 				renderNode={({ node, level, isExpanded, hasChildrenNodes }) => (
-					<View>
-						<Text
-							style={{
-								marginLeft: 25 * level,
-							}}
-						>
-							{getIndicator(isExpanded, hasChildrenNodes)} {node.name}
-						</Text>
-					</View>
+					<Item
+						hasChildrenNodes={hasChildrenNodes}
+						isExpanded={isExpanded}
+						level={level}
+						node={node}
+					/>
 				)}
 			/>
 		</ScrollView>
