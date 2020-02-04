@@ -11,6 +11,7 @@ const LayoutAppbar = ({
 	hasBack = false,
 	style,
 	children,
+	isScrolling = true,
 	...others
 }) => (
 	<>
@@ -29,12 +30,16 @@ const LayoutAppbar = ({
 				/>
 				{icon !== null && <Appbar.Action icon={icon} />}
 			</Appbar.Header>
-			<ScrollView
-				contentContainerStyle={[{ padding: 16, marginBottom: 30 }, style]}
-				{...others}
-			>
-				{children}
-			</ScrollView>
+			{isScrolling ? (
+				<ScrollView
+					contentContainerStyle={[{ padding: 16, marginBottom: 30 }, style]}
+					{...others}
+				>
+					{children}
+				</ScrollView>
+			) : (
+				<>{children}</>
+			)}
 		</View>
 	</>
 );

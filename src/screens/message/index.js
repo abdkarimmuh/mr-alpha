@@ -1,4 +1,5 @@
 import MessageScreen from './MessageScreen';
 import DetailMessageScreen from './DetailMessageScreen';
+import NewMessageScreen from './NewMessageScreen';
 
-export { MessageScreen, DetailMessageScreen };
+export { MessageScreen, DetailMessageScreen, NewMessageScreen };
