@@ -1,5 +1,5 @@
 import Colors from '@app/assets/colors';
-import { ButtonForm, TextInput } from '@app/components';
+import { ButtonForm, TextInput, DropdownPicker } from '@app/components';
 import { LayoutAppbar } from '@app/containers';
 import NavigationServices from '@app/services/NavigationServices';
 import React, { PureComponent } from 'react';
@@ -20,6 +20,12 @@ const styles = StyleSheet.create({
 	},
 });
 
+const data = [
+	{
+		label: 'data 1',
+		value: 'data1',
+	},
+];
 class NewMessageScreen extends PureComponent {
 	constructor(props) {
 		super(props);
@@ -52,6 +58,14 @@ class NewMessageScreen extends PureComponent {
 						multiline
 						numberOfLines={5}
 					/>
+
+					<DropdownPicker
+						data={data}
+						placeholder="Pilih tujuan pesan"
+						label="Subject"
+						onValueChange={value => this.setState({ subject: value })}
+					/>
+
 					<View style={styles.containerBtnButtom}>
 						<ButtonForm
 							label="Batal"
