@@ -11,7 +11,6 @@ import UserRedux from '@app/redux/user';
 const styles = StyleSheet.create({
 	input: {
 		backgroundColor: Colors.transparent,
-		fontSize: 12,
 		marginBottom: 24,
 	},
 	containerBtnButtom: {
@@ -20,7 +19,7 @@ const styles = StyleSheet.create({
 		marginTop: 24,
 		alignSelf: 'flex-end',
 	},
-	btnCancel: { backgroundColor: Colors.grey, marginRight: 12 },
+	btnCancel: { backgroundColor: Colors.grey, marginRight: 16 },
 });
 
 type Props = {
@@ -38,7 +37,7 @@ class ChangePasswordScreen extends PureComponent<Props> {
 		};
 	}
 
-	componentDidMount() {}
+	componentDidMount() { }
 
 	pressCancel = () => {
 		NavigationServices.goBack();
@@ -114,6 +113,7 @@ class ChangePasswordScreen extends PureComponent<Props> {
 				)}
 				<View style={styles.containerBtnButtom}>
 					<Button
+						dark
 						mode="contained"
 						style={styles.btnCancel}
 						onPress={() => this.pressCancel()}
@@ -121,6 +121,7 @@ class ChangePasswordScreen extends PureComponent<Props> {
 						CANCEL
 					</Button>
 					<Button
+						dark
 						mode="contained"
 						onPress={() => this.pressSubmit()}
 						disabled={this.state.isFetching}

@@ -16,7 +16,7 @@ export default StyleSheet.create({
 		},
 		shadowOpacity: 0.23,
 		shadowRadius: 2.62,
-		elevation: 4,
+		elevation: 2,
 	},
 	whiteBackground: {
 		backgroundColor: Colors.white,
@@ -43,5 +43,19 @@ export default StyleSheet.create({
 		height: 32,
 		resizeMode: 'contain',
 		alignSelf: 'center'
+	},
+	profileCandidate: {
+		width: 80,
+		height: 80,
+		borderRadius: 2,
+	},
+	containerProfileCandidate: {
+		width: 80,
+		height: 80,
+		borderRadius: 2,
+		position: 'relative',
+		top: -40,
+		marginBottom: -40,
+		elevation: 2
 	}
 });

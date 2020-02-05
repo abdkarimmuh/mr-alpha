@@ -92,7 +92,7 @@ class RegisterScreen extends PureComponent<Props> {
 						this.setState({ checked: !checked });
 					}}
 				/>
-				<View>
+				<View style={{ marginLeft: 8 }}>
 					<Text>{Strings.REFERENCE} </Text>
 					<Text style={{ fontWeight: 'bold' }}>{Strings.TERM}</Text>
 				</View>
@@ -112,7 +112,6 @@ class RegisterScreen extends PureComponent<Props> {
 			return (
 				<SafeAreaView style={{ flex: 1 }}>
 					<ScrollView contentContainerStyle={InnerStyles.container}>
-						<Layout />
 						<Layout style={{ marginBottom: 16 }}>
 							<Image source={Images.logo.banner} style={InnerStyles.logo} />
 							<Form
@@ -152,9 +151,9 @@ class RegisterScreen extends PureComponent<Props> {
 									/>
 								)}
 							/>
-							{/* {this.termReference()} */}
+							{this.termReference()}
 						</Layout>
-						<Layout style={{ marginBottom: 16 }}>
+						<Layout>
 							<ButtonForm
 								label="Register"
 								onPress={() => NavigationServices.navigate('Register')}

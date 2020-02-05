@@ -21,13 +21,13 @@ const data = [
 class VideoContainer extends PureComponent {
 	render() {
 		return (
-			<ScrollView contentContainerStyle={{ padding: 20 }}>
+			<ScrollView contentContainerStyle={{ paddingVertical: 12, paddingHorizontal: 24 }}>
 				{data.map(item => (
 					<View
 						key={item.id}
 						style={[
 							styles.shadowOn,
-							{ backgroundColor: 'white', marginBottom: 20 },
+							{ backgroundColor: 'white', marginVertical: 12 },
 						]}
 					>
 						<Text numberOfLines={1} bold style={{ margin: 16 }}>
@@ -37,8 +37,8 @@ class VideoContainer extends PureComponent {
 							source={images.dummy.sixteenToNine}
 							style={{
 								resizeMode: 'contain',
-								width: Metrics.DEVICE_WIDTH - 40,
-								height: ((Metrics.DEVICE_WIDTH - 40) * 9) / 16,
+								width: Metrics.DEVICE_WIDTH - 48,
+								height: ((Metrics.DEVICE_WIDTH - 48) * 9) / 16,
 							}}
 						/>
 					</View>

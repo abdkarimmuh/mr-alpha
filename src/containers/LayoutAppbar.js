@@ -3,7 +3,8 @@ import { NavigationServices } from '@app/services';
 import React from 'react';
 import { View, ScrollView } from 'react-native';
 import { Appbar } from 'react-native-paper';
-import strings from '@app/assets/strings';
+import Strings from '@app/assets/strings';
+import Styles from '@app/assets/styles';
 
 const LayoutAppbar = ({
 	title,
@@ -14,33 +15,33 @@ const LayoutAppbar = ({
 	isScrolling = true,
 	...others
 }) => (
-	<>
-		<View style={{ flex: 1 }}>
-			<Appbar.Header style={{ backgroundColor: Colors.white }}>
-				{hasBack && (
-					<Appbar.BackAction
-						onPress={() => NavigationServices.goBack()}
+		<>
+			<View style={{ flex: 1 }}>
+				<Appbar.Header style={{ backgroundColor: Colors.white }}>
+					{hasBack && (
+						<Appbar.BackAction
+							onPress={() => NavigationServices.goBack()}
+							color={Colors.black4A}
+						/>
+					)}
+					<Appbar.Content
+						title={title}
 						color={Colors.black4A}
+						style={{ fontFamily: Strings.fontPrimary }}
 					/>
-				)}
-				<Appbar.Content
-					title={title}
-					color={Colors.black4A}
-					style={{ fontFamily: strings.fontPrimary }}
-				/>
-				{icon !== null && <Appbar.Action icon={icon} />}
-			</Appbar.Header>
-			{isScrolling ? (
-				<ScrollView
-					contentContainerStyle={[{ padding: 16, marginBottom: 30 }, style]}
-					{...others}
-				>
-					{children}
-				</ScrollView>
-			) : (
-				<>{children}</>
-			)}
-		</View>
-	</>
-);
+					{icon !== null && <Appbar.Action icon={icon} />}
+				</Appbar.Header>
+				{isScrolling ? (
+					<ScrollView
+						contentContainerStyle={[Styles.backgroundDefault, style]}
+						{...others}
+					>
+						{children}
+					</ScrollView>
+				) : (
+						<>{children}</>
+					)}
+			</View>
+		</>
+	);
 export default LayoutAppbar;

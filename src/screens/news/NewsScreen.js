@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { SafeAreaView, FlatList } from 'react-native';
+import { SafeAreaView, FlatList, View, ScrollView } from 'react-native';
 import { CardNews } from '@app/components';
 import { LayoutAppbar } from '@app/containers';
 
@@ -98,20 +98,22 @@ class NewsScreen extends PureComponent<Props> {
 		this.state = {};
 	}
 
-	componentDidMount() {}
+	componentDidMount() { }
 
 	render() {
 		return (
-			<LayoutAppbar title="Berita" hasBack>
-				{Data.map(item => (
-					<CardNews
-						title={item.title}
-						description={item.description}
-						link={item.link}
-						data={item}
-						key={item.id}
-					/>
-				))}
+			<LayoutAppbar title="Berita" hasBack isScrolling={false}>
+				<ScrollView contentContainerStyle={{ paddingHorizontal: 24, paddingTop: 24 }}>
+					{Data.map(item => (
+						<CardNews
+							title={item.title}
+							description={item.description}
+							link={item.link}
+							data={item}
+							key={item.id}
+						/>
+					))}
+				</ScrollView>
 			</LayoutAppbar>
 		);
 	}

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { Image, SafeAreaView, ScrollView, View } from 'react-native';
 import Images from '@app/assets/images';
 import Strings from '@app/assets/strings';
+import Styles from '@app/assets/styles';
 import { Text, Card, Surface } from '@app/components';
 import { LayoutAppbar } from '@app/containers';
 import { Metrics } from '@app/themes';
@@ -13,7 +14,7 @@ const profile = {
 	candidate: 'Calon Gubernur DKI Jakarta',
 	biography: `${Strings.LOREMIPSUM}\n${Strings.LOREMIPSUM}\n\n${
 		Strings.LOREMIPSUM
-	}\n${Strings.LOREMIPSUM}`,
+		}\n${Strings.LOREMIPSUM}`,
 };
 
 class VisionScreen extends PureComponent<Props> {
@@ -23,15 +24,15 @@ class VisionScreen extends PureComponent<Props> {
 				<LayoutAppbar
 					title="Profil Calon"
 					hasBack
-					style={{ padding: 0, paddingBottom: 30 }}
+					isScrolling={false}
 				>
 					<ScrollView>
 						<Image
-							source={Images.logo.banner}
+							source={Images.dummy.sixteenToNine}
 							style={{
-								height: Metrics.HeightCarousel,
+								height: 200,
 								width: Metrics.DEVICE_WIDTH,
-								resizeMode: 'contain',
+								resizeMode: 'cover',
 							}}
 						/>
 						{/* <Card
@@ -45,30 +46,14 @@ class VisionScreen extends PureComponent<Props> {
 						>
 							<Card.Cover source={{ uri: 'https://via.placeholder.com/150' }} />
 						</Card> */}
-						<Surface
-							style={{
-								alignItems: 'center',
-								justifyContent: 'center',
-								elevation: 4,
-								position: 'absolute',
-								top: 128,
-								left: 24,
-							}}
-						>
-							<Image
-								source={{ uri: 'https://via.placeholder.com/150' }}
-								style={{
-									height: 100,
-									width: 100,
-								}}
-							/>
+						<Surface style={[Styles.containerProfileCandidate, { marginLeft: 24 }]}>
+							<Image source={Images.dummy_anis_sandi.profile} style={Styles.profileCandidate} />
 						</Surface>
-						<View style={{ margin: 16, paddingTop: 32 }}>
+						<View style={Styles.backgroundDefault}>
 							<Text title>{profile.name}</Text>
-							<Text caption style={{ marginBottom: 20 }}>
+							<Text caption style={{ marginBottom: 24 }}>
 								{profile.candidate}
 							</Text>
-
 							<Text>{profile.biography}</Text>
 						</View>
 					</ScrollView>

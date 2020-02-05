@@ -20,7 +20,7 @@ class NewsDetailScreen extends PureComponent<Props> {
 		};
 	}
 
-	componentDidMount() {}
+	componentDidMount() { }
 
 	render() {
 		const { title, description, author, date } = this.state;
@@ -32,10 +32,10 @@ class NewsDetailScreen extends PureComponent<Props> {
 					style={{ padding: 0 }}
 				>
 					<ScrollView
-						contentContainerStyle={{ padding: 24, paddingBottom: 80 }}
+						contentContainerStyle={{ padding: 24 }}
 					>
-						<Title style={{ color: Colors.black4A }}>{title}</Title>
-						<View style={{ flexDirection: 'row', marginVertical: 8 }}>
+						<Title style={{ color: Colors.black4A, marginBottom: 24 }}>{title}</Title>
+						<View style={{ flexDirection: 'row', marginVertical: 12 }}>
 							<Text style={[Styles.font, { fontWeight: 'bold' }]}>
 								{author}
 							</Text>

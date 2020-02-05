@@ -5,6 +5,7 @@ import { LayoutAppbar } from '@app/containers';
 import { Metrics } from '@app/themes';
 import React, { PureComponent } from 'react';
 import { Image, SafeAreaView, ScrollView, View } from 'react-native';
+import Styles from '@app/assets/styles';
 
 type Props = {};
 
@@ -20,33 +21,33 @@ class VisionScreen extends PureComponent<Props> {
 				<LayoutAppbar
 					title="Visi Misi"
 					hasBack
-					style={{ padding: 0, paddingBottom: 30 }}
+					style={{ padding: 0 }}
 				>
 					<ScrollView>
 						<Image
-							source={Images.logo.banner}
+							source={Images.dummy_anis_sandi.header}
 							style={{
 								height: Metrics.HeightCarousel,
 								width: Metrics.DEVICE_WIDTH,
-								resizeMode: 'contain',
+								resizeMode: 'cover',
 							}}
 						/>
-						<View style={{ margin: 16 }}>
+						<View style={Styles.backgroundDefault}>
 							<Text
 								medium
 								bold
-								style={{ textAlign: 'center', marginBottom: 16 }}
+								style={{ textAlign: 'center', marginBottom: 12 }}
 							>
 								Visi
 							</Text>
-							<Text tiny style={{ textAlign: 'center', marginBottom: 40 }}>
+							<Text tiny style={{ textAlign: 'center', marginBottom: 48 }}>
 								{vision.visi}
 							</Text>
 
 							<Text
 								medium
 								bold
-								style={{ textAlign: 'center', marginBottom: 16 }}
+								style={{ textAlign: 'center', marginBottom: 12 }}
 							>
 								Misi
 							</Text>

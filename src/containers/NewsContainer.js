@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Text, Button, CardNews } from '@app/components';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import Styles from '@app/assets/styles';
 import Colors from '@app/assets/colors';
 import { NavigationServices } from '@app/services';
@@ -45,8 +45,8 @@ const NewsContainer = () => {
 	}, []);
 
 	return (
-		<View>
-			<Text bold medium style={{ marginBottom: 16 }}>
+		<ScrollView style={{ marginTop: 24 }}>
+			<Text bold title caption style={{ marginBottom: 16 }}>
 				Berita Terbaru
 			</Text>
 			{data.map(item => (
@@ -65,7 +65,7 @@ const NewsContainer = () => {
 			>
 				Lihat Berita Lainnya
 			</Button>
-		</View>
+		</ScrollView>
 	);
 };
 

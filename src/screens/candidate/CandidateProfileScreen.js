@@ -1,6 +1,6 @@
 import colors from '@app/assets/colors';
 import Styles from '@app/assets/styles';
-import { Avatar, List, Text } from '@app/components';
+import { Avatar, List, Text, Surface } from '@app/components';
 import { Metrics } from '@app/themes';
 import React, { PureComponent } from 'react';
 import {
@@ -9,10 +9,12 @@ import {
 	StyleSheet,
 	TouchableWithoutFeedback,
 	View,
+	Image
 } from 'react-native';
 import Swiper from 'react-native-swiper';
 import { LayoutAppbar } from '@app/containers';
 import NavigationServices from '@app/services/NavigationServices';
+import Images from '@app/assets/images';
 
 type Props = {};
 
@@ -22,10 +24,12 @@ const profileData = {
 		{
 			name: 'Anies Baswedan',
 			cadidate: 'Calon Gubernur DKI Jakarta',
+			image: Images.dummy_anis_sandi.profile1
 		},
 		{
 			name: 'Sandiaga Uno',
 			cadidate: 'Calon Wakil Gubernur DKI Jakarta',
+			image: Images.dummy_anis_sandi.profile2
 		},
 	],
 };
@@ -42,15 +46,15 @@ class CandidateProfileScreen extends PureComponent<Props> {
 		};
 	}
 
-	componentDidMount() {}
+	componentDidMount() { }
 
 	render() {
-		const { banner } = this.state;
+		// const { banner } = this.state;
 		return (
 			<SafeAreaView style={{ flex: 1 }}>
-				<LayoutAppbar title="Profil Calon" hasBack style={{ padding: 0 }}>
+				<LayoutAppbar title="Profil Calon" hasBack isScrolling={false}>
 					<ScrollView>
-						<Swiper
+						{/* <Swiper
 							height={Metrics.HeightCarousel}
 							autoplay={true}
 							showsPagination={true}
@@ -60,20 +64,23 @@ class CandidateProfileScreen extends PureComponent<Props> {
 									<Text style={styles.text}>{item.url}</Text>
 								</View>
 							))}
-						</Swiper>
-						<View style={{ margin: 16 }}>
+						</Swiper> */}
+						<Image source={Images.dummy.sixteenToNine} style={{ width: '100%', height: 200, resizeMode: 'cover' }} />
+						<Surface style={[Styles.containerProfileCandidate, { alignSelf: 'center' }]}>
+							<Image source={Images.dummy_anis_sandi.profile} style={Styles.profileCandidate} />
+						</Surface>
+						<View style={Styles.backgroundDefault}>
 							<Text caption>Lihat Visi Misi</Text>
 							<Text title>{profileData.name}</Text>
-
 							<TouchableWithoutFeedback
 								onPress={() => NavigationServices.navigate('Vision')}
 							>
 								<View
 									style={{
 										backgroundColor: colors.primaryColor,
-										padding: 16,
+										padding: 24,
 										alignItems: 'center',
-										marginVertical: 16,
+										marginVertical: 24,
 									}}
 								>
 									<Text white>VISI / MISI</Text>
@@ -83,8 +90,8 @@ class CandidateProfileScreen extends PureComponent<Props> {
 								</View>
 							</TouchableWithoutFeedback>
 
-							<Text caption>Lihat Profil</Text>
-							<Text title style={{ marginBottom: 8 }}>
+							<Text caption style={{ marginTop: 12 }}>Lihat Profil</Text>
+							<Text title>
 								{profileData.name}
 							</Text>
 
@@ -93,10 +100,10 @@ class CandidateProfileScreen extends PureComponent<Props> {
 									key={item.name}
 									title={`Profil ${item.name}`}
 									description={item.cadidate}
-									left={() => <Avatar.Text label="XD" />}
+									left={() => <Image source={item.image} style={{ width: 64, height: 64, resizeMode: 'cover', borderRadius: 32, marginRight: 8 }} />}
 									style={[
 										Styles.shadowOn,
-										{ backgroundColor: 'white', marginVertical: 8 },
+										{ backgroundColor: 'white', marginTop: 24, padding: 16 },
 									]}
 									onPress={() => NavigationServices.navigate('Candidate')}
 								/>

@@ -38,5 +38,5 @@ const CardNews = ({ title, description, link, data }) => (
 export default CardNews;
 
 const styles = StyleSheet.create({
-	cardContainer: { flex: 1, marginVertical: 8 },
+	cardContainer: { flex: 1, marginBottom: 24 },
 });

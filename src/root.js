@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { Provider } from 'react-redux';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { theme } from '@app/themes';
 import { BarStatus } from '@app/components';
@@ -17,7 +18,7 @@ export default class AppRoot extends Component {
 			<Provider store={store}>
 				<PaperProvider
 					theme={theme}
-					settings={{ icon: props => <FontAwesome {...props} /> }}
+					settings={{ icon: props => <MaterialCommunityIcons {...props} /> }}
 				>
 					<BarStatus />
 					<AppNavigation

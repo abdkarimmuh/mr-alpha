@@ -41,7 +41,6 @@ const Layout1 = () => (
 			flexWrap: 'wrap',
 			justifyContent: 'space-evenly',
 			marginTop: 24,
-			marginBottom: 24,
 		}}
 	>
 		{Menu.map(item => (
@@ -112,6 +111,6 @@ export default MenuContainer;
 
 const InnerStyles = StyleSheet.create({
 	container: { flexDirection: 'column', margin: 8 },
-	title: { textAlign: 'center', marginTop: 8 },
+	title: { textAlign: 'center', marginTop: 16 },
 	cardContainer: { width: 80, height: 80 },
 });

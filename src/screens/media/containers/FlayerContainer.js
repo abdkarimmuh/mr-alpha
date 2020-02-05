@@ -21,13 +21,13 @@ const data = [
 class FlayerContainer extends Component {
 	render() {
 		return (
-			<ScrollView contentContainerStyle={{ padding: 20 }}>
+			<ScrollView contentContainerStyle={{ paddingVertical: 12, paddingHorizontal: 24 }}>
 				{data.map(item => (
 					<View
 						key={item.id}
 						style={[
 							styles.shadowOn,
-							{ backgroundColor: 'white', marginBottom: 20 },
+							{ backgroundColor: 'white', marginVertical: 12 },
 						]}
 					>
 						<Text numberOfLines={1} bold style={{ margin: 16 }}>
@@ -36,8 +36,8 @@ class FlayerContainer extends Component {
 						<Image
 							source={item.image}
 							style={{
-								width: Metrics.DEVICE_WIDTH - 40,
-								height: Metrics.DEVICE_WIDTH - 40,
+								width: Metrics.DEVICE_WIDTH - 48,
+								height: Metrics.DEVICE_WIDTH - 48,
 							}}
 						/>
 					</View>

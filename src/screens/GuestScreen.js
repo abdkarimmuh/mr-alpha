@@ -5,8 +5,9 @@ import React, { Component } from 'react';
 import { Image, ScrollView, StyleSheet, View } from 'react-native';
 import metrics from '~/themes/metrics';
 import { NavigationServices } from '@app/services';
+import Styles from '@app/assets/styles';
 
-const dWidth = metrics.DEVICE_WIDTH - 32;
+const dWidth = metrics.DEVICE_WIDTH;
 
 const data = {
 	position: 'Calon Gubernur dan Wakil Gubernur DKI Jakarta',
@@ -17,12 +18,11 @@ const styles = StyleSheet.create({
 	profileContainer: {
 		flexDirection: 'row',
 		marginBottom: 20,
-		justifyContent: 'space-between',
 		alignItems: 'center',
 	},
 	imageSize: {
-		height: 0.25 * dWidth,
-		width: 0.25 * dWidth,
+		height: 80,
+		width: 80,
 		resizeMode: 'contain',
 	},
 });
@@ -33,7 +33,7 @@ class GuestScreen extends Component {
 			<View>
 				<ScrollView contentContainerStyle={{ paddingBottom: 60 }}>
 					<BannerCarousel />
-					<View style={{ padding: 16 }}>
+					<View style={Styles.backgroundDefault}>
 						<View style={styles.profileContainer}>
 							<View>
 								<Image
@@ -44,7 +44,8 @@ class GuestScreen extends Component {
 							<View
 								style={{
 									justifyContent: 'center',
-									width: 0.7 * dWidth,
+									paddingLeft: 24,
+									width: dWidth - 80 - 24 - 48
 								}}
 							>
 								<Text tiny caption style={{ flexWrap: 'wrap' }}>
