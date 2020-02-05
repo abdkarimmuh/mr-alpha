@@ -9,12 +9,12 @@ const Item = ({ id, sender = null, date, message }) => (
 		onPress={() => NavigationServices.navigate('DetailMessage')}
 		key={id}
 		style={{
-			paddingVertical: 16,
+			marginTop: 24,
 			borderBottomWidth: 1,
 			borderBottomColor: colors.borderGrey,
 		}}
 	>
-		<View style={{ flexDirection: 'row' }}>
+		<View style={{ flexDirection: 'row', marginBottom: 8 }}>
 			{sender !== null && (
 				<Text tiny bold style={{ marginRight: 4 }}>
 					{sender},
@@ -22,7 +22,7 @@ const Item = ({ id, sender = null, date, message }) => (
 			)}
 			<Text tiny>{date}</Text>
 		</View>
-		<Text numberOfLines={2}>{message}</Text>
+		<Text numberOfLines={2} style={{ paddingBottom: 8 }}>{message}</Text>
 	</TouchableOpacity>
 );
 

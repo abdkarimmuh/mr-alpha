@@ -52,7 +52,6 @@ export default class DropdownPicker extends PureComponent<Props> {
 						<View
 							style={{
 								flex: 1,
-								backgroundColor: 'rgba(52, 52, 52, 0.4)',
 								justifyContent: 'center',
 								padding: 16,
 								paddingHorizontal: 24,
@@ -61,18 +60,16 @@ export default class DropdownPicker extends PureComponent<Props> {
 							<View>
 								<ScrollView
 									contentContainerStyle={{
-										paddingBottom: 10,
+										paddingBottom: 16,
 									}}
 									style={{
 										backgroundColor: '#fff',
-										borderRadius: 3,
-										paddingVertical: 10,
+										borderRadius: 2,
 									}}
 								>
 									<Text
 										style={{
-											paddingHorizontal: 12,
-											paddingVertical: 10,
+											padding: 24,
 											fontSize: 16,
 											fontFamily: strings.fontPrimaryBold,
 										}}
@@ -88,8 +85,8 @@ export default class DropdownPicker extends PureComponent<Props> {
 											}}
 											key={item.value}
 											style={{
-												paddingHorizontal: 12,
-												paddingVertical: 10,
+												paddingHorizontal: 24,
+												paddingVertical: 12,
 												flexDirection: 'row',
 												alignItems: 'center',
 												justifyContent: 'space-between',
@@ -129,7 +126,6 @@ export default class DropdownPicker extends PureComponent<Props> {
 					<Text
 						style={{
 							marginBottom: 8,
-							fontSize: 10,
 							color: colors.primaryColor,
 							fontFamily: strings.fontPrimary,
 						}}
@@ -159,16 +155,16 @@ export default class DropdownPicker extends PureComponent<Props> {
 								{itemLabel}
 							</Text>
 						) : (
-							<Text
-								style={{
-									width: '80%',
-									opacity: 0.2,
-									fontFamily: strings.fontPrimary,
-								}}
-							>
-								{placeholder}
-							</Text>
-						)}
+									<Text
+										style={{
+											width: '80%',
+											opacity: 0.2,
+											fontFamily: strings.fontPrimary,
+										}}
+									>
+										{placeholder}
+									</Text>
+								)}
 
 						<Icon
 							name="caret-down"

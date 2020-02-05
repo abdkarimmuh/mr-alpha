@@ -8,9 +8,7 @@ import { ScrollView, StyleSheet, View } from 'react-native';
 const styles = StyleSheet.create({
 	inputContainer: {
 		backgroundColor: Colors.transparent,
-		fontSize: 12,
-		padding: -10,
-		marginBottom: 16,
+		marginBottom: 24,
 	},
 	containerBtnButtom: {
 		flexDirection: 'row',
@@ -22,8 +20,16 @@ const styles = StyleSheet.create({
 
 const data = [
 	{
-		label: 'data 1',
-		value: 'data1',
+		label: 'Agus',
+		value: '1',
+	},
+	{
+		label: 'Tatang',
+		value: '2',
+	},
+	{
+		label: 'Ahmad',
+		value: '3',
 	},
 ];
 class NewMessageScreen extends PureComponent {
@@ -40,15 +46,8 @@ class NewMessageScreen extends PureComponent {
 	render() {
 		const { message, subject } = this.state;
 		return (
-			<LayoutAppbar
-				title="Buat Pesan"
-				hasBack
-				style={{ padding: 0, paddingBottom: 64 }}
-			>
-				<ScrollView
-					style={{ padding: 16 }}
-					contentContainerStyle={{ paddingBottom: 30 }}
-				>
+			<LayoutAppbar title="Buat Pesan" hasBack style={{ padding: 0 }} >
+				<ScrollView style={{ padding: 24 }} >
 					<TextInput
 						label="Masukkan Pesan"
 						value={message}
@@ -72,10 +71,10 @@ class NewMessageScreen extends PureComponent {
 							color={Colors.borderGrey}
 							onPress={() => NavigationServices.goBack()}
 						/>
-						<View style={{ width: 10 }} />
+						<View style={{ width: 16 }} />
 						<ButtonForm
 							label="Kirim"
-							// onPress={() => NavigationServices.resetStackNavigate(['Main'])}
+						// onPress={() => NavigationServices.resetStackNavigate(['Main'])}
 						/>
 					</View>
 				</ScrollView>

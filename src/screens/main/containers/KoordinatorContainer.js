@@ -3,6 +3,7 @@ import { Text, View } from 'react-native';
 import TreeView from 'react-native-final-tree-view';
 import { ScrollView } from 'react-native-gesture-handler';
 import Item from './components/Item';
+import Styles from '~/assets/styles';
 
 const Data = [
 	{
@@ -60,18 +61,8 @@ const KoordinatorContainer = () => {
 		setCount(0);
 	}, [count]);
 
-	const getIndicator = (isExpanded, hasChildrenNodes) => {
-		if (!hasChildrenNodes) {
-			return '-';
-		} else if (isExpanded) {
-			return '\\/';
-		} else {
-			return '>';
-		}
-	};
-
 	return (
-		<ScrollView contentContainerStyle={{ padding: 16 }}>
+		<ScrollView contentContainerStyle={Styles.backgroundDefault}>
 			<TreeView
 				data={data}
 				renderNode={({ node, level, isExpanded, hasChildrenNodes }) => (

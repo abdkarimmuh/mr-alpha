@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, View, ToastAndroid } from 'react-native';
-import { TextInput, Button, HelperText, Loading } from '@app/components';
+import { TextInput, ButtonForm, HelperText, Loading } from '@app/components';
 import { LayoutAppbar } from '@app/containers';
 import Colors from '@app/assets/colors';
 import { NavigationServices } from '@app/services';
@@ -112,22 +112,17 @@ class ChangePasswordScreen extends PureComponent<Props> {
 					</View>
 				)}
 				<View style={styles.containerBtnButtom}>
-					<Button
-						dark
-						mode="contained"
-						style={styles.btnCancel}
+					<ButtonForm
+						label="CANCEL"
+						color={Colors.borderGrey}
 						onPress={() => this.pressCancel()}
-					>
-						CANCEL
-					</Button>
-					<Button
-						dark
-						mode="contained"
+					/>
+					<View style={{ width: 16 }} />
+					<ButtonForm
+						label="SAVE"
 						onPress={() => this.pressSubmit()}
 						disabled={this.state.isFetching}
-					>
-						SAVE
-					</Button>
+					/>
 				</View>
 			</LayoutAppbar>
 		);

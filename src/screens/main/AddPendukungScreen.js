@@ -10,8 +10,6 @@ const goBack = () => NavigationServices.goBack();
 const styles = StyleSheet.create({
 	inputContainer: {
 		backgroundColor: Colors.transparent,
-		fontSize: 12,
-		padding: -10,
 		marginBottom: 16,
 	},
 	containerBtnButtom: {
@@ -39,11 +37,10 @@ class AddPendukungScreen extends PureComponent {
 			<LayoutAppbar
 				title="Tambah Pendukung"
 				hasBack
-				style={{ padding: 0, paddingBottom: 64 }}
+				style={{ padding: 0 }}
 			>
 				<ScrollView
-					style={{ padding: 16 }}
-					contentContainerStyle={{ paddingBottom: 30 }}
+					style={{ padding: 24 }}
 				>
 					<Text style={{ textAlign: 'center', marginBottom: 24 }}>
 						Pendukung adalah relawan yang tidak menggunakan aplikasi, tapi aktif
@@ -66,13 +63,13 @@ class AddPendukungScreen extends PureComponent {
 						onChangeText={this._handleInput('nik')}
 					/>
 
-					<Text tiny caption style={{ marginTop: 20, marginBottom: 8 }}>
+					<Text tiny caption style={{ marginTop: 24, marginBottom: 8 }}>
 						Upload KTP Relawan
 					</Text>
 
 					<ButtonForm
 						label="Upload KTP"
-						// onPress={() => NavigationServices.resetStackNavigate(['Main'])}
+					// onPress={() => NavigationServices.resetStackNavigate(['Main'])}
 					/>
 					<View style={styles.containerBtnButtom}>
 						<ButtonForm
@@ -80,10 +77,10 @@ class AddPendukungScreen extends PureComponent {
 							color={Colors.borderGrey}
 							onPress={goBack}
 						/>
-						<View style={{ width: 10 }} />
+						<View style={{ width: 16 }} />
 						<ButtonForm
 							label="Simpan"
-							// onPress={() => NavigationServices.resetStackNavigate(['Main'])}
+						// onPress={() => NavigationServices.resetStackNavigate(['Main'])}
 						/>
 					</View>
 				</ScrollView>

@@ -3,7 +3,7 @@ import { BannerCarousel, FloatingButton, Text } from '@app/components';
 import { NewsContainer } from '@app/containers';
 import React, { Component } from 'react';
 import { Image, ScrollView, StyleSheet, View } from 'react-native';
-import metrics from '~/themes/metrics';
+import metrics from '@app/themes/metrics';
 import { NavigationServices } from '@app/services';
 import Styles from '@app/assets/styles';
 

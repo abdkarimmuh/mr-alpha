@@ -12,7 +12,7 @@ class BeCoordinatorScreen extends Component {
 	render() {
 		return (
 			<LayoutAppbar hasBack title="Update Koordinator">
-				<Text style={{ textAlign: 'center', marginBottom: 20 }}>
+				<Text style={{ textAlign: 'center', marginBottom: 24 }}>
 					Upload KTP Anda agar akun anda dapat diupgrade menjadi koordinator
 				</Text>
 
@@ -27,10 +27,10 @@ class BeCoordinatorScreen extends Component {
 						color={Colors.borderGrey}
 						onPress={goBack}
 					/>
-					<View style={{ width: 10 }} />
+					<View style={{ width: 16 }} />
 					<ButtonForm
 						label="Simpan"
-						// onPress={() => NavigationServices.resetStackNavigate(['Main'])}
+					// onPress={() => NavigationServices.resetStackNavigate(['Main'])}
 					/>
 				</View>
 			</LayoutAppbar>

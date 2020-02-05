@@ -6,6 +6,7 @@ import RelawanContainer from './containers/RelawanContainer';
 import PendukungContainer from './containers/PendukungContainer';
 import KoordinatorContainer from './containers/KoordinatorContainer';
 import NavigationServices from '@app/services/NavigationServices';
+import Images from '@app/assets/images';
 
 const navigateToAddPendukung = () =>
 	NavigationServices.navigate('AddPendukung');
@@ -43,7 +44,7 @@ class AfiliasiScreen extends PureComponent<Props> {
 		};
 	}
 
-	componentDidMount() {}
+	componentDidMount() { }
 
 	render() {
 		const { index, isRelawan } = this.state;
@@ -51,7 +52,7 @@ class AfiliasiScreen extends PureComponent<Props> {
 			<SafeAreaView style={{ flex: 1 }}>
 				<LayoutAppbarTab
 					title="Afiliasi"
-					icon={index === 2 ? 'plus' : index === 1 ? 'chain' : null}
+					icon={index === 2 ? Images.icon.plus : index === 1 ? Images.icon.link : null}
 					onPress={index !== 0 ? navigateToAddPendukung : null}
 					index={index}
 					routes={isRelawan ? routeRelawan : routeKoordinator}

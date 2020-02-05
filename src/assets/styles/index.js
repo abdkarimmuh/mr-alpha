@@ -5,7 +5,6 @@ import strings from '../strings';
 export default StyleSheet.create({
 	backgroundDefault: {
 		color: Colors.backgroudDefault,
-		flex: 1,
 		padding: 24
 	},
 	shadowOn: {
@@ -29,7 +28,6 @@ export default StyleSheet.create({
 	},
 	noBorderInput: {
 		backgroundColor: Colors.transparent,
-		fontSize: 12,
 		marginBottom: 24,
 	},
 	containerLeftHalfButton: {

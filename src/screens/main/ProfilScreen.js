@@ -1,10 +1,11 @@
 import Colors from '@app/assets/colors';
 import Styles from '@app/assets/styles';
-import { Avatar, Divider, List, RippleEffect, Text } from '@app/components';
+import Images from '@app/assets/images';
+import { Divider, Text } from '@app/components';
 import { LayoutAppbar } from '@app/containers';
 import { NavigationServices } from '@app/services';
 import React, { PureComponent } from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, Image, TouchableOpacity, View } from 'react-native';
 
 const navigateToSettings = name => NavigationServices.navigate(name);
 
@@ -14,22 +15,27 @@ const Menu = [
 	{
 		id: '1',
 		title: 'Edit Profil',
-		icon: 'gear',
+		icon: Images.icon.settings,
 		nav: 'EditProfile',
 	},
 	{
 		id: '2',
 		title: 'Ganti Password',
-		icon: 'lock',
+		icon: Images.icon.lock,
 		nav: 'ChangePass',
 	},
 	{
 		id: '3',
 		title: 'Menjadi Koordinator',
-		icon: 'group',
+		icon: Images.icon.people,
 		nav: 'BeCoordinator',
 	},
-	{ id: '4', title: 'Tentang Aplikasi', icon: 'book', nav: 'AboutApp' },
+	{
+		id: '4',
+		title: 'Tentang Aplikasi',
+		icon: Images.icon.github,
+		nav: 'AboutApp'
+	},
 ];
 class ProfilScreen extends PureComponent<Props> {
 	constructor(props) {
@@ -42,55 +48,43 @@ class ProfilScreen extends PureComponent<Props> {
 		};
 	}
 
-	componentDidMount() {}
+	componentDidMount() { }
 
 	render() {
 		const { profile } = this.state;
 		return (
-			<LayoutAppbar title="Profil" style={{ padding: 0, marginBottom: 64 }}>
-				<ScrollView contentContainerStyle={{ padding: 16 }}>
+			<LayoutAppbar title="Profil" style={{ padding: 0 }}>
+				<ScrollView contentContainerStyle={{ padding: 24 }}>
 					<Text style={{ textAlign: 'center', marginBottom: 16 }}>
 						<Text>Anda Seorang </Text>
 						<Text bold>Relawan</Text>
 					</Text>
-					<Avatar.Text
-						size={80}
-						label="XD"
-						style={[Styles.shadowOn, { alignSelf: 'center' }]}
-					/>
+					<Image source={Images.avatar.avatarWhite} style={ { width: 80, height: 80, alignSelf: 'center', borderRadius: 40, marginBottom: 24 }} />
 					{profile.map(item => (
-						<List.Item
-							key={item.id}
-							title={item.title}
-							description={item.value}
-							titleStyle={Styles.font}
-							descriptionStyle={InnerStyles.font}
-							style={{ padding: 0 }}
-						/>
+						<View style={{ marginBottom: 16 }} key={item.id}>
+							<Text style={Styles.font}>{item.title}</Text>
+							<Text style={InnerStyles.font}>{item.value}</Text>
+						</View>
 					))}
-					<Divider style={{ marginTop: 16, marginBottom: 24 }} />
+					<Divider style={{ marginBottom: 24 }} />
 					{Menu.map(item => (
-						<RippleEffect
+						<TouchableOpacity
 							onPress={() => navigateToSettings(item.nav)}
 							key={item.id}
 						>
-							<List.Item
-								title={item.title}
-								titleStyle={Styles.font}
-								left={props => <List.Icon {...props} icon={item.icon} />}
-								style={{ padding: 0 }}
-							/>
-						</RippleEffect>
+							<View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 24 }}>
+								<Image source={item.icon} style={{ width: 20, height: 20, resizeMode: 'contain', marginRight: 12 }} />
+								<Text style={Styles.font}>{item.title}</Text>
+							</View>
+						</TouchableOpacity>
 					))}
 
-					<RippleEffect onPress={() => console.log('uwuw')}>
-						<List.Item
-							title={'Log Out'}
-							titleStyle={Styles.font}
-							left={props => <List.Icon {...props} icon={'power-off'} />}
-							style={{ padding: 0 }}
-						/>
-					</RippleEffect>
+					<TouchableOpacity onPress={() => console.log('logout')}>
+						<View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 12 }}>
+							<Image source={Images.icon.logout} style={{ width: 20, height: 20, resizeMode: 'contain', marginRight: 12 }} />
+							<Text style={Styles.font}>Log Out</Text>
+						</View>
+					</TouchableOpacity>
 				</ScrollView>
 			</LayoutAppbar>
 		);

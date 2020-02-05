@@ -26,12 +26,12 @@ class MessageScreen extends PureComponent<Props> {
 		};
 	}
 
-	componentDidMount() {}
+	componentDidMount() { }
 
 	render() {
 		const { index, isRelawan } = this.state;
 		const RenderRelawan = () => (
-			<LayoutAppbar title="Pesan" hasBack isScrolling={false}>
+			<LayoutAppbar title="Pesan" hasBack>
 				<InboxContainer />
 			</LayoutAppbar>
 		);

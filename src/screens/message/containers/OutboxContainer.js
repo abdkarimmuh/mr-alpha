@@ -16,7 +16,7 @@ const Data = [
 		id: '2',
 		date: '19 Januari 2020',
 		message: strings.LOREMIPSUM,
-	},
+	}
 ];
 
 const OutboxContainer = () => {
@@ -32,7 +32,7 @@ const OutboxContainer = () => {
 		<>
 			<FlatList
 				data={data}
-				contentContainerStyle={{ padding: 16, marginBottom: 30 }}
+				contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: 24 }}
 				renderItem={({ item }) => (
 					<Item id={item.id} date={item.date} message={item.message} />
 				)}
@@ -41,7 +41,7 @@ const OutboxContainer = () => {
 			<FAB
 				style={{
 					position: 'absolute',
-					margin: 16,
+					margin: 32,
 					right: 0,
 					bottom: 0,
 					backgroundColor: colors.primaryColor,

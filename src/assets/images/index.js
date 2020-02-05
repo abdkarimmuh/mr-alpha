@@ -38,6 +38,12 @@ export default {
 
     //other
     cameraWhite: require("./icon/camera_white.png"),
+    email: require("./icon/email.png"),
+    plus: require("./icon/plus.png"),
+    minus: require("./icon/minus.png"),
+    link: require("./icon/link.png"),
+    chevronBottom: require("./icon/chevron-bottom.png"),
+    chevronRight: require("./icon/chevron-right.png"),
   },
   dummy: {
     oneToOne: require('./dummy/1x1.png'),

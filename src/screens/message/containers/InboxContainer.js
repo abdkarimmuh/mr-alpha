@@ -30,7 +30,7 @@ const InboxContainer = () => {
 	return (
 		<FlatList
 			data={data}
-			contentContainerStyle={{ padding: 16, marginBottom: 30 }}
+			contentContainerStyle={{ paddingHorizontal: 24, paddingBottom: 24 }}
 			renderItem={({ item }) => (
 				<Item
 					id={item.id}

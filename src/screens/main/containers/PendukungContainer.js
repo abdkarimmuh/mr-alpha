@@ -22,7 +22,7 @@ const PendukungContainer = () => {
 		setCount(Data.length);
 	}, [count]);
 
-	return <List title="Total Relawan Pasif" data={data} count={count} />;
+	return <List title="Total Pendukung" data={data} count={count} />;
 };
 
 export default PendukungContainer;

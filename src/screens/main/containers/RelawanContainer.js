@@ -22,7 +22,7 @@ const RelawanContainer = () => {
 		setCount(Data.length);
 	}, [count]);
 
-	return <List title="Total Relawan Aktif" data={data} count={count} />;
+	return <List title="Total Relawan" data={data} count={count} />;
 };
 
 export default RelawanContainer;
