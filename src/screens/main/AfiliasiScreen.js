@@ -1,5 +1,5 @@
-import { LayoutAppbarTab } from '@app/containers';
 import React, { PureComponent } from 'react';
+import { LayoutAppbarTab } from '@app/containers';
 import { SafeAreaView } from 'react-native';
 import { SceneMap } from 'react-native-tab-view';
 import RelawanContainer from './containers/RelawanContainer';

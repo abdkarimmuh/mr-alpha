@@ -1,10 +1,10 @@
-import Images from '@app/assets/images';
-import Strings from '@app/assets/strings';
-import { Text } from '@app/components';
-import { LayoutAppbar } from '@app/containers';
-import { Metrics } from '@app/themes';
 import React, { PureComponent } from 'react';
 import { Image, SafeAreaView, ScrollView, View } from 'react-native';
+import Images from '@app/assets/images';
+import Strings from '@app/assets/strings';
+import { Text, Card, Surface } from '@app/components';
+import { LayoutAppbar } from '@app/containers';
+import { Metrics } from '@app/themes';
 
 type Props = {};
 
@@ -34,7 +34,36 @@ class VisionScreen extends PureComponent<Props> {
 								resizeMode: 'contain',
 							}}
 						/>
-						<View style={{ margin: 16 }}>
+						{/* <Card
+							style={{
+								height: 50,
+								width: 50,
+								position: 'absolute',
+								top: 128,
+								left: 24,
+							}}
+						>
+							<Card.Cover source={{ uri: 'https://via.placeholder.com/150' }} />
+						</Card> */}
+						<Surface
+							style={{
+								alignItems: 'center',
+								justifyContent: 'center',
+								elevation: 4,
+								position: 'absolute',
+								top: 128,
+								left: 24,
+							}}
+						>
+							<Image
+								source={{ uri: 'https://via.placeholder.com/150' }}
+								style={{
+									height: 100,
+									width: 100,
+								}}
+							/>
+						</Surface>
+						<View style={{ margin: 16, paddingTop: 32 }}>
 							<Text title>{profile.name}</Text>
 							<Text caption style={{ marginBottom: 20 }}>
 								{profile.candidate}

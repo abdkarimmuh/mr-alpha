@@ -46,7 +46,6 @@ class CandidateProfileScreen extends PureComponent<Props> {
 
 	render() {
 		const { banner } = this.state;
-		console.log(Metrics.DEVICE_WIDTH);
 		return (
 			<SafeAreaView style={{ flex: 1 }}>
 				<LayoutAppbar title="Profil Calon" hasBack style={{ padding: 0 }}>
