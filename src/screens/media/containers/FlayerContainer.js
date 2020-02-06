@@ -21,7 +21,9 @@ const data = [
 class FlayerContainer extends Component {
 	render() {
 		return (
-			<ScrollView contentContainerStyle={{ paddingVertical: 12, paddingHorizontal: 24 }}>
+			<ScrollView
+				contentContainerStyle={{ paddingVertical: 12, paddingHorizontal: 24 }}
+			>
 				{data.map(item => (
 					<View
 						key={item.id}

@@ -1,11 +1,17 @@
 import Colors from '@app/assets/colors';
 import Styles from '@app/assets/styles';
 import Images from '@app/assets/images';
-import { Divider, Text } from '@app/components';
+import { Divider, Text, Surface } from '@app/components';
 import { LayoutAppbar } from '@app/containers';
 import { NavigationServices } from '@app/services';
 import React, { PureComponent } from 'react';
-import { ScrollView, StyleSheet, Image, TouchableOpacity, View } from 'react-native';
+import {
+	ScrollView,
+	StyleSheet,
+	Image,
+	TouchableOpacity,
+	View,
+} from 'react-native';
 
 const navigateToSettings = name => NavigationServices.navigate(name);
 
@@ -34,7 +40,7 @@ const Menu = [
 		id: '4',
 		title: 'Tentang Aplikasi',
 		icon: Images.icon.github,
-		nav: 'AboutApp'
+		nav: 'AboutApp',
 	},
 ];
 class ProfilScreen extends PureComponent<Props> {
@@ -48,7 +54,7 @@ class ProfilScreen extends PureComponent<Props> {
 		};
 	}
 
-	componentDidMount() { }
+	componentDidMount() {}
 
 	render() {
 		const { profile } = this.state;
@@ -59,7 +65,31 @@ class ProfilScreen extends PureComponent<Props> {
 						<Text>Anda Seorang </Text>
 						<Text bold>Relawan</Text>
 					</Text>
-					<Image source={Images.avatar.avatarWhite} style={ { width: 80, height: 80, alignSelf: 'center', borderRadius: 40, marginBottom: 24 }} />
+					<Surface
+						style={[
+							Styles.shadowOn,
+							{
+								width: 80,
+								height: 80,
+								alignSelf: 'center',
+								borderRadius: 40,
+								marginBottom: 24,
+							},
+						]}
+					>
+						<Image
+							source={Images.avatar.avatarWhite}
+							style={[
+								{
+									width: 80,
+									height: 80,
+									alignSelf: 'center',
+									borderRadius: 40,
+									marginBottom: 24,
+								},
+							]}
+						/>
+					</Surface>
 					{profile.map(item => (
 						<View style={{ marginBottom: 16 }} key={item.id}>
 							<Text style={Styles.font}>{item.title}</Text>
@@ -72,16 +102,46 @@ class ProfilScreen extends PureComponent<Props> {
 							onPress={() => navigateToSettings(item.nav)}
 							key={item.id}
 						>
-							<View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 24 }}>
-								<Image source={item.icon} style={{ width: 20, height: 20, resizeMode: 'contain', marginRight: 12 }} />
+							<View
+								style={{
+									flexDirection: 'row',
+									alignItems: 'center',
+									marginBottom: 24,
+								}}
+							>
+								<Image
+									source={item.icon}
+									style={{
+										width: 20,
+										height: 20,
+										resizeMode: 'contain',
+										marginRight: 12,
+									}}
+								/>
 								<Text style={Styles.font}>{item.title}</Text>
 							</View>
 						</TouchableOpacity>
 					))}
 
-					<TouchableOpacity onPress={() => console.log('logout')}>
-						<View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 12 }}>
-							<Image source={Images.icon.logout} style={{ width: 20, height: 20, resizeMode: 'contain', marginRight: 12 }} />
+					<TouchableOpacity
+						onPress={() => NavigationServices.resetStackNavigate(['Guest'])}
+					>
+						<View
+							style={{
+								flexDirection: 'row',
+								alignItems: 'center',
+								marginTop: 12,
+							}}
+						>
+							<Image
+								source={Images.icon.logout}
+								style={{
+									width: 20,
+									height: 20,
+									resizeMode: 'contain',
+									marginRight: 12,
+								}}
+							/>
 							<Text style={Styles.font}>Log Out</Text>
 						</View>
 					</TouchableOpacity>

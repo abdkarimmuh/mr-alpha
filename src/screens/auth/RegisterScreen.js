@@ -112,7 +112,16 @@ class RegisterScreen extends PureComponent<Props> {
 			return (
 				<SafeAreaView style={{ flex: 1 }}>
 					<ScrollView contentContainerStyle={InnerStyles.container}>
-						<Layout style={{ marginBottom: 16 }}>
+						{/* <TouchableOpacity onPress={() => NavigationServices.goBack()}> */}
+						<Icon
+							name="chevron-left"
+							size={40}
+							color={Colors.black4A}
+							style={{ marginBottom: -40 }}
+							onPress={() => NavigationServices.goBack()}
+						/>
+						{/* </TouchableOpacity> */}
+						<Layout>
 							<Image source={Images.logo.banner} style={InnerStyles.logo} />
 							<Form
 								name={this.state.name}
@@ -151,19 +160,19 @@ class RegisterScreen extends PureComponent<Props> {
 									/>
 								)}
 							/>
-							{this.termReference()}
+							{/* {this.termReference()} */}
 						</Layout>
 						<Layout>
 							<ButtonForm
 								label="Register"
-								onPress={() => NavigationServices.navigate('Register')}
+								onPress={() => NavigationServices.resetStackNavigate(['Main'])}
 							/>
-							<View style={InnerStyles.captionContainer}>
+							{/* <View style={InnerStyles.captionContainer}>
 								<Text style={Styles.font}>Sudah punya akun?</Text>
 								<TouchableOpacity onPress={() => NavigationServices.goBack()}>
 									<Text style={[Styles.font, InnerStyles.boldText]}>Login</Text>
 								</TouchableOpacity>
-							</View>
+							</View> */}
 						</Layout>
 					</ScrollView>
 					<Snackbar

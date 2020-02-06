@@ -94,13 +94,13 @@ class LoginScreen extends PureComponent<Props> {
 									this.setState({ phone });
 								}}
 							/>
-							<TouchableOpacity
+							{/* <TouchableOpacity
 								onPress={() => NavigationServices.navigate('ChangePassword')}
 							>
 								<Text style={[Styles.font, { textAlign: 'right' }]}>
 									Lupa Password?
 								</Text>
-							</TouchableOpacity>
+							</TouchableOpacity> */}
 						</Layout>
 						<Layout>
 							<ButtonForm

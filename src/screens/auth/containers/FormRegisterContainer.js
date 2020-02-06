@@ -12,13 +12,7 @@ const FormRegisterContainer = ({
 	changeKoordinator,
 }) => (
 	<>
-		<InputForm label="Name" value={name} onChangeText={changeName} />
-		<InputForm
-			label="Phone"
-			value={phone}
-			onChangeText={changePhone}
-			keyboardType="phone-pad"
-		/>
+		<InputForm label="Nama Lengkap" value={name} onChangeText={changeName} />
 		<InputForm
 			label="Password"
 			value={password}
@@ -26,7 +20,13 @@ const FormRegisterContainer = ({
 			secureTextEntry={true}
 		/>
 		<InputForm
-			label="No.Koordinator"
+			label="Nomor HP"
+			value={phone}
+			onChangeText={changePhone}
+			keyboardType="phone-pad"
+		/>
+		<InputForm
+			label="Nomor HP Pengajak"
 			value={koordinator}
 			onChangeText={changeKoordinator}
 			keyboardType="numeric"

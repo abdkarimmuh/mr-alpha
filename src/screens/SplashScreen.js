@@ -71,16 +71,28 @@ class SplashScreen extends Component<Props> {
 		return (
 			<View style={styles.container}>
 				<Image source={Logo.logo.logo} style={styles.image} />
+				<View
+					style={{
+						flexDirection: 'row',
+						paddingTop: 8,
+						justifyContent: 'center',
+					}}
+				>
+					<Text style={Styles.font}>Manajemen Relawan </Text>
+					<Text style={[Styles.font, { fontWeight: 'bold', marginLeft: 3 }]}>
+						Pilkada
+					</Text>
+				</View>
 				<View style={styles.caption}>
 					{isFetching && (
 						<ActivityIndicator size="large" color={Colors.primaryColor} />
 					)}
-					<View style={{ flexDirection: 'row', paddingTop: 24 }}>
+					{/* <View style={{ flexDirection: 'row', paddingTop: 24 }}>
 						<Text style={Styles.font}>Aplikasi Manajemen</Text>
 						<Text style={[Styles.font, { fontWeight: 'bold', marginLeft: 3 }]}>
 							Relawan
 						</Text>
-					</View>
+					</View> */}
 				</View>
 			</View>
 		);
@@ -108,11 +120,13 @@ const styles = StyleSheet.create({
 		height: 200,
 		resizeMode: 'contain',
 		alignSelf: 'center',
+		marginTop: -32,
 	},
 	caption: {
 		position: 'absolute',
 		bottom: 0,
 		alignSelf: 'center',
-		marginBottom: 24,
+		marginBottom: 48,
+		// marginBottom: 24,
 	},
 });

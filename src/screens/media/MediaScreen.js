@@ -20,7 +20,7 @@ class MediaScreen extends PureComponent<Props> {
 		this.state = {
 			index: 0,
 			routes: [
-				{ key: 'flayer', title: 'Flayer' },
+				{ key: 'flayer', title: 'Flyer' },
 				{ key: 'video', title: 'Video' },
 			],
 		};
