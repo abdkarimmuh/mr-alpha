@@ -22,12 +22,12 @@ const profileData = {
 	name: 'Anies - Sandi',
 	detail: [
 		{
-			name: 'Anies Baswedan',
+			name: 'Chairil Hilman Syah',
 			cadidate: 'Calon Gubernur DKI Jakarta',
 			image: Images.dummy_anis_sandi.profile1
 		},
 		{
-			name: 'Sandiaga Uno',
+			name: 'Aditya Fitriadi',
 			cadidate: 'Calon Wakil Gubernur DKI Jakarta',
 			image: Images.dummy_anis_sandi.profile2
 		},
@@ -65,7 +65,7 @@ class CandidateProfileScreen extends PureComponent<Props> {
 								</View>
 							))}
 						</Swiper> */}
-						<Image source={Images.dummy.sixteenToNine} style={{ width: '100%', height: 200, resizeMode: 'cover' }} />
+						<Image source={Images.dummy_anis_sandi.header} style={{ width: '100%', height: 200, resizeMode: 'cover' }} />
 						<Surface style={[Styles.containerProfileCandidate, { alignSelf: 'center' }]}>
 							<Image source={Images.dummy_anis_sandi.profile} style={Styles.profileCandidate} />
 						</Surface>
@@ -91,7 +91,7 @@ class CandidateProfileScreen extends PureComponent<Props> {
 							</TouchableWithoutFeedback>
 
 							<Text caption style={{ marginTop: 12 }}>Lihat Profil</Text>
-							<Text title>
+							<Text title bold>
 								{profileData.name}
 							</Text>
 

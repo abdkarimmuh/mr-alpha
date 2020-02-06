@@ -11,7 +11,7 @@ const dWidth = metrics.DEVICE_WIDTH;
 
 const data = {
 	position: 'Calon Gubernur dan Wakil Gubernur DKI Jakarta',
-	title: 'Anies - Sandi',
+	title: 'Chairil - Adit',
 };
 
 const styles = StyleSheet.create({
@@ -37,7 +37,7 @@ class GuestScreen extends Component {
 						<View style={styles.profileContainer}>
 							<View>
 								<Image
-									source={images.dummy.oneToOne}
+									source={images.dummy_anis_sandi.profile}
 									style={styles.imageSize}
 								/>
 							</View>

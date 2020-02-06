@@ -10,7 +10,7 @@ import { Metrics } from '@app/themes';
 type Props = {};
 
 const profile = {
-	name: 'H. Anies Rasyid Baswedan, S.E., M.P.P., Ph.D.',
+	name: 'Chairil Hilman Syah',
 	candidate: 'Calon Gubernur DKI Jakarta',
 	biography: `${Strings.LOREMIPSUM}\n${Strings.LOREMIPSUM}\n\n${
 		Strings.LOREMIPSUM
@@ -28,7 +28,7 @@ class VisionScreen extends PureComponent<Props> {
 				>
 					<ScrollView>
 						<Image
-							source={Images.dummy.sixteenToNine}
+							source={Images.dummy_anis_sandi.header}
 							style={{
 								height: 200,
 								width: Metrics.DEVICE_WIDTH,
