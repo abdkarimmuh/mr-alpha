@@ -7,6 +7,7 @@ export default StyleSheet.create({
 		justifyContent: 'space-between',
 		paddingVertical: 8,
 		backgroundColor: Colors.backgroudDefault,
+		minHeight: Metrics.DEVICE_HEIGHT,
 	},
 	boldText: { fontWeight: 'bold', color: Colors.primaryColor, marginLeft: 4 },
 	logo: {
