@@ -45,7 +45,7 @@ class GuestScreen extends Component {
 								style={{
 									justifyContent: 'center',
 									paddingLeft: 24,
-									width: dWidth - 80 - 24 - 48
+									width: dWidth - 80 - 24 - 48,
 								}}
 							>
 								<Text tiny caption style={{ flexWrap: 'wrap' }}>

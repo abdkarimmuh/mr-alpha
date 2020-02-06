@@ -5,7 +5,7 @@ import strings from '../strings';
 export default StyleSheet.create({
 	backgroundDefault: {
 		color: Colors.backgroudDefault,
-		padding: 24
+		padding: 24,
 	},
 	shadowOn: {
 		shadowColor: '#000',
@@ -40,7 +40,7 @@ export default StyleSheet.create({
 		width: 32,
 		height: 32,
 		resizeMode: 'contain',
-		alignSelf: 'center'
+		alignSelf: 'center',
 	},
 	profileCandidate: {
 		width: 80,
@@ -54,6 +54,6 @@ export default StyleSheet.create({
 		position: 'relative',
 		top: -40,
 		marginBottom: -40,
-		elevation: 2
-	}
+		elevation: 2,
+	},
 });

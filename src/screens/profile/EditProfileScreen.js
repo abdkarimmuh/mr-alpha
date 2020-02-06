@@ -2,12 +2,11 @@ import Colors from '@app/assets/colors';
 import styles from '@app/assets/styles';
 import Images from '@app/assets/images';
 import metrics from '@app/themes/metrics';
-import { ButtonForm, TextInput } from '@app/components';
+import { ButtonForm, TextInput, Surface } from '@app/components';
 import { LayoutAppbar } from '@app/containers';
 import { NavigationServices } from '@app/services';
 import React, { Component } from 'react';
 import { SafeAreaView, View, Image } from 'react-native';
-
 
 const goBack = () => NavigationServices.goBack();
 
@@ -27,7 +26,31 @@ class EditProfileScreen extends Component {
 		return (
 			<SafeAreaView style={{ flex: 1 }}>
 				<LayoutAppbar hasBack title="Edit Profil">
-					<Image source={Images.avatar.avatarWhite} style={[styles.shadowOn, { width: 80, height: 80, alignSelf: 'center', borderRadius: 40, marginBottom: 24 }]} />
+					<Surface
+						style={[
+							styles.shadowOn,
+							{
+								width: 80,
+								height: 80,
+								alignSelf: 'center',
+								borderRadius: 40,
+								marginBottom: 24,
+							},
+						]}
+					>
+						<Image
+							source={Images.avatar.avatarWhite}
+							style={[
+								{
+									width: 80,
+									height: 80,
+									alignSelf: 'center',
+									borderRadius: 40,
+									marginBottom: 24,
+								},
+							]}
+						/>
+					</Surface>
 					<TextInput
 						label="Full Name"
 						value={name}
@@ -54,13 +77,21 @@ class EditProfileScreen extends Component {
 						<View style={{ width: 16 }} />
 						<ButtonForm
 							label="Simpan"
-						// onPress={() => NavigationServices.resetStackNavigate(['Main'])}
+							// onPress={() => NavigationServices.resetStackNavigate(['Main'])}
 						/>
 					</View>
 				</LayoutAppbar>
-				<Image source={Images.avatar.avatarEdit} style={{ position: 'absolute', left: ((metrics.DEVICE_WIDTH / 2) + 18), top: 138, width: 24, height: 24 }} />
+				<Image
+					source={Images.avatar.avatarEdit}
+					style={{
+						position: 'absolute',
+						left: metrics.DEVICE_WIDTH / 2 + 18,
+						top: 138,
+						width: 24,
+						height: 24,
+					}}
+				/>
 			</SafeAreaView>
-
 		);
 	}
 }

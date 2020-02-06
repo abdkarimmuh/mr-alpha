@@ -44,7 +44,7 @@ class AfiliasiScreen extends PureComponent<Props> {
 		};
 	}
 
-	componentDidMount() { }
+	componentDidMount() {}
 
 	render() {
 		const { index, isRelawan } = this.state;
@@ -52,7 +52,13 @@ class AfiliasiScreen extends PureComponent<Props> {
 			<SafeAreaView style={{ flex: 1 }}>
 				<LayoutAppbarTab
 					title="Afiliasi"
-					icon={index === 2 ? Images.icon.plus : index === 1 ? Images.icon.link : null}
+					icon={
+						index === 2
+							? Images.icon.plus
+							: index === 1
+							? Images.icon.link
+							: null
+					}
 					onPress={index !== 0 ? navigateToAddPendukung : null}
 					index={index}
 					routes={isRelawan ? routeRelawan : routeKoordinator}

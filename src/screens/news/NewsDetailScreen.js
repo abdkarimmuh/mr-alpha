@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { SafeAreaView, ScrollView, View } from 'react-native';
+import { format } from 'date-fns';
 import { Title, Paragraph, Text } from '@app/components';
 import { LayoutAppbar } from '@app/containers';
 import { NavigationServices } from '@app/services';
@@ -16,11 +17,14 @@ class NewsDetailScreen extends PureComponent<Props> {
 			title: navigation.state.params.title,
 			description: navigation.state.params.description,
 			author: navigation.state.params.author,
-			date: navigation.state.params.date,
+			date: format(
+				new Date(Date.parse(navigation.state.params.date)),
+				'EEEE, dd MMMM yyyy',
+			),
 		};
 	}
 
-	componentDidMount() { }
+	componentDidMount() {}
 
 	render() {
 		const { title, description, author, date } = this.state;
@@ -31,10 +35,10 @@ class NewsDetailScreen extends PureComponent<Props> {
 					hasBack={() => NavigationServices.goBack()}
 					style={{ padding: 0 }}
 				>
-					<ScrollView
-						contentContainerStyle={{ padding: 24 }}
-					>
-						<Title style={{ color: Colors.black4A, marginBottom: 24 }}>{title}</Title>
+					<ScrollView contentContainerStyle={{ padding: 24 }}>
+						<Title style={{ color: Colors.black4A, marginBottom: 24 }}>
+							{title}
+						</Title>
 						<View style={{ flexDirection: 'row', marginVertical: 12 }}>
 							<Text style={[Styles.font, { fontWeight: 'bold' }]}>
 								{author}
