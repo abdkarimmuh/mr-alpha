@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { SafeAreaView, FlatList, View, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 import { CardNews } from '@app/components';
 import { LayoutAppbar } from '@app/containers';
 
@@ -9,86 +9,80 @@ const Data = [
 	{
 		id: '1',
 		author: 'Budi',
-		date: '2019-10-1 10:20:00',
+		date: '2019/10/01 10:20:00',
 		title: 'Judul Berita 1',
-		description: 'Ini Deskripsi Berita 1',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 	},
 	{
 		id: '2',
 		author: 'Budi',
-		date: '2019-10-1 10:20:00',
+		date: '2019/10/01 10:20:00',
 		title: 'Judul Berita 2',
-		description: 'Ini Deskripsi Berita 2',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 	},
 	{
 		id: '3',
 		author: 'Budi',
-		date: '2019-10-1 10:20:00',
+		date: '2019/10/01 10:20:00',
 		title: 'Judul Berita 3',
-		description: 'Ini Deskripsi Berita 3',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 	},
 	{
 		id: '4',
 		author: 'Budi',
-		date: '2019-10-1 10:20:00',
+		date: '2019/10/01 10:20:00',
 		title: 'Judul Berita 4',
-		description: 'Ini Deskripsi Berita 4',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 	},
 	{
 		id: '5',
 		author: 'Budi',
-		date: '2019-10-1 10:20:00',
-		title: 'Judul Berita 1',
-		description: 'Ini Deskripsi Berita 1',
+		date: '2019/10/01 10:20:00',
+		title: 'Judul Berita 4',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 	},
 	{
 		id: '6',
 		author: 'Budi',
-		date: '2019-10-1 10:20:00',
-		title: 'Judul Berita 2',
-		description: 'Ini Deskripsi Berita 2',
+		date: '2019/10/01 10:20:00',
+		title: 'Judul Berita 4',
+		description: 'Ini Deskripsi Berita',
 	},
 	{
 		id: '7',
 		author: 'Budi',
-		date: '2019-10-1 10:20:00',
-		title: 'Judul Berita 3',
-		description: 'Ini Deskripsi Berita 3',
+		date: '2019/10/01 10:20:00',
+		title: 'Judul Berita 4',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 	},
 	{
 		id: '8',
 		author: 'Budi',
-		date: '2019-10-1 10:20:00',
+		date: '2019/10/01 10:20:00',
 		title: 'Judul Berita 4',
-		description: 'Ini Deskripsi Berita 4',
+		description: 'Ini Deskripsi Berita',
 	},
 	{
 		id: '9',
 		author: 'Budi',
-		date: '2019-10-1 10:20:00',
-		title: 'Judul Berita 1',
-		description: 'Ini Deskripsi Berita 1',
+		date: '2019/10/01 10:20:00',
+		title: 'Judul Berita 4',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 	},
 	{
 		id: '10',
 		author: 'Budi',
-		date: '2019-10-1 10:20:00',
-		title: 'Judul Berita 2',
-		description: 'Ini Deskripsi Berita 2',
-	},
-	{
-		id: '11',
-		author: 'Budi',
-		date: '2019-10-1 10:20:00',
-		title: 'Judul Berita 3',
-		description: 'Ini Deskripsi Berita 3',
-	},
-	{
-		id: '12',
-		author: 'Budi',
-		date: '2019-10-1 10:20:00',
+		date: '2019/10/01 10:20:00',
 		title: 'Judul Berita 4',
-		description: 'Ini Deskripsi Berita 4',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 	},
 ];
 
@@ -98,12 +92,14 @@ class NewsScreen extends PureComponent<Props> {
 		this.state = {};
 	}
 
-	componentDidMount() { }
+	componentDidMount() {}
 
 	render() {
 		return (
 			<LayoutAppbar title="Berita" hasBack isScrolling={false}>
-				<ScrollView contentContainerStyle={{ paddingHorizontal: 24, paddingTop: 24 }}>
+				<ScrollView
+					contentContainerStyle={{ paddingHorizontal: 24, paddingTop: 24 }}
+				>
 					{Data.map(item => (
 						<CardNews
 							title={item.title}
