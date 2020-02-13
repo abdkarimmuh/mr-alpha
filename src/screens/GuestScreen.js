@@ -61,7 +61,7 @@ class GuestScreen extends Component {
 				</ScrollView>
 				<FloatingButton
 					onPress={() => NavigationServices.navigate('Auth')}
-					label="LOGIN"
+					label="REGISTER"
 				/>
 			</View>
 		);

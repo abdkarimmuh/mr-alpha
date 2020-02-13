@@ -34,14 +34,8 @@ class AddPendukungScreen extends PureComponent {
 	render() {
 		const { name, nik } = this.state;
 		return (
-			<LayoutAppbar
-				title="Tambah Pendukung"
-				hasBack
-				style={{ padding: 0 }}
-			>
-				<ScrollView
-					style={{ padding: 24 }}
-				>
+			<LayoutAppbar title="Tambah Pendukung" hasBack style={{ padding: 0 }}>
+				<ScrollView style={{ padding: 24 }}>
 					<Text style={{ textAlign: 'center', marginBottom: 24 }}>
 						Pendukung adalah relawan yang tidak menggunakan aplikasi, tapi aktif
 						melakukan kegiatan relawan.
@@ -68,8 +62,8 @@ class AddPendukungScreen extends PureComponent {
 					</Text>
 
 					<ButtonForm
-						label="Upload KTP"
-					// onPress={() => NavigationServices.resetStackNavigate(['Main'])}
+						label="Upload KTP Pendukung"
+						// onPress={() => NavigationServices.resetStackNavigate(['Main'])}
 					/>
 					<View style={styles.containerBtnButtom}>
 						<ButtonForm
@@ -80,7 +74,7 @@ class AddPendukungScreen extends PureComponent {
 						<View style={{ width: 16 }} />
 						<ButtonForm
 							label="Simpan"
-						// onPress={() => NavigationServices.resetStackNavigate(['Main'])}
+							// onPress={() => NavigationServices.resetStackNavigate(['Main'])}
 						/>
 					</View>
 				</ScrollView>

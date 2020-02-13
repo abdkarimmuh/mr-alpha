@@ -4,7 +4,7 @@ import { Metrics } from '@app/themes';
 
 export default StyleSheet.create({
 	container: {
-		justifyContent: 'space-between',
+		// justifyContent: 'space-between',
 		paddingVertical: 8,
 		backgroundColor: Colors.backgroudDefault,
 		minHeight: Metrics.DEVICE_HEIGHT,
