@@ -3,6 +3,7 @@ import HomeScreen from './HomeScreen';
 import ProfilScreen from './ProfilScreen';
 import PublicBoardScreen from './PublicBoardScreen';
 import AddPendukungScreen from './AddPendukungScreen';
+import TimsesScreen from './TimsesScreen';
 
 export {
 	HomeScreen,
@@ -10,4 +11,5 @@ export {
 	PublicBoardScreen,
 	ProfilScreen,
 	AddPendukungScreen,
+	TimsesScreen,
 };

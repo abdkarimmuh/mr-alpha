@@ -1,41 +1,56 @@
-import React from 'react';
-import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
-import { Image, Text } from 'react-native';
-import { AfiliasiScreen, HomeScreen } from '@app/screens';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import ProfileStack from './ProfileStack';
 import Colors from '@app/assets/colors';
 import Images from '@app/assets/images';
+import { AfiliasiScreen, HomeScreen, TimsesScreen } from '@app/screens';
+import React from 'react';
+import { Image, Text } from 'react-native';
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+import ProfileStack from './ProfileStack';
 
 const Label = ({ text }) => (
-	<Text style={{ fontSize: 12, color: Colors.textColor, textAlign: "center", fontWeight: "500" }}>
+	<Text
+		style={{
+			fontSize: 12,
+			color: Colors.textColor,
+			textAlign: 'center',
+			fontWeight: '500',
+		}}
+	>
 		{text}
 	</Text>
 );
 
 const TabIcon = ({ name }) => ({ focused }) => {
-	if (name == "home") {
+	if (name == 'home') {
 		if (focused) {
-			icon = Images.icon.home_active
+			icon = Images.icon.home_active;
 		} else {
-			icon = Images.icon.home
+			icon = Images.icon.home;
 		}
-	} else if (name == "folder") {
+	} else if (name == 'folder') {
 		if (focused) {
-			icon = Images.icon.folder_active
+			icon = Images.icon.folder_active;
 		} else {
-			icon = Images.icon.folder
+			icon = Images.icon.folder;
 		}
-	} else if (name == "user") {
+	} else if (name == 'user') {
 		if (focused) {
-			icon = Images.icon.person_active
+			icon = Images.icon.person_active;
 		} else {
-			icon = Images.icon.person
+			icon = Images.icon.person;
+		}
+	} else if (name == 'timses') {
+		if (focused) {
+			icon = Images.icon.checkmark_active;
+		} else {
+			icon = Images.icon.checkmark;
 		}
 	}
 	return (
-		<Image source={icon} style={{ width: 24, height: 24, resizeMode: "cover" }} />
-	)
+		<Image
+			source={icon}
+			style={{ width: 24, height: 24, resizeMode: 'cover' }}
+		/>
+	);
 };
 
 export default createMaterialBottomTabNavigator(
@@ -45,6 +60,13 @@ export default createMaterialBottomTabNavigator(
 			navigationOptions: {
 				tabBarLabel: <Label text={'Home'} />,
 				tabBarIcon: TabIcon({ name: 'home' }),
+			},
+		},
+		Timses: {
+			screen: TimsesScreen,
+			navigationOptions: {
+				tabBarLabel: <Label text={'Afiliasi'} />,
+				tabBarIcon: TabIcon({ name: 'timses' }),
 			},
 		},
 		Afiliasi: {
@@ -82,5 +104,5 @@ export default createMaterialBottomTabNavigator(
 			shadowRadius: 16.0,
 			elevation: 24,
 		},
-	}
+	},
 );

@@ -155,16 +155,16 @@ export default class DropdownPicker extends PureComponent<Props> {
 								{itemLabel}
 							</Text>
 						) : (
-									<Text
-										style={{
-											width: '80%',
-											opacity: 0.2,
-											fontFamily: strings.fontPrimary,
-										}}
-									>
-										{placeholder}
-									</Text>
-								)}
+							<Text
+								style={{
+									width: '80%',
+									opacity: 0.2,
+									fontFamily: strings.fontPrimary,
+								}}
+							>
+								{placeholder}
+							</Text>
+						)}
 
 						<Icon
 							name="caret-down"
