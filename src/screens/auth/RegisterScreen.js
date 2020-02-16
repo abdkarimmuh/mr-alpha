@@ -111,29 +111,29 @@ class RegisterScreen extends PureComponent<Props> {
 		} else {
 			return (
 				<SafeAreaView style={{ flex: 1 }}>
-					<ScrollView contentContainerStyle={InnerStyles.container}>
+					<View style={InnerStyles.container}>
 						{/* <TouchableOpacity onPress={() => NavigationServices.goBack()}> */}
-						<Icon
+						{/* <Icon
 							name="chevron-left"
 							size={40}
 							color={Colors.black4A}
 							style={{ marginBottom: -40 }}
 							onPress={() => NavigationServices.goBack()}
-						/>
+						/> */}
 						{/* </TouchableOpacity> */}
 						<Layout>
 							<Image source={Images.logo.banner} style={InnerStyles.logo} />
 							<Form
 								name={this.state.name}
-								password={this.state.password}
+								// password={this.state.password}
 								phone={this.state.phone}
 								koordinator={this.state.koordinator}
 								changeName={name => {
 									this.setState({ name });
 								}}
-								changePassword={password => {
-									this.setState({ password });
-								}}
+								// changePassword={password => {
+								// 	this.setState({ password });
+								// }}
 								changePhone={phone => {
 									this.setState({ phone });
 								}}
@@ -174,7 +174,7 @@ class RegisterScreen extends PureComponent<Props> {
 								</TouchableOpacity>
 							</View> */}
 						</Layout>
-					</ScrollView>
+					</View>
 					<Snackbar
 						visible={this.state.visible}
 						onDismiss={this.toggleSnackbar}

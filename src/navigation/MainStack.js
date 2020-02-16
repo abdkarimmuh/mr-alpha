@@ -65,7 +65,7 @@ export default createMaterialBottomTabNavigator(
 		Timses: {
 			screen: TimsesScreen,
 			navigationOptions: {
-				tabBarLabel: <Label text={'Afiliasi'} />,
+				tabBarLabel: <Label text={'Timses'} />,
 				tabBarIcon: TabIcon({ name: 'timses' }),
 			},
 		},

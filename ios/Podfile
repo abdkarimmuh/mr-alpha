@@ -36,6 +36,8 @@ target 'mr_alpha' do
 
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
+  pod 'RNShare', :path => '../node_modules/react-native-share'
+
   target 'mr_alphaTests' do
     inherit! :search_paths
     # Pods for testing

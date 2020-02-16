@@ -6,19 +6,19 @@ const FormRegisterContainer = ({
 	changeName,
 	phone,
 	changePhone,
-	password,
-	changePassword,
+	// password,
+	// changePassword,
 	koordinator,
 	changeKoordinator,
 }) => (
 	<>
 		<InputForm label="Nama Lengkap" value={name} onChangeText={changeName} />
-		<InputForm
+		{/* <InputForm
 			label="Password"
 			value={password}
 			onChangeText={changePassword}
 			secureTextEntry={true}
-		/>
+		/> */}
 		<InputForm
 			label="Nomor HP"
 			value={phone}

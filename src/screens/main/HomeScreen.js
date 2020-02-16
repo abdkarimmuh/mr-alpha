@@ -19,7 +19,7 @@ class HomeScreen extends PureComponent<Props> {
 	componentDidMount() { }
 
 	render() {
-		console.log(Metrics.DEVICE_WIDTH);
+		// console.log(Metrics.DEVICE_WIDTH);
 		return (
 			<SafeAreaView style={{ flex: 1 }}>
 				<ScrollView>

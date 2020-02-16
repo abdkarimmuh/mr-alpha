@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { LayoutAppbarTab } from '@app/containers';
 import { SafeAreaView } from 'react-native';
 import { SceneMap } from 'react-native-tab-view';
+import Share from 'react-native-share';
 import RelawanContainer from './containers/RelawanContainer';
 import PendukungContainer from './containers/PendukungContainer';
 import KoordinatorContainer from './containers/KoordinatorContainer';
@@ -10,6 +11,14 @@ import Images from '@app/assets/images';
 
 const navigateToAddPendukung = () =>
 	NavigationServices.navigate('AddPendukung');
+
+const ShareLink = () => {
+	Share.open({
+		title: 'Link App',
+		message: 'https://play.google.com/store/apps/details?id=id.aksiloo',
+		failOnCancel: false,
+	});
+};
 
 type Props = {};
 
@@ -59,7 +68,14 @@ class AfiliasiScreen extends PureComponent<Props> {
 							? Images.icon.link
 							: null
 					}
-					onPress={index !== 0 ? navigateToAddPendukung : null}
+					onPress={
+						index === 2
+							? navigateToAddPendukung
+							: index === 1
+							? ShareLink
+							: null
+					}
+					// onPress={index !== 0 ? navigateToAddPendukung : null}
 					index={index}
 					routes={isRelawan ? routeRelawan : routeKoordinator}
 					renderScene={isRelawan ? renderSceneRelawan : renderSceneKoordinator}

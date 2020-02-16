@@ -123,7 +123,7 @@ class ProfilScreen extends PureComponent<Props> {
 						</TouchableOpacity>
 					))}
 
-					<TouchableOpacity
+					{/* <TouchableOpacity
 						onPress={() => NavigationServices.resetStackNavigate(['Guest'])}
 					>
 						<View
@@ -144,7 +144,7 @@ class ProfilScreen extends PureComponent<Props> {
 							/>
 							<Text style={Styles.font}>Log Out</Text>
 						</View>
-					</TouchableOpacity>
+					</TouchableOpacity> */}
 				</ScrollView>
 			</LayoutAppbar>
 		);

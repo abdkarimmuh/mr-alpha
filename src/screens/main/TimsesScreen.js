@@ -1,105 +1,86 @@
-import { Text } from '@app/components';
 import { LayoutAppbar } from '@app/containers';
 import React, { PureComponent } from 'react';
-import { Dimensions } from 'react-native';
-import { LineChart } from 'react-native-chart-kit';
-import colors from '~/assets/colors';
+import ChartContainer from './containers/ChartContainer';
+import { View, TouchableOpacity, Image } from 'react-native';
+import Images from '@app/assets/images';
+import { Text } from '@app/components';
+import Styles from '@app/assets/styles';
+import Color from '@app/assets/colors';
 
-const data = {
-	labels: [
-		'Beji',
-		'Bojongsari',
-		'Cilodong',
-		'Cimanggis',
-		'Cinere',
-		'Cipayung',
-		'Limo',
-		'Pan. Mas',
-		'Sawangan',
-		'Sukmajaya',
-		'Tapos',
-	],
-	datasets: [
-		{
-			data: [
-				Math.random() * 100,
-				Math.random() * 100,
-				Math.random() * 100,
-				Math.random() * 100,
-				Math.random() * 100,
-				Math.random() * 100,
-				Math.random() * 100,
-				Math.random() * 100,
-				Math.random() * 100,
-				Math.random() * 100,
-				Math.random() * 100,
-			],
-			strokeWidth: 1,
-			color: () => colors.primaryColor,
-		},
-		{
-			data: [
-				Math.random() * 100,
-				Math.random() * 100,
-				Math.random() * 100,
-				Math.random() * 100,
-				Math.random() * 100,
-				Math.random() * 100,
-				Math.random() * 100,
-				Math.random() * 100,
-				Math.random() * 100,
-				Math.random() * 100,
-				Math.random() * 100,
-			],
-			strokeWidth: 1,
-			color: () => 'black',
-		},
-	],
-};
+const data = [
+	{
+		title: 'Ubah Visi Misi',
+		background: Color.primaryColor,
+		image: Images.icon.cameraWhite,
+		nav: 'ChangeVision',
+	},
+	{
+		title: 'Ubah Profil Calon Gubernur',
+		background: Color.white,
+		image: Images.icon.mainProfile,
+		nav: 'ChangeCandidate',
+	},
+	{
+		title: 'Ubah Profile Calon Wakil Gubernur',
+		background: Color.white,
+		image: Images.icon.people,
+		nav: 'ChangeViceCandidate',
+	},
+	{
+		title: 'Tulis Berita',
+		background: Color.black4A,
+		image: Images.icon.mainNews,
+		nav: 'AddNews',
+	},
+	{
+		title: 'Upload Gambar',
+		background: Color.black4A,
+		image: Images.icon.mainMedia,
+		nav: 'AddImages',
+	},
+	{
+		title: 'Upload Video',
+		background: Color.black4A,
+		image: Images.icon.cameraWhite,
+		nav: 'AddVideo',
+	},
+];
 
 class TimsesScreen extends PureComponent {
 	render() {
 		return (
 			<LayoutAppbar title="Panel Timses">
-				<LineChart
-					data={data}
-					width={Dimensions.get('window').width - 48} // from react-native
-					height={200}
-					verticalLabelRotation={90}
-					chartConfig={{
-						// withOuterLines: false,
-						backgroundColor: '#fff',
-						backgroundGradientFrom: '#fff',
-						backgroundGradientTo: '#fff',
-						decimalPlaces: 0,
-						// color: (opacity = 1) => `rgba(0, 113, 225, ${opacity})`,
-						color: (opacity = 0) => `rgba(255, 255, 225, ${opacity})`,
-						// color: () => '#fff',
-						labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-						propsForBackgroundLines: {
-							strokeDasharray: '1', // solid background lines with no dashes
-							strokeWidth: 0.25,
-							stroke: 'rgba(0, 0, 0, .50)',
-						},
-						style: {
-							backgroundColor: 'green',
-						},
-					}}
-					style={{
-						paddingBottom: 55,
-						paddingTop: 20,
-						backgroundColor: '#fff',
-						borderRadius: 4,
-						shadowColor: '#000',
-						shadowOffset: {
-							width: 0,
-							height: 2,
-						},
-						shadowOpacity: 0.23,
-						shadowRadius: 2.62,
-						elevation: 2,
-					}}
-				/>
+				<ChartContainer />
+
+				{data.map(item => (
+					<TouchableOpacity
+						key={item.title}
+						style={{
+							marginVertical: 8,
+							flexDirection: 'row',
+							alignItems: 'center',
+							flexWrap: 'wrap',
+						}}
+					>
+						<View
+							style={[
+								Styles.shadowOn,
+								{
+									backgroundColor: item.background,
+									height: 48,
+									width: 48,
+									alignItems: 'center',
+									justifyContent: 'center',
+									marginRight: 16,
+									borderRadius: 2,
+								},
+							]}
+						>
+							<Image source={item.image} style={{ width: 32, height: 32 }} />
+						</View>
+						<Text numberOfLines={1}>{item.title}</Text>
+					</TouchableOpacity>
+				))}
 			</LayoutAppbar>
 		);
 	}
