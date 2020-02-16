@@ -1,17 +1,18 @@
+import Color from '@app/assets/colors';
+import Images from '@app/assets/images';
+import Styles from '@app/assets/styles';
+import { Text } from '@app/components';
 import { LayoutAppbar } from '@app/containers';
 import React, { PureComponent } from 'react';
+import { Image, TouchableOpacity, View } from 'react-native';
 import ChartContainer from './containers/ChartContainer';
-import { View, TouchableOpacity, Image } from 'react-native';
-import Images from '@app/assets/images';
-import { Text } from '@app/components';
-import Styles from '@app/assets/styles';
-import Color from '@app/assets/colors';
+import { NavigationServices } from '@app/services';
 
 const data = [
 	{
 		title: 'Ubah Visi Misi',
 		background: Color.primaryColor,
-		image: Images.icon.cameraWhite,
+		image: Images.icon.checkmarkWhite,
 		nav: 'ChangeVision',
 	},
 	{
@@ -21,27 +22,27 @@ const data = [
 		nav: 'ChangeCandidate',
 	},
 	{
-		title: 'Ubah Profile Calon Wakil Gubernur',
+		title: 'Ubah Profil Calon Wakil Gubernur',
 		background: Color.white,
 		image: Images.icon.people,
-		nav: 'ChangeViceCandidate',
+		nav: 'ChangeVice',
 	},
 	{
 		title: 'Tulis Berita',
 		background: Color.black4A,
-		image: Images.icon.mainNews,
+		image: Images.icon.bookOpenWhite,
 		nav: 'AddNews',
 	},
 	{
 		title: 'Upload Gambar',
 		background: Color.black4A,
-		image: Images.icon.mainMedia,
+		image: Images.icon.imageWhite,
 		nav: 'AddImages',
 	},
 	{
 		title: 'Upload Video',
 		background: Color.black4A,
-		image: Images.icon.cameraWhite,
+		image: Images.icon.playCircleWhite,
 		nav: 'AddVideo',
 	},
 ];
@@ -61,6 +62,7 @@ class TimsesScreen extends PureComponent {
 							alignItems: 'center',
 							flexWrap: 'wrap',
 						}}
+						onPress={() => NavigationServices.navigate(item.nav)}
 					>
 						<View
 							style={[

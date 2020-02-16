@@ -1,13 +1,13 @@
+import { AddPendukungScreen, GuestScreen, SplashScreen } from '@app/screens';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-
-import { SplashScreen, GuestScreen, AddPendukungScreen } from '@app/screens';
 import AuthStack from './AuthStack';
+import CandidateStack from './CandidateStack';
 import MainStack from './MainStack';
-import NewsStack from './NewsStack';
 import MediaStack from './MediaStack';
 import MessageStack from './MessageStack';
-import CandidateStack from './CandidateStack';
+import NewsStack from './NewsStack';
+import TimsesStack from './TimsesStack';
 
 const InitialStack = createStackNavigator(
 	{
@@ -34,6 +34,7 @@ const InitialStack = createStackNavigator(
 		...MediaStack,
 		...MessageStack,
 		...CandidateStack,
+		...TimsesStack,
 		AddPendukung: AddPendukungScreen,
 	},
 	{

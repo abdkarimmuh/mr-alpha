@@ -44,6 +44,10 @@ export default {
 		link: require('./icon/link.png'),
 		chevronBottom: require('./icon/chevron-bottom.png'),
 		chevronRight: require('./icon/chevron-right.png'),
+		bookOpenWhite: require('./icon/book-open-white.png'),
+		checkmarkWhite: require('./icon/checkmark-circle-white.png'),
+		imageWhite: require('./icon/image-white.png'),
+		playCircleWhite: require('./icon/play-circle-white.png'),
 	},
 	dummy: {
 		oneToOne: require('./dummy/1x1.png'),

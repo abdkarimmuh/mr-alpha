@@ -12,6 +12,7 @@ type Props = {
 	white: Boolean,
 	medium: Boolean,
 	tiny: Boolean,
+	warning: Boolean,
 };
 
 const TextBold = ({
@@ -22,6 +23,7 @@ const TextBold = ({
 	caption,
 	bold,
 	style,
+	warning,
 	...others
 }: Props) => (
 	<Text
@@ -31,7 +33,13 @@ const TextBold = ({
 				fontFamily:
 					bold || title ? Strings.fontPrimaryBold : Strings.fontPrimary,
 				fontSize: title ? 18 : medium ? 16 : tiny ? 12 : 14,
-				color: caption ? Colors.grey : white ? Colors.white : Colors.black4A,
+				color: caption
+					? Colors.grey
+					: white
+					? Colors.white
+					: warning
+					? Colors.red
+					: Colors.black4A,
 			},
 		]}
 		{...others}

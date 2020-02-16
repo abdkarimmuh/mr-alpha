@@ -56,4 +56,8 @@ export default StyleSheet.create({
 		marginBottom: -40,
 		elevation: 2,
 	},
+	input: {
+		backgroundColor: Colors.transparent,
+		marginBottom: 24,
+	},
 });

@@ -9,6 +9,7 @@ import Loading from './Loading';
 import RippleEffect from './RippleEffect';
 import Text from './Text';
 import DropdownPicker from './DropdownPicker';
+import FilePicker from './FilePicker';
 
 export * from 'react-native-paper';
 export {
@@ -25,4 +26,5 @@ export {
 	BannerCarousel,
 	FloatingButton,
 	DropdownPicker,
+	FilePicker,
 };
