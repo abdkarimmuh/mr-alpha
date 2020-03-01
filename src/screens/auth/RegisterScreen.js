@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Api from '@app/api/Api';
+import Config from '@app/api/Config';
 import Colors from '@app/assets/colors';
 import Images from '@app/assets/images';
 import Strings from '@app/assets/strings';
@@ -37,9 +38,17 @@ class RegisterScreen extends PureComponent<Props> {
 			koordinator: '',
 			phone: '',
 			password: '',
+			provinsi: '',
+			kabupaten: '',
+			kecamatan: '',
+			kelurahan: '',
 			error: false,
 			checked: false,
 			visible: false,
+			itemsProvinsi: [],
+			itemsKabupaten: [],
+			itemsKecamatan: [],
+			itemsKelurahan: [],
 		};
 	}
 
@@ -47,60 +56,101 @@ class RegisterScreen extends PureComponent<Props> {
 		this.setState({ visible: !this.state.visible });
 	};
 
-	// getUser = async token => {
-	// 	Api.get()
-	// 		.user(token)
-	// 		.then(res => {
-	// 			this.props.setData(res.data.data);
-	// 			this.setState({ isFetching: false });
-	// 			NavigationServices.resetStackNavigate(['Main']);
-	// 		})
-	// 		.catch(error => {
-	// 			console.error('ERROR', error);
-	// 		});
-	// };
+	componentDidMount() {
+		this.getDaerah(1);
+	}
 
-	// onPressRegister = async () => {
-	// 	this.setState({ isFetching: true });
-	// 	const { name, phone, password, noKoordinator } = this.state;
-	// 	Api.post()
-	// 		.login(name, phone, password, noKoordinator)
-	// 		.then(res => {
-	// 			console.log('Res login : ', res);
-	// 			if (res.status === 200) {
-	// 				AsyncStorage.StoreData('access_token', res.data.access_token);
-	// 				this.getUser(res.data.access_token);
-	// 				this.props.setToken(res.data.access_token);
-	// 			} else {
-	// 				this.setState({ isFetching: false });
-	// 				this.toggleSnackbar;
-	// 			}
-	// 		})
-	// 		.catch(error => {
-	// 			console.error('ERROR', error);
-	// 			this.setState({ error: true });
-	// 		});
-	// };
-
-	termReference = () => {
-		const { checked } = this.state;
-		return (
-			<View style={InnerStyles.containerTermReference}>
-				<Checkbox
-					status={checked ? 'checked' : 'unchecked'}
-					onPress={() => {
-						this.setState({ checked: !checked });
-					}}
-				/>
-				<View style={{ marginLeft: 8 }}>
-					<Text>{Strings.REFERENCE} </Text>
-					<Text style={{ fontWeight: 'bold' }}>{Strings.TERM}</Text>
-				</View>
-			</View>
-		);
+	getDaerah = async (type, id) => {
+		let res;
+		switch (type) {
+			case 1:
+				res = await Api(Config.baseUrlDaerah)
+					.get()
+					.provinsi();
+				res.data.semuaprovinsi.map(item => {
+					item.value = item.nama;
+					delete item.nama;
+				});
+				this.setState({ itemsProvinsi: res.data.semuaprovinsi });
+				break;
+			case 2:
+				res = await Api(Config.baseUrlDaerah)
+					.get()
+					.kabupaten(id);
+				res.data.kabupatens.map(item => {
+					item.value = item.nama;
+					delete item.nama;
+				});
+				this.setState({ itemsKabupaten: res.data.kabupatens });
+				break;
+			case 3:
+				res = await Api(Config.baseUrlDaerah)
+					.get()
+					.kecamatan(id);
+				res.data.kecamatans.map(item => {
+					item.value = item.nama;
+					delete item.nama;
+				});
+				this.setState({ itemsKecamatan: res.data.kecamatans });
+				break;
+			case 4:
+				res = await Api(Config.baseUrlDaerah)
+					.get()
+					.kelurahan(id);
+				res.data.desas.map(item => {
+					item.value = item.nama;
+					delete item.nama;
+				});
+				this.setState({ itemsKelurahan: res.data.desas });
+				break;
+			default:
+				break;
+		}
 	};
 
-	//TODO: Checkbox Belum Ada, bug rn-paper
+	findDaerahId = (type, name) => {
+		let res;
+		switch (type) {
+			case 1:
+				res = this.state.itemsProvinsi.find(item => item.value === name);
+				this.getDaerah(2, res.id);
+				break;
+			case 2:
+				res = this.state.itemsKabupaten.find(item => item.value === name);
+				this.getDaerah(3, res.id);
+				break;
+			case 3:
+				res = this.state.itemsKecamatan.find(item => item.value === name);
+				this.getDaerah(4, res.id);
+				break;
+			default:
+				break;
+		}
+	};
+
+	onPressRegister = async () => {
+		NavigationServices.resetStackNavigate(['Main']);
+		// this.setState({ isFetching: true });
+		// const { name, phone, password, noKoordinator } = this.state;
+		// Api.post()
+		// 	.login(name, phone, password, noKoordinator)
+		// 	.then(res => {
+		// 		console.log('Res login : ', res);
+		// 		if (res.status === 200) {
+		// 			AsyncStorage.StoreData('access_token', res.data.access_token);
+		// 			this.getUser(res.data.access_token);
+		// 			this.props.setToken(res.data.access_token);
+		// 		} else {
+		// 			this.setState({ isFetching: false });
+		// 			this.toggleSnackbar;
+		// 		}
+		// 	})
+		// 	.catch(error => {
+		// 		console.error('ERROR', error);
+		// 		this.setState({ error: true });
+		// 	});
+	};
+
 	render() {
 		if (this.state.isFetching) {
 			return (
@@ -111,35 +161,45 @@ class RegisterScreen extends PureComponent<Props> {
 		} else {
 			return (
 				<SafeAreaView style={{ flex: 1 }}>
-					<View style={InnerStyles.container}>
-						{/* <TouchableOpacity onPress={() => NavigationServices.goBack()}> */}
-						{/* <Icon
-							name="chevron-left"
-							size={40}
-							color={Colors.black4A}
-							style={{ marginBottom: -40 }}
-							onPress={() => NavigationServices.goBack()}
-						/> */}
-						{/* </TouchableOpacity> */}
+					<ScrollView contentContainerStyle={InnerStyles.container}>
 						<Layout>
 							<Image source={Images.logo.banner} style={InnerStyles.logo} />
 							<Form
 								name={this.state.name}
-								// password={this.state.password}
 								phone={this.state.phone}
 								koordinator={this.state.koordinator}
+								provinsi={this.state.provinsi}
+								kabupaten={this.state.kabupaten}
+								kecamatan={this.state.kecamatan}
+								kelurahan={this.state.kelurahan}
 								changeName={name => {
 									this.setState({ name });
 								}}
-								// changePassword={password => {
-								// 	this.setState({ password });
-								// }}
 								changePhone={phone => {
 									this.setState({ phone });
 								}}
 								changeKoordinator={koordinator => {
 									this.setState({ koordinator });
 								}}
+								selectProvinsi={provinsi => {
+									this.setState({ provinsi });
+									this.findDaerahId(1, provinsi);
+								}}
+								selectKabupaten={kabupaten => {
+									this.setState({ kabupaten });
+									this.findDaerahId(2, kabupaten);
+								}}
+								selectKecamatan={kecamatan => {
+									this.setState({ kecamatan });
+									this.findDaerahId(3, kecamatan);
+								}}
+								selectKelurahan={kelurahan => {
+									this.setState({ kelurahan });
+								}}
+								itemsProvinsi={this.state.itemsProvinsi}
+								itemsKabupaten={this.state.itemsKabupaten}
+								itemsKecamatan={this.state.itemsKecamatan}
+								itemsKelurahan={this.state.itemsKelurahan}
 							/>
 							<ButtonForm
 								label="Upload KTP"
@@ -160,21 +220,11 @@ class RegisterScreen extends PureComponent<Props> {
 									/>
 								)}
 							/>
-							{/* {this.termReference()} */}
 						</Layout>
 						<Layout>
-							<ButtonForm
-								label="Register"
-								onPress={() => NavigationServices.resetStackNavigate(['Main'])}
-							/>
-							{/* <View style={InnerStyles.captionContainer}>
-								<Text style={Styles.font}>Sudah punya akun?</Text>
-								<TouchableOpacity onPress={() => NavigationServices.goBack()}>
-									<Text style={[Styles.font, InnerStyles.boldText]}>Login</Text>
-								</TouchableOpacity>
-							</View> */}
+							<ButtonForm label="Register" onPress={this.onPressRegister} />
 						</Layout>
-					</View>
+					</ScrollView>
 					<Snackbar
 						visible={this.state.visible}
 						onDismiss={this.toggleSnackbar}

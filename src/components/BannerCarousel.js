@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
 	image: {
 		height: Metrics.HeightCarousel,
 		width: Metrics.DEVICE_WIDTH,
-		resizeMode: 'cover'
+		resizeMode: 'cover',
 	},
 	text: {
 		color: '#fff',

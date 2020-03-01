@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputForm } from '@app/components';
+import { InputForm, Dropdown } from '@app/components';
 
 const FormRegisterContainer = ({
 	name,
@@ -10,6 +10,18 @@ const FormRegisterContainer = ({
 	// changePassword,
 	koordinator,
 	changeKoordinator,
+	provinsi,
+	selectProvinsi,
+	kabupaten,
+	selectKabupaten,
+	kecamatan,
+	selectKecamatan,
+	kelurahan,
+	selectKelurahan,
+	itemsProvinsi,
+	itemsKabupaten,
+	itemsKecamatan,
+	itemsKelurahan,
 }) => (
 	<>
 		<InputForm label="Nama Lengkap" value={name} onChangeText={changeName} />
@@ -30,6 +42,34 @@ const FormRegisterContainer = ({
 			value={koordinator}
 			onChangeText={changeKoordinator}
 			keyboardType="numeric"
+		/>
+		<Dropdown
+			data={itemsProvinsi}
+			label="Provinsi"
+			value={provinsi}
+			onChangeText={selectProvinsi}
+			disabled={itemsProvinsi.length !== 0 ? false : true}
+		/>
+		<Dropdown
+			data={itemsKabupaten}
+			label="Kabupaten"
+			value={kabupaten}
+			onChangeText={selectKabupaten}
+			disabled={itemsKabupaten.length !== 0 ? false : true}
+		/>
+		<Dropdown
+			data={itemsKecamatan}
+			label="Kecamatan"
+			value={kecamatan}
+			onChangeText={selectKecamatan}
+			disabled={itemsKecamatan.length !== 0 ? false : true}
+		/>
+		<Dropdown
+			data={itemsKelurahan}
+			label="Kelurahan"
+			value={kelurahan}
+			onChangeText={selectKelurahan}
+			disabled={itemsKelurahan.length !== 0 ? false : true}
 		/>
 	</>
 );

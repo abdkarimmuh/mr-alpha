@@ -2,7 +2,7 @@ import BannerCarousel from './BannerCarousel';
 import BarStatus from './BarStatus';
 import CardNews from './CardNews';
 import FloatingButton from './FloatingButton';
-import { Button as ButtonForm, Input as InputForm } from './Form';
+import { Button as ButtonForm, Input as InputForm, Dropdown } from './Form';
 import { Default as HeaderDefault, Detail as HeaderDetail } from './Header';
 import ImagePicker from './ImagePicker';
 import Loading from './Loading';
@@ -27,4 +27,5 @@ export {
 	FloatingButton,
 	DropdownPicker,
 	FilePicker,
+	Dropdown,
 };

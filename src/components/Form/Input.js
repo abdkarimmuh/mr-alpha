@@ -22,16 +22,21 @@ const InputForm = ({
 	keyboardType,
 	secureTextEntry = false,
 }) => (
-		<TextInput
-			mode="outlined"
-			theme={theme}
-			style={{ marginBottom: 16, height: 48, backgroundColor: Colors.white }}
-			label={label}
-			value={value}
-			onChangeText={onChangeText}
-			keyboardType={keyboardType}
-			secureTextEntry={secureTextEntry}
-		/>
-	);
+	<TextInput
+		// mode="outlined"
+		theme={theme}
+		style={{
+			marginBottom: 16,
+			height: 56,
+			backgroundColor: Colors.white,
+			paddingHorizontal: 0,
+		}}
+		label={label}
+		value={value}
+		onChangeText={onChangeText}
+		keyboardType={keyboardType}
+		secureTextEntry={secureTextEntry}
+	/>
+);
 
 export default InputForm;
