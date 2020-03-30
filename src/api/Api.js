@@ -9,7 +9,8 @@ const API = (baseURL = Config.baseUrl) => {
 		const kabupaten = id => api.get(`/provinsi/${id}/kabupaten`);
 		const kecamatan = id => api.get(`/provinsi/kabupaten/${id}/kecamatan`);
 		const kelurahan = id => api.get(`/provinsi/kabupaten/kecamatan/${id}/desa`);
-		return { provinsi, kabupaten, kecamatan, kelurahan };
+		const treeRelawan = () => api.get('/getUsers');
+		return { provinsi, kabupaten, kecamatan, kelurahan, treeRelawan };
 	};
 	const post = () => {
 		return {};

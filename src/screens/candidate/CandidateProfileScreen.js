@@ -9,7 +9,7 @@ import {
 	StyleSheet,
 	TouchableWithoutFeedback,
 	View,
-	Image
+	Image,
 } from 'react-native';
 import Swiper from 'react-native-swiper';
 import { LayoutAppbar } from '@app/containers';
@@ -24,12 +24,12 @@ const profileData = {
 		{
 			name: 'Chairil Hilman Syah',
 			cadidate: 'Calon Gubernur DKI Jakarta',
-			image: Images.dummy_anis_sandi.profile1
+			image: Images.dummy_anis_sandi.profile1,
 		},
 		{
 			name: 'Aditya Fitriadi',
 			cadidate: 'Calon Wakil Gubernur DKI Jakarta',
-			image: Images.dummy_anis_sandi.profile2
+			image: Images.dummy_anis_sandi.profile2,
 		},
 	],
 };
@@ -46,7 +46,7 @@ class CandidateProfileScreen extends PureComponent<Props> {
 		};
 	}
 
-	componentDidMount() { }
+	componentDidMount() {}
 
 	render() {
 		// const { banner } = this.state;
@@ -65,9 +65,20 @@ class CandidateProfileScreen extends PureComponent<Props> {
 								</View>
 							))}
 						</Swiper> */}
-						<Image source={Images.dummy_anis_sandi.header} style={{ width: '100%', height: 200, resizeMode: 'cover' }} />
-						<Surface style={[Styles.containerProfileCandidate, { alignSelf: 'center' }]}>
-							<Image source={Images.dummy_anis_sandi.profile} style={Styles.profileCandidate} />
+						<Image
+							source={Images.dummy_anis_sandi.header}
+							style={{ width: '100%', height: 200, resizeMode: 'cover' }}
+						/>
+						<Surface
+							style={[
+								Styles.containerProfileCandidate,
+								{ alignSelf: 'center' },
+							]}
+						>
+							<Image
+								source={Images.dummy_anis_sandi.profile}
+								style={Styles.profileCandidate}
+							/>
 						</Surface>
 						<View style={Styles.backgroundDefault}>
 							<Text caption>Lihat Visi Misi</Text>
@@ -90,7 +101,9 @@ class CandidateProfileScreen extends PureComponent<Props> {
 								</View>
 							</TouchableWithoutFeedback>
 
-							<Text caption style={{ marginTop: 12 }}>Lihat Profil</Text>
+							<Text caption style={{ marginTop: 12 }}>
+								Lihat Profil
+							</Text>
 							<Text title bold>
 								{profileData.name}
 							</Text>
@@ -100,7 +113,18 @@ class CandidateProfileScreen extends PureComponent<Props> {
 									key={item.name}
 									title={`Profil ${item.name}`}
 									description={item.cadidate}
-									left={() => <Image source={item.image} style={{ width: 64, height: 64, resizeMode: 'cover', borderRadius: 32, marginRight: 8 }} />}
+									left={() => (
+										<Image
+											source={item.image}
+											style={{
+												width: 64,
+												height: 64,
+												resizeMode: 'cover',
+												borderRadius: 32,
+												marginRight: 8,
+											}}
+										/>
+									)}
 									style={[
 										Styles.shadowOn,
 										{ backgroundColor: 'white', marginTop: 24, padding: 16 },
